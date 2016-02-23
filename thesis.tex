@@ -1,0 +1,132 @@
+\documentclass[edeposit,fullpage]{uiucthesis07} 
+
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions} % library to create annotations 
+\usetikzlibrary{shapes.geometric}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\Hhybtwid}{\tilde{H}_\text{hyb}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\mr}[1]{\mathrm{#1}}
+
+\bibliographystyle{apsrev}
+
+\begin{document}
+
+\pagenumbering{roman} \thispagestyle{empty} \begin{singlespace}
+
+\begin{center}
+\begin{Large}
+%YOUR TITLE
+STUDY OF CONDENSED MATTER SYSTEMS 
+WITH MONTE CARLO SIMULATION
+ON HETEROGENEOUS COMPUTING SYSTEMS
+\end{Large}
+
+\vspace{2.65in}
+
+A Dissertation\\
+\vspace{1.5ex}
+Submitted to the Graduate Faculty of the\\
+Louisiana State University and\\
+Agricultural and Mechanical College\\
+in partial fulfillment of the\\
+requirements for the degree of\\
+Doctor of Philosophy\\
+\vspace{1ex}
+in\\
+\vspace{1ex}
+The Department of Physics and Astronomy\\
+\vspace{2.65in}
+by\\
+%Your Name\\
+Sheng Feng\\
+%B.S.,Institusion?, 200?\\
+B.Sc., University of Science and Technology of China, 2006\\
+
+\end{center}
+\end{singlespace}
+\frontmatter
+
+
+\begin{dedication}
+  ...
+\end{dedication}
+
+\chapter*{Acknowledgements}
+\markboth{Acknowledgments}{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+
+\tableofcontents 
+
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+We study the Edwards-Anderson model on a simple cubic lattice with a finite 
+constant external field. We implement and optimize a code with CUDA 
+architecture for efficient Monte Carlo simulation of spin glass systems on 
+Graphic Processing Units. 
+We study several traditional indicators, including the Binder ratio and the 
+correlation length, as well as a new quantity composed of 
+a ratio of susceptibilities at finite momenta.% which was recently proposed to 
+%avoid the difficulties of a zero momentum quantity, for capturing the spin glass
+% phase transition. 
+%Unfortunately, this new indicator is fairly noisy, so 
+%a large pool of samples at low temperature and small external field are 
+%needed to generate results with sufficiently small statistical error for 
+%analysis.  
+We confirm previous findings that conventional indicators for the 
+spin glass transition do not show any indication of a transition for rather 
+low temperatures. 
+However, the ratio of spin glass susceptibilities do show crossing behavior, 
+albeit a systematic analysis is beyond the reach of the present data. 
+%This calls for a more thorough study of the three dimensional Edwards-Anderson 
+%model in an external field. 
+
+
+One of the fundamental challenges of theoretical condensed matter physics is 
+the accurate solution of quantum impurity models. By taking expansion in the 
+hybridization about an exactly solved local limit, one can formulate an quantum
+impurity solver. We implement the hybridization expansion quantum impurity
+solver on Intel Xeon Phi accelerators, and aim to apply this approach on the
+dynamic Hubbard Models.
+%Dynamic Hubbard Models are proposed to reflect the fact that the wavefunction 
+%of an electron in an atomic orbital expands when a second electron occupies 
+%the orbital. 
+
+
+
+
+
+\mainmatter
+\include{chapters/intro}
+\include{chapters/chap1}
+\include{chapters/chap2}
+\include{chapters/chap3}
+\include{chapters/chap4}
+\include{chapters/chap5}
+%\include{chapters/cthyb}
+
+\backmatter
+\bibliography{general}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

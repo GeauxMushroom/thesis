@@ -1,0 +1,91 @@
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End:
+
+
+
+\chapter{Strongly correlated materials}
+\section{Introduction}
+The term strong correlation refers to the behavior of electrons in solids that 
+is not well-described by simple one-electron theories.
+
+\section{Numerical approaches in strongly correlated materials}
+Numerical calculation in strongly correlated fermion systems is a major 
+challenge in condensed matter physics. In real world, materials consists of 
+$10^{23}$ interacting particles, which is impossible to solve at first glance. 
+Fortunately, not all the particles contribute to the property of materials. For 
+example, In a metal only the electrons close to the Fermi level can be excited 
+and contribute ,e.g., to the transport and magnetic properties. In a lattice, 
+lattice excitations are few at low T, but they are responsible for inelastic 
+neutron scattering. Even though, the remaining problem is still hard. 
+
+Density functional theory (DFT)\cite{PhysRev.136.B864,PhysRev.140.A1133} 
+provides a framework to solve the 
+electron structure problem. Using this theory, the properties of a many-electron
+system can be described by a functional of election density. Combined with 
+approximations that address the exchange-correlations such as the local density 
+approximation (LDA) \cite{lundqvist1983}, DFT produces satisfactory data that agrees well the 
+experiments for many cases. However, despite the success in weakly correlated 
+materials, there are still difficulties in applying this method to other 
+cases, such as systems with strongly correlation \cite{0953-8984-9-35-010}. 
+It seems to be quite
+difficult to handle such strong correlation by simple improvements of the 
+DFT. A promising direction is to combine other methods which can treat
+strong correlation with the DFT method. A popular choice is to employ 
+the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} 
+to include the effect from the electron-electron
+correlation on top of the single particle dispersion obtained from the DFT. 
+
+%DFT, ab inito
+
+%maybe mention other numerical methods here?
+
+DMFT has been widely studied on a range of strongly correlated systems. 
+It is a method well suited for strongly correlated systems, in particular it 
+captures the Mott transition, a hallmark of strong correlation, of the Hubbard 
+model. In this approach, the solution of the lattice model is mapped to a 
+quantum impurity model with self-consistency conditions. 
+%intro to impurity
+%mention other impurity solvers
+A quantum impurity problem describes an atom embedded in a host medium. 
+The impurity consists of a set of orbitals with different parameters, populated
+with electrons that interacts with each other. The orbitals are hybridized to 
+bath orbitals representing the degrees of freedom of the host materials. 
+The solution of impurity problem can be obtained in a few different ways. 
+We will focus on the different variants of Monte Carlo methods.
+
+A commonly used technique is the Hirsch-Fye method \cite{1986PhRvL..56.2521H}, in which a 
+Hubbard-Stratonovich transformation is used to decouple the interaction part,
+leading to determinants which give the weights associated with the 
+configurations of the auxiliary fields, which are then sampled by a Monte Carlo 
+procedure. One issue is that Hirsch-Fye cannot be easily applied to complicated
+interaction that include more than just density-density interaction, due to the
+lack of simple ansatz to decouple the interacting terms. 
+The matrix size scales to the interaction as well as the inverse of 
+temperature, which makes the calculation inefficient at low temperatures.
+This methods also requires discretization of the imaginary time interval,
+which introduce systematic errors, and may not be optimal for multi-orbital case 
+with complicated off-diagonal couplings.
+
+The Trotter error in Hirsch-Fye algorithm can be eliminated by using the 
+Continuous Time Monte Carlo algorithms. For example, one can solve the problem 
+exactly in non-interacting limit, and treat the interaction with a Taylor-series
+ expansion. By doing stochastic sampling of diagrams in the weak-coupling 
+expansion of partition function, the interaction expansion (CT-INT) algorithm
+\cite{2005PhRvB..72c5122R}
+provides a discretization error free alternative Hirsch-Fye algorithm.
+Still, in the CT-INT algorithm, it is difficult to treat non-Hubbard-type 
+interactions. Also the size of the matrix used in the CT-INT method grows
+quickly with the interaction, making the calculation very time-consuming at 
+very strong interactions.
+
+Another way to treat the impurity problem is the hybridization expansion (CT-HYB)
+approach \cite{RevModPhys.83.349, PhysRevB.75.155113, PhysRevB.80.235117,
+PhysRevB.74.155107}. 
+The fact that the order of expansion decreases with increasing 
+interaction makes this method favorable for strong interaction systems. 
+The algorithm is also found to work at very low temperatures, and is applicable
+to a wider class of impurity models including those with complicated 
+off-diagonal couplings, since the local problem is treated exactly. 

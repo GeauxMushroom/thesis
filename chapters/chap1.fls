@@ -1,0 +1,7 @@
+PWD /Users/Heaven7/Google Drive/Thesis/chapters
+INPUT /usr/local/texlive/2015basic/texmf.cnf
+INPUT /usr/local/texlive/2015basic/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2015basic/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT chap1.tex
+OUTPUT chap1.log
+INPUT /usr/local/texlive/2015basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
