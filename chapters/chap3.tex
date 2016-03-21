@@ -7,8 +7,6 @@ Simulation of 3D Edwards-Anderson model.
 This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun,
 Juana Moreno, J. Ramanujam and Mark Jarrell. %This work will also appear in 
 %Ye Fang's doctoral dissertation. 
-
-
 \section{Introduction} 
 Most spin systems order when the temperature is sufficiently low. 
 Conventional magnetic orderings break the spin symmetry, and the moments align 
@@ -168,8 +166,9 @@ memory. We achieve a performance of 33ps per spin flip attempt on a GTX 580 card
 We use the CURAND implemented XORWOW generator to generate random numbers \cite{curand}.
 Since the GPU is a commodity hardware and widely available in large
 computer clusters, it is now easy to greatly accelerate these 
-simulations. The details of the implementation can be found in Ref 
-\cite{Fang-Feng-Tam-etal-2013}. 
+simulations. 
+The details of the implementation can be found in 
+Ref \cite{Fang-Feng-Tam-etal-2013}. 
 %\cite{Zhang:2012:AAS:2259016.2259037,Weigel:2012:PPS:2151219.2151631,preis2011gpu,Preis:2009:GAM:1537305.1537344,Nguyen:2010:BOS:1884643.1884658,Micikevicius:2009:FDC:1513895.1513905,Maruyama:2011:PIP:2063384.2063398,doi:10.1142/S0129183112400025,DBLP:journals/ijpp/HawickLP11,CSTN-093,2012JCoPh.231.1209K,2012arXiv1204.6193M,2012arXiv1204.6192Y,2011CoPhC.182.1833W,2011arXiv1107.5463W,2010CoPhC.181.1549B,2010arXiv1006.2566B}
 
 
@@ -220,8 +219,8 @@ the one dimensional model\cite{Larson-etal-2013}, but in contrast with the resul
 which displays asymptotic divergent susceptibilities \cite{Marinari-etal-1998}.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/chi.pdf}% 
+\centering
+  \includegraphics[width=0.6\textwidth]{img/chi.pdf}% 
   \caption{\label{fig:Chi} Spin glass susceptibility at zero momentum, $\chi(0)$, as a function of inverse temperature 
 for system sizes $L=6,8,10$.}
 \end{figure}
@@ -238,8 +237,10 @@ the possible issues related with the soft mode
 contributing to the zero momentum susceptibility should likely be canceled in the Binder ratio.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/binder.pdf}% Here is how to import EPS art
+\centering
+
+\centering
+  \includegraphics[width=0.6\textwidth]{img/binder.pdf}% Here is how to import EPS art
   \caption{\label{fig:b-h0} Binder ratio as a function of inverse temperature in the
 range  $\beta=0.1\sim1.8$ for system sizes $L=6,8,10$.}
 \label{fig:Binder}
@@ -253,8 +254,9 @@ Similar to the Binder ratio, and consistent with other results in the literature
 there is no crossing or even merging down to a rather low temperature~\cite{Young-Katzgraber2004}.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/corr.pdf}% Here is how to import EPS art
+\centering
+
+  \includegraphics[width=0.6\textwidth]{img/corr.pdf}% Here is how to import EPS art
   \caption{\label{fig:c-h0} Scaled correlation length $\xi/L$ as a function of inverse temperature for system sizes $L=6,8,10$.  }
 \end{figure}
 
@@ -275,8 +277,9 @@ that the point group symmetry is restored which is justified only when the numbe
 is rather large. 
  
 \begin{figure}[ht]
-  \centering
-\includegraphics[width=0.8\textwidth]{img/r12.pdf}% Here is how to import EPS art
+\centering
+
+\includegraphics[width=0.6\textwidth]{img/r12.pdf}% Here is how to import EPS art
 \caption{\label{fig:r12} $R_{12}$ as a function of inverse temperature for different system sizes. 
 An intersection can be seen at around $T \approx 0.6$. We use the jackknife method to estimate 
 the error bar from sample-to-sample variation.  
@@ -298,9 +301,11 @@ This is one of the prominent hurdles of using higher momentum susceptibility as 
 We note that the effective one dimensional model also shows crossing behavior,
 albeit the crossing points do not show a systematic trend\cite{Larson-etal-2013}.
 
+
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/eq_l10.pdf}
+\centering
+
+  \includegraphics[width=0.6\textwidth]{img/eq_l10.pdf}
   \caption{\label{fig:MCsteps} $R_{12}$ for $L=10$ at $\beta=1.8$, as a function of the 
 number of Monte Carlo sweeps.  We believe the averaged data is equilibrated 
 for $10^6$  sweeps, and it passes the logarithm binning 
@@ -310,42 +315,19 @@ averaging.}
 
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/R12_l10_samples.pdf}
+\centering
+  \includegraphics[width=0.6\textwidth]{img/R12_l10_samples.pdf}
   \caption{$R_{12}$ for $L=10$ and low temperatures ($\beta \geq 1.0$). We show five different numbers of 
 realizations from fifteen thousand to two hundred forty thousand.}
 \label{fig:R12_l10_samples}
 \end{figure}
 
 
-\section{Discussions and Conclusions}
-In summary, we perform Monte Carlo simulations of the three dimensional
-Edwards-Anderson model in a finite external field. The goal is to reexamine the long 
-standing problem of whether mean field behavior, specifically a spin glass phase, can
-exist in such a model without time-reversal symmetry. We focus on the equilibrium quantities
-of this notoriously difficult system. By taking advantage of the new commodity multi-threaded 
-graphic computing units architecture we drastically reduce the computation time. 
-The results for the Binder ratio and correlation length show no signal of intersection, thus they point to the absence of spin glass transition
-according to conventional wisdom. On the other hand, the ratio of susceptibilities 
-$R_{12}$ does show crossing behavior for relatively small system sizes ($L=6,8,10$). We did perform simulations for larger system sizes, 
-but we are not confident that those simulations reach equilibrium since the data is too noisy in particular for $R_{12}$.
-With the present system sizes and the statistical error bar, a rigorous data analysis does not seem to deliver unbiased information. 
-This situation is rather discouraging, as simulations at this low temperature for much larger system sizes 
-using the present method are daunting.  
-
-This calls for a more thorough study on the model with different approaches.
-Possible directions include: 1) using models with continuous random distribution which are 
-easier to thermalize than that with bimodal distribution; 2) analyzing the
-data for the distribution of the overlap parameter, instead of average quantities. We notice a preprint before
-we finished the present paper where the conditioning variate method
-is used to expose the silent features from the data \cite{Baity-Jesi-etal-2014}. 
-
-\section{Additional discussion}
-
-We also study the distribution of the susceptibilities. We calculated the susceptibility
+We studied the distribution of the susceptibilities. We calculated the susceptibility
 for each disorder realization, and plotted the histogram at the lowest temperature,
 $\beta=1.8$.
-The distribution of susceptibilities are highly skewed, and dominated by rare
+The distribution of susceptibilities are highly skewed. 
+The mean of the distribution is dominated by rare
 events, as suggested in Fig \ref{fig:hist_chi}. 
 The non-Gaussian nature of the distribution suggests that the mean value might 
 not be a good indicator. 
@@ -353,43 +335,110 @@ not be a good indicator.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{img/chi_1_dist.pdf}
+  \includegraphics[width=0.7\textwidth]{img/chi_1_dist.pdf}
   \caption{Histogram for $\chi_1$ at low temperature.}
 \label{fig:hist_chi}
 \end{figure}
 
-Here, we used the geometrical average over the susceptibilities to find $R_{12}$,
+Here, we used the geometrical average \cite{PhysRevB.88.134204} over the susceptibilities to find $R_{12}$,
 as shown in Fig \ref{fig:r12_gmean}.
 We see that the lines are quite different from those obtained with arithmetic 
-mean, but we cannot reach a definitive conclusion with this method either.
+mean, and the crossings appear at different temperatures. 
+
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{img/r12_gmean_h01.pdf}
+  \includegraphics[width=0.7\textwidth]{img/r12_gmean_h01.pdf}
 \caption{\label{fig:r12_gmean} $R_{12}$ calculated from the geometrical average
 of susceptibilities, 
 as a function of inverse temperature, for different system sizes. 
 }
 \end{figure}
 
+
+\section{Discussions and Conclusions}
+In summary, we perform Monte Carlo simulations of the three-dimensional
+Edwards-Anderson model in a finite external field. The goal is to reexamine the 
+long-standing problem of whether mean field behavior, specifically a spin glass phase, can
+exist in such a model without time-reversal symmetry. We focus on the equilibrium quantities
+of this notoriously difficult system. By taking advantage of the new commodity multi-threaded 
+graphic computing units architecture we drastically reduce the computation time. The results 
+for the Binder ratio and correlation length for different cluster sizes show no signal of an 
+intersection, thus they point to the absence of a spin glass transition
+as found in  previous studies. On the other hand, the ratio of susceptibilities 
+$R_{12}$ does show an intersection for relatively small system sizes ($L=6,8,10$). 
+We did perform simulations for larger system sizes, but this data 
+is too noisy in particular for $R_{12}$ to draw a conclusion.
+With the present system sizes and the statistical error bar, a rigorous data 
+analysis does not seem to deliver unbiased information. 
+This situation is rather discouraging, as simulations at this low temperature 
+for much larger system sizes using the present method are daunting. 
+Although we can not reach a definitive conclusion on whether a spin glass phase 
+transition exists under a finite magnetic field,
+we showed that the susceptibilities are not normally distributed and mean is 
+dominated by rare events.
+This motivated us to study the geometric average of the distribution. 
+We showed that for different system sizes, there is similar crossing behavior 
+in the $R_{12}$ calculated from the geometric average. 
+
+
+The results are obtained with a very small external field, $h=0.1$. It is possible
+that a larger field, such as $h=0.25$, would give us a stronger signal of crossing.
+While this may give us a slightly clearer signal on the phase transition, should 
+the transition exist at h=0.25, it would likely occur at a significantly lower temperature
+which further jeopardizes the quality of the simulation data. As the result stands now, 
+we cannot find a clear phase transition in h=0.1, and if there were no phase transition, 
+it would also rule out the possibility of the transition occurring in a larger field. 
+On the other hand, if we found evidence for the absence of a transition at h=0.25, we 
+cannot determine if the spin glass phase would survive a smaller field like h=0.1. 
+There is no simple rule of thumb which can be used to determine what value of h is 
+the best for the purpose of answering the question on the existence of the transition 
+under an external magnetic field. But we believe that the possible advantage of using  
+a larger field does not outweigh the disadvantages, both in term of the difficultly
+of the simulation, and its predictive power. 
+
+ 
+Due to our efficient GPU implementation, we were able to leverage the computing
+power of supercomputing clusters with GPU accelerators, and study a large number of disorder
+realizations.
+Our results show that with current numerical methods and computing capability obtainable 
+results are still not robust enough to provide dispositive insight into the nature 
+of a spin glass in 3D, and that we need either a different method to study the 
+distribution of the data, or an exponential increase in computing power to gain 
+more knowledge for this problem. 
+We also think that any previous research based on the susceptibilities may 
+suffer from the same problem, and the results from these work may be improved
+by including a much larger of samples.
+
+%This calls for a more thorough study on the model with different approaches.
+%Possible directions include: 1) using models with continuous random distribution which are 
+%easier to thermalize than that with bimodal distribution; 2) analyzing the
+%data for the distribution of the overlap parameter, instead of average quantities. 
+
+We notice a preprint before
+we finished the present paper where the conditioning variate method
+is used to expose the silent features from the data \cite{Baity-Jesi-etal-2014}. 
+
+
+%\appendix
+\section{System with L=16}
+
 We further tested with a bigger system size, $L=16$. We used 11,200 realizations,
 and divide them into four batches, each containing 2800 samples. We then calculated
 the $R_{12}$ for the four batches, and compared them, as shown in Fig \ref{fig:l16_r12}. 
 The results shows that a few thousand realizations is not enough, even for a 
-bigger system size.
+system size of L=16. 
 
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{img/l16_r12.pdf}
+  \includegraphics[width=0.7\textwidth]{img/l16_r12.pdf}
   \caption{$R_{12}$ for a larger system with $L=16$. We used four batches of samples,
 each batch contains 2800 disorder realizations. The results shows that for
 different batches $R_{12}$ is quite different, especially at low temperatures.
 }
 \label{fig:l16_r12}
 \end{figure}
-
-
 
 
 This work is sponsored by the NSF EPSCoR Cooperative Agreement No. EPS-1003897 with additional support 
