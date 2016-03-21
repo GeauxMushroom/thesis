@@ -8,7 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
-
+\usepackage[toc,page]{appendix}
 \usepackage{smartdiagram}
 \usesmartdiagramlibrary{additions} % library to create annotations 
 \usetikzlibrary{shapes.geometric}
@@ -116,11 +116,15 @@ dynamic Hubbard Models.
 \include{chapters/chap2}
 \include{chapters/chap3}
 \include{chapters/chap4}
-\include{chapters/chap5}
+%\include{chapters/chap5}
 %\include{chapters/cthyb}
-
+\include{chapters/conclusion}
 \backmatter
 \bibliography{general}
+
+\appendix
+\chapter{Appendix: Notes on covariance matrix spectrum}
+\include{chapters/appendix_matrix}
 
 
 

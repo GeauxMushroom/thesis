@@ -1,27 +1,35 @@
 \chapter{GPU Implementation}
-
-
-This following chapter is a published work titled {\bf Parallel Tempering Simulation of the three-dimensional Edwards-Anderson Model  with  Compact Asynchronous Multispin Coding on GPU}.
-In this paper, we discussed an efficient GPU implementation of Monte Carlo
+\label{chap:SG_imp}
+This following chapter is a published work titled {\bf Parallel Tempering 
+Simulation of the three-dimensional Edwards-Anderson Model  with  Compact 
+Asynchronous Multispin Coding on GPU}.
+In this paper, we discussed an efficient GPU implementation of Monte Carlo 
 Simulation of 3D Edwards-Anderson model, with parallel tempering and multispin 
 coding technique. 
 
-This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun,
-Juana Moreno, J. Ramanujam and Mark Jarrell. This work will also appear in 
-Ye Fang's doctoral dissertation. 
+This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun, 
+Juana Moreno, J. Ramanujam and Mark Jarrell. I am the second author of this 
+paper.  This work may also appear in Ye Fang's doctoral dissertation. 
 
-Ka-Ming proposed this project in the first place. 
+The idea of the project was first proposed by Ka-Ming. 
 Ye Fang and I developed the implementation together. 
-During the collaboration, I focused on the validity of the code, including the Monte Carlo
-sampling procedures, the parallel tempering movements and the measurements,
-and benchmarked the code against published results. Ye Fang dedicates his efforts
- on the efficiency of the code, including introducing and testing various 
-multispin coding paradigms, optimizing the kernel organization, the memory access,
-and core computation, and profiling the code to evaluate the performance. Ka-Ming
-gave us a lot of advices through out the whole process. 
+During the collaboration, I focused on the validity of the code, including the 
+Monte Carlo sampling procedures, the parallel tempering movements, and the 
+measurements, and benchmarked the code against published results. 
+Ye Fang dedicates his efforts on the efficiency of the code, including 
+introducing and testing various multispin coding paradigms, optimizing the 
+procedure calls, the memory accesses, and core computations, and profiling the 
+code to evaluate the performance. 
 
-In the writing of this paper, Ye started the first draft. Ka-Ming contributed to
-the physics 
+When writing this paper, Ye started the first draft and wrote the majority part 
+of implementation, optimization and benchmark. 
+Ka-Ming and I contributed to the physics part of this paper, including the 
+introduction, the background, and the algorithm, and improved the overall writing. 
+I also plotted many of the diagrams and figures.
+During the writing of this paper, Zhifeng Yun, Juana Moreno, J. Ramanujam and 
+Mark Jarrell  review the paper draft in several round and give valuable 
+feedbacks.
+
 
 \section{Introduction}
 
@@ -181,7 +189,7 @@ at the current step, and not on its history.
 % Another popular Monte Carlo algorithm for the Ising spin system is the heat bath algorithm
 
 \subsection{Parallel Tempering}
-
+\label{sec:PT}
 For the simulation of glasses, the local single spin 
 update algorithm is very slow in thermalizing the system. This problem is particularly 
 severe when the temperature is close to the critical temperature for the second order 

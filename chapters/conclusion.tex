@@ -1,0 +1,27 @@
+\chapter{Conclusion}
+In this dissertation, the work on two projects are covered.
+
+In the Three Dimensional Edwards-Anderson Model project, we developed an efficient
+GPU implementation of Monte Carlo simulation with parallel tempering and
+multispin coding technique. We achieved world-leading performance in GPU 
+implementation on this model. We then used the code to study the model in an 
+external field. Our results show that susceptibilities are not normally distributed and mean is 
+dominated by rare events. As a result, a huge number of disordered samples must 
+be included in the average. With the current method and computing power, we
+cannot gain a definitive answer on the nature of the spin glass phase. 
+
+In the Hybridization Expansion Continuous Time Monte Carlo Solver, we delivered
+an impurity solver on the Intel Xeon Phi platform, using the fast update procedures.
+We showed that this code is twice as fast than our original CPU implementation, 
+and can be easily extend to include more orbitals and complicated interactions.
+In collaboration with Roozbeh Karimi and Prof Koppelman, we developed a Krylov 
+solver for systems with more orbitals. This impurity can be used for 
+calculations on systems with strong interactions, and may be applied in physics 
+problems such as high Tc superconductivity.
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End:

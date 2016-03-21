@@ -80,8 +80,14 @@ Two main paradigmatic cases for the $J_{ij}$ in EA model are:
 
 \subsection{Frustration}
 \label{sec:frustration}
-Frustration may be present the Hamiltonian \ref{eq:EA} when no spin 
+Frustration may be present in the Hamiltonian in Eq \ref{eq:EA}, when no spin 
 configurations can satisfy all couplings at the same time. 
+Figure \ref{fig:frustration} demonstrate two situations where frustrations 
+happens. In Fig \ref{fig:frustration_geo}, the two spin on the top and the left
+are anti-parallelly aligned due to the anti-ferromagnetic coupling between them,
+but there is not an preferred spin direction for the third spin that can satisfy
+both the anti-ferromagnetic bonds. In Fig \ref{fig:frustration_quench}, the 
+frustration comes from the random distribution of $J_{ij}$. 
 
 \begin{figure}
   \centering
@@ -98,24 +104,24 @@ anti-ferromagnetic coupling, while $J=+1$ means ferromagnetic coupling.]{
   \label{fig:frustration}
 \end{figure}
 
-Figure \ref{fig:frustration} demonstrate two situations where frustrations 
-happens. In Fig \ref{fig:frustration_geo}, the two spin on the top and the left
-are anti-parallelly aligned due to the anti-ferromagnetic coupling between them,
-but there is not an preferred spin direction for the third spin that can satisfy
-both the anti-ferromagnetic bonds. In Fig \ref{fig:frustration_quench}, the 
-frustration comes from the random distribution of $J_{ij}$. 
+The frustration is one of the factors that leads to many features that make 
+spin glass a complex system.
+These features include: the existence of many metastable states; the rugged energy 
+landscape; and dynamical behaviors such as slow relaxation, irreversibility, 
+memory effects, hysteresis, etc. 
 
-\subsection{Mean Field Model}
+
+\subsection{Pictures on the nature of the spin galss phase}
 \label{sec:meanfield-model}
 
-An infinite-ranged version was proposed by Sherrington and Kirkpatrick (SK).
+An infinite-ranged version of spin glass models 
+was proposed by Sherrington and Kirkpatrick (SK).
 \begin{equation}
   \label{eq:SK}
   H=-\frac{1}{\sqrt{N}}\sum_{1\le i\le j\le N}J_{ij}S_iS_j
 \end{equation}
 Here $J_{ij}$ is chosen from a Gaussian distribution in equation 
 \ref{eq:Jij_Gaussian}.
-
 This model has an equilibrium phase transition at $T_c = 1$.
 For the spin glass phase below $T_c$, Parisi employed a novel ansatz and 
 developed a  possible physical interpretation of the nature of spin glass, 
@@ -123,45 +129,65 @@ which is now known as the ``Replica Symmetry Breaking'' (RSB) picture. The main
 idea behind the picture is that the spin glass phase consists of an infinite 
 number of ``pure states'' that form a hierarchy rather than follow simple symmetry
 transformation. 
+The ultrametric topology of spin glass states can be represented with a 
+genealogical tree. Each end point corresponds to a pure state, and branches 
+represent clusters, as sketched in Fig. \ref{fig:TreeRSB}. 
 
+%http://lptms.u-psud.fr/membres/Mezard/Pdf/84_MGSTV_PRL.pdf
+%insert tree picture here.
+
+\begin{figure}[!h]
+  \label{fig:TreeRSB}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/TreeRSB.png}
+  \caption{Hierarchical structure of the ensemble of spin-glass states, according
+to the RSB picture. The end points represents states; branches (with all their descendents)
+represent clusters.}
+\end{figure}
+
+
+RSB is successful in the description of infinite range models, but whether it 
+holds in finite dimensions remains a open question. 
 A competing picture, known as droplet/scaling, is based on domain-wall 
 renormalization group ideas. In this picture, there is only a single of
 pure states that are spin-flip-symmetrical at low temperature in any finite 
 dimension. 
 
 
-\section{Quantities characterizing spin glass}
+%\section{Quantities characterizing spin glass}
+
 The quantity $q$ measures the breaking of time-reversal symmetry, and is now 
 known as the ‘EA order parameter’.
 \begin{equation}
   \label{eq:q}
-  q=\frac{1}{N}\sum_iS_i^\alpha S_i^\beta
+  q=\frac{1}{N}\sum_iS_i^\alpha S_i^\beta=\frac{1}{N}\lim_{T\to \infty}\sum_iS_i(t_0)S_i(t_0+T)
 \end{equation}
 where $\alpha$ and $\beta$ are two copies of lattice with the same disorder 
 configuration, but simulated with different random seeds, so they are
 statistically independent of each other. 
 
 According to the Parisi solution, for fixed J and (large) N, the structure of 
-the overlap is nontrivial.
+the overlap is nontrivial, while in droplet picture, the distribution is just 
+a pair of delta functions at $\pm 1$. 
+%insert figure for RSB/droplet overlap here
 
-\section{Computer simulations review}
+\begin{figure}
+  \centering
+  \subfigure[RSB (mean field) picture]{
+    \label{fig:overlap_rsb}
+    \includegraphics[width=0.4\textwidth]{img/sg/sg_rsb.png}
+m  }\hspace{0.5cm}
+  \subfigure[Droplet picture]{
+    \label{fig:overlap_droplet}
+    \includegraphics[width=0.4\textwidth]{img/sg/sg_droplet.png}
+  }
+  \caption{Sketch of the overlap distribution $P(q)$ for the RSB picture, and the
+droplet picture.}
+  \label{fig:overlap}
+\end{figure}
 
-Universality in three-dimensional Ising spin glasses: A Monte Carlo study
-arXiv:cond-mat/0602212 Phys. Rev. B, 73, 224432 (2006)
 
-
-
-\section{Outstanding problems}
-%• Is there a phase transition to a low-temperature spin glass phase?
-
-• Are there infinitely many pure state pairs below Tc in the EA spin glass?
-
-• If there do exist infinitely many equilibrium states in some finite 
-dimensions, is their organization similar to that of the Parisi solution of the 
-SK model?
-
-
-\section{Difficulties}
+\section{Difficulties and Outstanding Problems}
 The EA model is a deceptively simple problem. %Since it is a classical spin 
 %model, one may think that its numerical study can be simply carried out by Monte
 %Carlo methods on conventional hardware. 
@@ -174,23 +200,86 @@ dimensional EA model is an NP-hard problem. \cite{Barahona-1982}
 Until recently, there has been no consensus on whether there is a finite spin 
 glass critical temperature in the three dimensional EA model.
 
-It also requires a large number of disorder realizations to reach any 
-meaningful result.
+%It also requires a large number of disorder realizations to reach any 
+%meaningful result.
+
+Due to the difficulty in the simulation, there is still no general consensus on
+which of the two competing pictures is correct. 
+An import discriminator between the theories is the predicted behavior of 
+the system when the temperature is decreased in the presence of an applied magnetic
+field. 
+In the mean field approximation, the de Almeida-Thouless line separates the 
+high-temperature paramagnetic phase from the spin glass phase (Fig.\ref{fig:at_rsb}). 
+With the droplet/scaling theory, an applied magnetic field is predicted to remove
+the phase transition completely (Fig.\ref{fig:at_droplet}).
+
+\begin{figure}
+  \centering
+  \subfigure[RSB (mean field) picture]{
+    \label{fig:at_rsb}
+    \includegraphics[width=0.4\textwidth]{img/sg/at_rsb.png}
+  }\hspace{0.5cm}
+  \subfigure[Droplet picture]{
+    \label{fig:at_droplet}
+    \includegraphics[width=0.4\textwidth]{img/sg/at_droplet.png}
+  }
+  \caption{Sketch of the AT line in the RSB picture, and the droplet picture.}
+  \label{fig:at_line}
+\end{figure}
+
+Recent work supports that there is only a pair of two ground states in two dimensions.
+In four dimensions, the JANUS show evidence for the presence of a spin glass
+phase transition in a field. In three dimensions, numerical simulations give 
+conflicting results.
 
 
 \section{Algorithms for spin glass simulation}
 The breakthrough in the numerical study of spin glass systems came with the 
-introduction of the parallel tempering method.
+introduction of the parallel tempering method. Parallel tempering (PT), also known
+as replica exchange, is a simulation method aimed at improving the dynamic 
+properties of Monte Carlo sampling. Instead of simulating one Markov chain at 
+a time, one runs N copies of the system with random seeds at different 
+temperatures, and exchange configurations based on the detailed balance condition.
+By making the configurations at high temperatures available to simulations at 
+low temperatures, this method allows better sampling over the entire energy
+landscape. We discuss this method further in \ref{sec:PT}.
 
-Simulated annealing (SA) is a method for solving unconstrained and 
-bound-constrained optimization problems.
+Simulated annealing (SA) is another commonly used algorithm for heuristic optimization,
+due to its simplicity and effectiveness. In physics, one usually select the 
+energy as the cost function, start the Monte Carlo simulation at a high temperature
+and slowly tune down the temperature during the simulation, and in the end the
+configuration of the system would stay in a local minimum. With slow-enough annealing
+and multiple repetitions, one would expect to find the global minimum.  
 
-Population annealing combines simulated annealing and Boltzmann weighted 
+Population annealing (PA) combines simulated annealing and Boltzmann weighted 
 differential reproduction within a population of replicas to sample equilibrium 
-states.
+states. Similar to simulated annealing, population annealing involves lowering 
+the temperature of the system at a sequence of temperatures. However, PA uses a 
+population of replicas and this population is resampled at each time step.
+By doing this, PA aims to ensure that the population always stay close to the 
+Gibbs distribution. Population annealing is naturally a massively
+parallel algorithm, as realistic spin glass simulation using population 
+annealing require population sizes of the order $10^6$ or more.
+%http://arxiv.org/pdf/1508.05647v2.pdf
 
 Another possibly to overcome the diverging autocorrelation time problem is the 
-multicanonical reweighting method.
+multicanonical reweighting method. Instead of sampling the the Boltzmann 
+distribution $P=\exp(-\beta Ep)$, multicanonical ensemble uses the 
+Metropolis–Hastings algorithm with a sampling distribution given by the inverse 
+of the density of states of the system. The density of states has to be known 
+a priori, or be computed using techniques such as the Wang and Landau algorithm.
+
+
+
+% \section{Computer simulations review}
+% Universality in three-dimensional Ising spin glasses: A Monte Carlo study
+% arXiv:cond-mat/0602212 Phys. Rev. B, 73, 224432 (2006)
+
+
+% 20. H. G. Katzgraber and A. P. Young, “Monte Carlo studies of the one-dimensional Ising spin glass with power-law interactions,” Phys, Rev. B, vol. 67, p. 134410, 2003. (cond-mat/0210451).
+% 21. H. G. Ballesteros et al., “Critical behavior of the three-dimensional Ising spin glass,” Phys. Rev. B, vol. 62, p. 14237, 2000. (cond-mat/0006211).
+% 22. E. Marinari, G. Parisi, and J. J. Ruiz-Lorenzo, “On the phase structure of the 3d Edwards Anderson spin glass,” Phys. Rev. B, vol. 58, p. 14852, 1998.
+% 23. H. G. Katzgraber and A. P. Young, “Absence of an Almeida-Thouless line in three-dimensional spin glasses,” Phys. Rev. Lett., vol. 93, p. 207203, 2004. (cond- mat/0407031).
 
 %%% Local Variables:
 %%% mode: latex
