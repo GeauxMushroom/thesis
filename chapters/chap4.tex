@@ -7,8 +7,6 @@
 \chapter{Strongly correlated materials}
 \label{chap:cthyb}
 \section{Introduction}
-The term strong correlation refers to the behavior of electrons in solids that 
-is not well-described by simple one-electron theories.
 
 Many interesting phenomena in materials can be simply described in term
 of a picture in which particles are independent from each others. For a periodic
@@ -16,60 +14,81 @@ system, Bloch's theorem, provides the basis for the description of materials
 in term of band structure. The energy eigenstates can be expanded in term
 of the periodic function with definite momentum number. Even such a seemingly
 simple independent particle picture harbors a vast amount of interesting phenomena.
-After about nine decades, the physics of non-interacting electrons are
-still being investigated intensively today. The exotic physics from
+Nine decades have passed after the Bloch's theorem, the physics of non-interacting electrons are
+still being investigated intensively today. The exotic physics, such as 
 the topological structure of the band theory still have not been exhausted,
 typical examples include quantum hall effect and topological insulators.
 
 Effects from interaction among particles cannot be completely ignored in many
 interesting systems. The physics can quickly becomes very complicated when
 the interaction becomes a dominating factors in the system. Unlike the simple
-single particle picture, its physics can be studied relatively easily by
-the available numerical methods. It is in general very difficult to analysis
-a many particles interacting systems by simple numerical mean.
+single particle picture, there is no generic efficient method for the study 
+of quantum interacting systems. From a computational point of view, the size
+of the quantum system, Hilbert space, grows exponentially as the number of 
+particles. It is in general very difficult to analyze such systems by simple numerical mean.
 
-However if one can reduce the systems into a somewhat single particle systems,
+However if one can reduce the systems into a somewhat single particle like systems,
 the analysis can be greatly simplified. The Landau Fermi liquid theorem, a landmark
 achievement in the study of correlated systems, tells us that in many
-circumstances the interacting can be reduced into single particles system with
-a modification. The non-interacting particle can be adiabatically deformed
+circumstances the interacting system can be reduced into a single particle system with
+some modifications. The non-interacting particle can be adiabatically deformed
 into quasi-particle with a finite lifetime. This important prediction by Landau
-can only explained few decades later when the concepts of renormalization group
+can only be explained few decades later when the concepts of renormalization group
 of fermion systems are applied in the condensed matter physics.
 
 Although the Fermi liquid theorem can satisfactory explained a lot of metallic
-system, its limitation is obvious. The clear problem is in the low-dimensional
-cases, by now, we know this is invalid in one dimension. However, its validity
-in two dimension is more questionable. As many of interesting systems, the
-physics are believed to be largely dictated by the correlation in two dimensions.
-Besides, that the Fermi liquid theorem cannot describe the quantum criticality,
-it is obvious that the criticality involve collective behaviors. Thus an
-independent particle picture is doomed to fail to describe critical point.
+system, its limitation is obvious. It fails in the low-dimensional
+cases, by now, we know that this is invalid in one dimension. However, the question 
+of its validity in two dimension is more subtle. As many of the interesting systems, their
+physics are believed to be largely dictated by the correlation in two dimension.
+This is also the main battlefield of strongly correlated system. In one dimension, 
+various rather accurate numerical methods are available; in higher dimension, 
+mean field theory is presumably a good starting point. At two dimension, there is 
+usually no good control on analytical calculations, and numerical methods on lattice
+models are hindered by the minus sign problem in Quantum Monte Carlo or the lack
+of good renormalization of the Hilbert space. Another clear deficit of the Fermi liquid 
+theory is its inability to describe the quantum criticality, It is obvious that the 
+criticality involve collective behaviors. An independent particle picture is 
+doomed to fail in describing critical points. Further increase the interaction, 
+the independent particle picture in the momentum space has to be replaced by the Mott 
+picture in the real space, and there is no adiabatic continuation which can tune
+the single particle metallic system into a real space picture of Mott insulator.
 
-In a sense, the term strong correlation refers to the behavior of electrons
+Thus a systematic, even though approximated, method is sought for the study of strong correlation. 
+The method which can describe the physics from metallic, to critical, to insulating phase as 
+the interaction is cranked up is crucial for the study of strongly correlated systems. 
+We will discuss in the following that the dynamical mean field method and its cluster extension, 
+dynamical cluster approximation, fulfilled such a request. Combining with the density functional theory,
+a semi-quantitative numerical results can sometimes be obtained for strongly correlated materials. 
+
+
+In a sense, from the above discussion, the term strong correlation refers to the behavior of electrons
 that cannot be well-described by simple one-electron theories. Materials
 which naturally have a tendency of strongly correlation are those involved
-unfilled d or f orbitals. This can be understood as the orbital radius of
-d and f orbitals tend to be small and so does the overlap among orbitals.
-This reduces the kinetic energy of the system, and thus the interaction
-becomes more important. Many interesting materials discovery which host
+unfilled d or f orbitals. This is due to the small orbital radius of
+$d$ and $f$ orbitals and so does the overlap among orbitals.
+This reduces the kinetic energy of the system, the electrons are said to be living 
+in the narrow band, and thus the interaction becomes more important. Many interesting materials discovery which host
 a range of interesting experimental observations, the most prominent example is the
 high temperature conductivity, pseudogap behaviors, quantum
 criticality, in the past few decades involve transition
-metal and inner transition metal. This is precisely because of the effective
+metal or inner transition metal. This is precisely because of the effective
 strong correlation due to the $d$ or $f$ orbitals.
 
 Understanding those exotic behaviors is extremely challenging. There is a major
 obstacles. Once the single particle picture fails, there
 is no good starting point for many perturbative calculations. It renders
-to a regime almost all analytical methods will fail.
+into a regime almost all analytical methods will fail. In the following we 
+will discuss two majors progress in attacking correlated systems. The first one 
+is DFT, a many-site single particle treatment; and the other one is DMFT, a single site 
+many-body treatment. 
 
 \section{Numerical approaches in strongly correlated materials}
 Numerical calculation in strongly correlated fermion systems is a major 
 challenge in condensed matter physics. In real world, materials consists of 
 $10^{23}$ interacting particles, which is impossible to solve at first glance. 
 Fortunately, not all the particles contribute to the property of materials. For 
-example, In a metal only the electrons close to the Fermi level can be excited 
+example, in a metal only the electrons close to the Fermi level can be excited 
 and contribute ,e.g., to the transport and magnetic properties. In a lattice, 
 lattice excitations are few at low T, but they are responsible for inelastic 
 neutron scattering. Even though, the remaining problem is still hard. 
@@ -83,11 +102,13 @@ approximation (LDA) \cite{lundqvist1983}, DFT produces satisfactory data that ag
 experiments for many cases. However, despite the success in weakly correlated 
 materials, there are still difficulties in applying this method to other 
 cases, such as systems with strongly correlation \cite{0953-8984-9-35-010}. 
-It seems to be quite
+The accuracy of DFT has seen gradually improve over the year, the continual
+development in functional to include correction from beyond local density 
+plays an important part. However, it seems to be quite
 difficult to handle such strong correlation by simple improvements of the 
 DFT. A promising direction is to combine other methods which can treat
 strong correlation with the DFT method. A popular choice is to employ 
-the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} 
+the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
 to include the effect from the electron-electron
 correlation on top of the single particle dispersion obtained from the DFT. 
 
@@ -95,7 +116,7 @@ correlation on top of the single particle dispersion obtained from the DFT.
 
 %maybe mention other numerical methods here?
 
-DMFT has been widely studied on a range of strongly correlated systems. 
+DMFT has been widely used on a range of strongly correlated systems. 
 It is a method well suited for strongly correlated systems, in particular it 
 captures the Mott transition, a hallmark of strong correlation, of the Hubbard 
 model. In this approach, the solution of the lattice model is mapped to a 
