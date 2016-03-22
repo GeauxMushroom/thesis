@@ -9,8 +9,8 @@
 \section{Introduction}
 
 Many interesting phenomena in materials can be simply described in term
-of a picture in which particles are independent from each others. For a periodic
-system, Bloch's theorem, provides the basis for the description of materials
+of a picture in which particles are independent of each others. For a periodic
+system, Bloch's theorem provides the basis for the description of materials
 in term of band structure. The energy eigenstates can be expanded in term
 of the periodic function with definite momentum number. Even such a seemingly
 simple independent particle picture harbors a vast amount of interesting phenomena.
@@ -19,9 +19,9 @@ still being investigated intensively today. The exotic physics, such as
 the topological structure of the band theory still have not been exhausted,
 typical examples include quantum hall effect and topological insulators.
 
-Effects from interaction among particles cannot be completely ignored in many
-interesting systems. The physics can quickly becomes very complicated when
-the interaction becomes a dominating factors in the system. Unlike the simple
+Effects from the interaction among particles cannot be completely ignored in many
+interesting systems. The physics can quickly become very complicated when
+the interaction becomes a dominating factor in the system. Unlike the simple
 single particle picture, there is no generic efficient method for the study 
 of quantum interacting systems. From a computational point of view, the size
 of the quantum system, Hilbert space, grows exponentially as the number of 
@@ -37,46 +37,46 @@ can only be explained few decades later when the concepts of renormalization gro
 of fermion systems are applied in the condensed matter physics.
 
 Although the Fermi liquid theorem can satisfactory explained a lot of metallic
-system, its limitation is obvious. It fails in the low-dimensional
+systems, its limitation is obvious. It fails in the low-dimensional
 cases, by now, we know that this is invalid in one dimension. However, the question 
-of its validity in two dimension is more subtle. As many of the interesting systems, their
-physics are believed to be largely dictated by the correlation in two dimension.
-This is also the main battlefield of strongly correlated system. In one dimension, 
-various rather accurate numerical methods are available; in higher dimension, 
+of its validity in two dimensions is more subtle. As many of the interesting systems, their
+physics are believed to be largely dictated by the correlation in two dimensions.
+This is also the main battlefield of strongly correlated systems. In one dimension, 
+various rather accurate numerical methods are available; in higher dimensions, 
 mean field theory is presumably a good starting point. At two dimension, there is 
-usually no good control on analytical calculations, and numerical methods on lattice
+usually no good control on analytical calculations, and numerical methods for lattice
 models are hindered by the minus sign problem in Quantum Monte Carlo or the lack
 of good renormalization of the Hilbert space. Another clear deficit of the Fermi liquid 
 theory is its inability to describe the quantum criticality, It is obvious that the 
-criticality involve collective behaviors. An independent particle picture is 
+criticality involves collective behaviors. An independent particle picture is 
 doomed to fail in describing critical points. Further increase the interaction, 
 the independent particle picture in the momentum space has to be replaced by the Mott 
 picture in the real space, and there is no adiabatic continuation which can tune
 the single particle metallic system into a real space picture of Mott insulator.
 
-Thus a systematic, even though approximated, method is sought for the study of strong correlation. 
+Thus, a systematic, even though approximated, method is sought for the study of strong correlation. 
 The method which can describe the physics from metallic, to critical, to insulating phase as 
 the interaction is cranked up is crucial for the study of strongly correlated systems. 
 We will discuss in the following that the dynamical mean field method and its cluster extension, 
 dynamical cluster approximation, fulfilled such a request. Combining with the density functional theory,
-a semi-quantitative numerical results can sometimes be obtained for strongly correlated materials. 
+semi-quantitative numerical results can sometimes be obtained for strongly correlated materials. 
 
 
 In a sense, from the above discussion, the term strong correlation refers to the behavior of electrons
 that cannot be well-described by simple one-electron theories. Materials
-which naturally have a tendency of strongly correlation are those involved
+which naturally have a tendency to strong correlation are those involved
 unfilled d or f orbitals. This is due to the small orbital radius of
-$d$ and $f$ orbitals and so does the overlap among orbitals.
+$d$ and $f$ orbitals and so does the overlap of orbitals.
 This reduces the kinetic energy of the system, the electrons are said to be living 
 in the narrow band, and thus the interaction becomes more important. Many interesting materials discovery which host
 a range of interesting experimental observations, the most prominent example is the
-high temperature conductivity, pseudogap behaviors, quantum
+high-temperature conductivity, pseudogap behaviors, quantum
 criticality, in the past few decades involve transition
 metal or inner transition metal. This is precisely because of the effective
 strong correlation due to the $d$ or $f$ orbitals.
 
 Understanding those exotic behaviors is extremely challenging. There is a major
-obstacles. Once the single particle picture fails, there
+obstacle. Once the single particle picture fails, there
 is no good starting point for many perturbative calculations. It renders
 into a regime almost all analytical methods will fail. In the following we 
 will discuss two majors progress in attacking correlated systems. The first one 
@@ -85,7 +85,7 @@ many-body treatment.
 
 \section{Numerical approaches in strongly correlated materials}
 Numerical calculation in strongly correlated fermion systems is a major 
-challenge in condensed matter physics. In real world, materials consists of 
+challenge in condensed matter physics. In real world, materials consist of 
 $10^{23}$ interacting particles, which is impossible to solve at first glance. 
 Fortunately, not all the particles contribute to the property of materials. For 
 example, in a metal only the electrons close to the Fermi level can be excited 
@@ -117,7 +117,7 @@ correlation on top of the single particle dispersion obtained from the DFT.
 %maybe mention other numerical methods here?
 
 DMFT has been widely used on a range of strongly correlated systems. 
-It is a method well suited for strongly correlated systems, in particular it 
+It is a method well suited for strongly correlated systems, in particular, it 
 captures the Mott transition, a hallmark of strong correlation, of the Hubbard 
 model. In this approach, the solution of the lattice model is mapped to a 
 quantum impurity model with self-consistency conditions. 
@@ -125,7 +125,7 @@ quantum impurity model with self-consistency conditions.
 %mention other impurity solvers
 A quantum impurity problem describes an atom embedded in a host medium. 
 The impurity consists of a set of orbitals with different parameters, populated
-with electrons that interacts with each other. The orbitals are hybridized to 
+with electrons that interact with each other. The orbitals are hybridized to 
 bath orbitals representing the degrees of freedom of the host materials. 
 The solution of impurity problem can be obtained in a few different ways. 
 We will focus on the different variants of Monte Carlo methods.
@@ -135,13 +135,13 @@ Hubbard-Stratonovich transformation is used to decouple the interaction part,
 leading to determinants which give the weights associated with the 
 configurations of the auxiliary fields, which are then sampled by a Monte Carlo 
 procedure. One issue is that Hirsch-Fye cannot be easily applied to complicated
-interaction that include more than just density-density interaction, due to the
+interaction that includes more than just density-density interaction, due to the
 lack of simple ansatz to decouple the interacting terms. 
 The matrix size scales to the interaction as well as the inverse of 
 temperature, which makes the calculation inefficient at low temperatures.
-This methods also requires discretization of the imaginary time interval,
-which introduce systematic errors, and may not be optimal for multi-orbital case 
-with complicated off-diagonal couplings.
+This method also requires discretization of the imaginary time interval,
+which introduce systematic errors, and may not be optimal for the multi-orbital 
+case with complicated off-diagonal couplings.
 
 The Trotter error in Hirsch-Fye algorithm can be eliminated by using the 
 Continuous Time Monte Carlo algorithms. For example, one can solve the problem 
@@ -151,7 +151,7 @@ expansion of partition function, the interaction expansion (CT-INT) algorithm
 \cite{2005PhRvB..72c5122R}
 provides a discretization error free alternative Hirsch-Fye algorithm.
 Still, in the CT-INT algorithm, it is difficult to treat non-Hubbard-type 
-interactions. Also the size of the matrix used in the CT-INT method grows
+interactions. Also, the size of the matrix used in the CT-INT method grows
 quickly with the interaction, making the calculation very time-consuming at 
 very strong interactions.
 
@@ -162,7 +162,7 @@ The fact that the order of expansion decreases with increasing
 interaction makes this method favorable for strong interaction systems. 
 The algorithm is also found to work at very low temperatures, and is applicable
 to a wider class of impurity models including those with complicated 
-off-diagonal couplings, since the local problem is treated exactly. 
+off-diagonal couplings since the local problem is treated exactly. 
 
 \section{Algorithm}
 \label{sec:hyb-alg}
@@ -296,7 +296,7 @@ and $+1$ otherwise.
 \label{sec:trace}
 In models such as Dynamical Hubbard Model, the local part of Hamiltonian is not
 diagonal in the occupation number basis, and therefore we cannot use the segment
-picture to evaluate the trace easily. In this case We need to evaluate the 
+picture to evaluate the trace easily. In this case, we need to evaluate the 
 trace of this term:
 \begin{equation}
   \label{eq:1}
@@ -587,7 +587,7 @@ Fourier transform:
 G(i\omega)=-\langle\frac{1}{\beta}\sum_{i,j}\exp^{i\omega(\tau_j'-\tau_j)}M_{ji}\rangle_{MC}
 \]
 
-Note that for small number of \verb|N_TAU|,
+Note that for a small number of \verb|N_TAU|,
 the Fourier transform back to Matsubara frequency may be inaccurate. 
 
 %When compiling, define \verb|-DMEASURE_GIO| to enable this measurement.
@@ -703,7 +703,7 @@ Overall, the DMFT loop is implemented as following:
 
 \section{Implementation}
 \label{ssec:hyb-implementation}
-We implement an impurity solver based the the CT-HYB algorithm for 
+We implement an impurity solver based the CT-HYB algorithm for 
 Intel Many Integrated Core Architecture, or Intel MIC. Intel MIC is an 
 x86-compatible multiprocessor architecture that can utilize existing 
 parallelization software tools, such as OpenMP, OpenCL, etc. The x86 
@@ -716,18 +716,18 @@ processors and Xeon Phi coprocessors to achieve 33.86 petaFLOPS.
 \subsection{OpenMP parallelization}
 We use a straight forward OpenMP approach to parallelize our code. By deploying
 multiple Markov chains on each processor/coprocessor, we have an embarrassingly 
-parallel program, where each of the process is independent of another, thus no
+parallel program, where each of the processes is independent of another, thus, no
 communication overhead is required. Next, we discuss how we speed up the 
 computation and optimize our performance. 
 
 \subsection{Fast Matrix Update}
 \label{sec:cthyb_fmu}
-The most time consuming part in the algorithm is the update of the hybridization
+The most time-consuming part of the algorithm is the update of the hybridization
 matrix. For each proposed update, the determinant of the new matrix is required
 to compute the accepting probability. A straight forward determinant computation
 scales to $k^3$, where $k$ is the expansion order. Due to the fact that in each
-update move, only one row and one column is changed, one can use the 
-Sherman-Morrision formula to update the matrix determinant and the inverse 
+update move, only one row and one column are changed, one can use the 
+Sherman-Morrison formula to update the matrix determinant and the inverse 
 matrix in $k^2$, thus making the update process much more efficient, especially 
 at low temperatures.
 
@@ -745,7 +745,7 @@ To update the inverse of the matrix, one can use
 
 In practice, the update of the inverse includes a few more steps, such as 
 inserting/removing empty rows/columns, to ensure the size of the matrix 
-reflects the change in number of segments. Each Monte Carlo move requires two
+reflects the change in the number of segments. Each Monte Carlo move requires two
 updates to the matrix and its inverse, one for the column, and one for the row.
 
 With the vectorization on Intel CPUs and MIC coprocessors, this procedure can 
@@ -810,13 +810,13 @@ e^{-Ht}v \approx ||v|| V_m e^{-H_k t}e_1
 where $e_1 = [1, 0, 0, \ldots 0]^T$ . 
 
 The complexity of this operation is $O(k^3+mk^2+m^2k)$. Usually a small value ($\sim 3$)
-of $k$ is needed, thus the complexity of the computation is reduced. 
+of $k$ is needed, thus, the complexity of the computation is reduced. 
 Overall the complexity scales as $O(m^2kn)$.
 
 
 \subsection{Using Legendre Polynomials}
 
-To reduce high frequency noise in the measurements of Green's function, 
+To reduce high-frequency noise in the measurements of Green's function, 
 one can use a set of Legendre polynomials as basis and measure the coefficients. 
 %See arxiv:1104.32115.
 \[
@@ -854,7 +854,7 @@ T_{nl}=(-1)^ni^{l+1}\sqrt{2l+1}j_l\left(\frac{(2n+1)\pi}{2}\right)
 \]
 and $j_l(z)$ are spherical Bessel functions. Note that in the procedure, no model-guided Fourier transform is used.
 
-By setting an appropriate cut-off at number of Legendre series, high frequency noise is filtered. 
+By setting an appropriate cut-off at the number of Legendre series, high-frequency noise is filtered. 
 One can measure the error in the Legendre polynomials to determine where the cutoff should be.
 %TRIQS used 80. 
 
@@ -885,12 +885,12 @@ performance, including:
 \begin{itemize}
 \item Random number generators
     The Monte Carlo sampling technique we use requires multiple random numbers 
-generated on each thread with every update step, and we use pseudo random generators (RNG)
+generated on each thread with every update step, and we use pseudo-random generators (RNG)
 to produce them. 
 
   The most commonly used RNG in C is the \texttt{rand()} function, which 
-returns a pseudo random integer using a hidden state. The \texttt{srand()} set 
-its argument as the seed for a new sequence of pseudo random number to be returned
+returns a pseudo-random integer using a hidden state. The \texttt{srand()} set 
+its argument as the seed for a new sequence of pseudo-random number to be returned
 by \texttt{rand()}. The function rand() is not thread-safe, since the hidden 
 state it uses is modified on each call. When called from multiple threads,
 this cause congestion, and the performance penalty is even worse for a massively 
@@ -910,7 +910,7 @@ to avoid performance penalty and ensure code correctness.
 \end{figure}
 
   We also tested other more advanced RNGs in our code, such as Mersenne Twister, 
-and PCG. They offer better statistical quality in the pseudo random number sequence,
+and PCG. They offer better statistical quality in the pseudo-random number sequence,
 and also have great multi-threading efficiency. However, the overall performance
 gain is not significant, since the thread-safe RNG itself is not very time consuming
 comparing to other parts of the code. 
@@ -953,7 +953,7 @@ original CPU code.
 %\label{ssec:hyb-mod}
 
 \section{Preliminary results}
-We benchmark our CTQMC solver with another Hirsch Fye code and compare the results,
+We benchmark our CTQMC solver with another Hirsch-Fye code and compare the results,
 as shown in Fig.\ref{fig:u2}. This verifies that we can match the results of 
 other impurity solvers.
 
@@ -982,7 +982,7 @@ One of the possible application of the solver is the Dynamical Hubbard Models.
 The Dynamical Hubbard models contains the idea of break the electron-hole 
 symmetry, due to the insufficiency of conventional Hubbard model in describing 
 some scenarios in real materials, where important physics happens in transport 
-and other process. With the new methods applied, we hope one can answer the question 
+and other processes. With the new methods applied, we hope one can answer the question 
 about superconductivity in the dynamical Hubbard model. 
 
 %%% Local Variables:
