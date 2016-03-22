@@ -1,14 +1,14 @@
 \chapter{Spin Glass}
 \label{chap:SGintro}
 \section{Introduction}
-Spin glasses are magnetic systems where the frozen-in quenched structural 
-disorder leads to conflicting magnetic moments, which prevents the formation 
+Spin glasses are magnetic systems where the frozen-in quenched  
+disorder leads to conflicting couplings among magnetic moments, which prevents the formation 
 of long range magnetic ordering, e.g.,ferromagnetic ordering.
 
 The prototype material is a dilute magnetic alloy, with a small amount of 
 magnetic impurity (such as Fe, Mn) randomly substituted into the lattice of a 
-noble metallic host (i.e. Cu, Au). Insulators such as Eu$_x$Sr$_{1-x}$S, with $x$
-between 0.1 and 0.5 also show spin glass behavior.
+noble metallic host (i.e. Cu, Au). On the other hand, insulators such as 
+Eu$_x$Sr$_{1-x}$S, and LiHo$_{x}$Y$_{1-x}$F$_{4}$ also show spin glass behavior.
  
 The physics underlying the spin glass behavior comes from the quenched 
 randomness: a pair of spins have a roughly equal a priori probability of having
@@ -21,12 +21,12 @@ Ruderman-Kittel-Kasuya-Yoshida (RKKY) interactions between the localized moments
    J(R)=J_0\frac{\cos(2k_FR+\phi_0)}{(k_FR)^3}, R\rightarrow 0
  \end{equation}
 Here $J_0$ and $\phi_0$ are constants, and $k_F$ is the Fermi wave number of the
-host metal. Since the distances between the spins are random, some of the $R$
+host metal. Since the distance between any pair of spins is random, some of the $R$
 will be positive, some will be negative,
 thus forming ferromagnetic/anti-ferromagnetic bonds randomly, and no spin 
-alignment would satisfactory all exchange bonds. 
-
-
+alignment would satisfactory all exchange bonds. In the other words, the 
+ground state energy cannot be obtained by minimzing the local energy 
+of every pair of spins.
 
 \begin{figure}[!h]
   \label{fig:rkky}
@@ -36,10 +36,13 @@ alignment would satisfactory all exchange bonds.
 \end{figure}
 
 Experiments demonstrated some unusual features of spin glass materials, 
-including the cusp in the low-field, low-frequency susceptibility and the 
-discrepancy of magnetic response between zero-field and field cooling 
-measurements, as shown in Fig \ref{fig:experimentsSG}. These facts suggest that spin glass system has no conventional 
-long range magnetic ordering and exhibits very slow dynamics. 
+including the cusp instaed of a true divergence in the low-field, low-frequency 
+susceptibility and the discrepancy of magnetic response between zero-field and field cooling 
+measurements, as shown in Fig \ref{fig:experimentsSG}. 
+
+These facts suggest that spin glass system has no conventional 
+long range magnetic ordering and exhibits very slow dynamics. For experimental systems, 
+equilibrium can  never be achieved. 
 
 \begin{figure}[!h]
   \label{fig:experimentsSG}
@@ -53,7 +56,7 @@ long range magnetic ordering and exhibits very slow dynamics.
 \end{figure}
 
 \section{Theoretical understanding on spin glass}
-The simplest model that captures the consequences of disorder is an Ising model 
+A simple model that captures the consequences of disorder is an Ising model 
 with quenched randomly disordered couplings, first proposed by Edwards and 
 Anderson:
 \begin{equation}
@@ -64,7 +67,10 @@ Here $S_i$ is the spin in a $d$-dimensional lattice that can take values $\pm 1$
 $\langle i,j \rangle$ indicates nearest neighbors with the coupling $J_{ij}$ between 
 them, and $h$ is the external field.
  
-Two main paradigmatic cases for the $J_{ij}$ in EA model are:
+Numerical evidence suggests that the criticality of the three dimensional
+spin glass systems are largely independent of the distrubtion of the randomness,
+that is they are in the same universality class for different distributions. 
+But, the two main paradigmatic cases for the $J_{ij}$ in EA model are:
 \begin{itemize}
 \item Gaussian distribution of random coupling:
   \begin{equation}
@@ -80,10 +86,10 @@ Two main paradigmatic cases for the $J_{ij}$ in EA model are:
 
 \subsection{Frustration}
 \label{sec:frustration}
-Frustration may be present in the Hamiltonian in Eq \ref{eq:EA}, when no spin 
+Frustration naturally present in the Hamiltonian in Eq \ref{eq:EA}, when no spin 
 configurations can satisfy all couplings at the same time. 
 Figure \ref{fig:frustration} demonstrate two situations where frustrations 
-happens. In Fig \ref{fig:frustration_geo}, the two spin on the top and the left
+happens. In Fig \ref{fig:frustration_geo}, the two spins on the top and the left
 are anti-parallelly aligned due to the anti-ferromagnetic coupling between them,
 but there is not an preferred spin direction for the third spin that can satisfy
 both the anti-ferromagnetic bonds. In Fig \ref{fig:frustration_quench}, the 
@@ -104,7 +110,7 @@ anti-ferromagnetic coupling, while $J=+1$ means ferromagnetic coupling.]{
   \label{fig:frustration}
 \end{figure}
 
-The frustration is one of the factors that leads to many features that make 
+The frustration is a key factor that leads to many features which make 
 spin glass a complex system.
 These features include: the existence of many metastable states; the rugged energy 
 landscape; and dynamical behaviors such as slow relaxation, irreversibility, 
@@ -147,32 +153,46 @@ represent clusters.}
 
 
 RSB is successful in the description of infinite range models, but whether it 
-holds in finite dimensions remains a open question. 
+holds in finite dimensions remains the most prominent open question in the study of spin glass systems. 
 A competing picture, known as droplet/scaling, is based on domain-wall 
 renormalization group ideas. In this picture, there is only a single of
 pure states that are spin-flip-symmetrical at low temperature in any finite 
-dimension. 
-
+dimension. The difference between the consequence from these two pictures 
+will show up in the order paremeters for spin glass as we will define in the following.
 
 %\section{Quantities characterizing spin glass}
 
-The quantity $q$ measures the breaking of time-reversal symmetry, and is now 
-known as the ‘EA order parameter’.
+The quantity $q$ measures the overlap of the samples after a long time relaxation process. 
+It was first studied by the seminal paper by Edwards and Anderson,
 \begin{equation}
   \label{eq:q}
   q=\frac{1}{N}\sum_iS_i^\alpha S_i^\beta=\frac{1}{N}\lim_{T\to \infty}\sum_iS_i(t_0)S_i(t_0+T)
 \end{equation}
 where $\alpha$ and $\beta$ are two copies of lattice with the same disorder 
 configuration, but simulated with different random seeds, so they are
-statistically independent of each other. 
+statistically independent of each other. The EA order paremeter, q, 
+is the order parameter of measuring the breaking of ergodicity. 
+
+The order parameter defined for the spin glass measuring the change of the systems
+when the time goes to infinity. In the thermodynamic limit, if this
+is zero, the system is ergodic, if this is finite, the system break
+the ergodicity. Some parts of the phase space can never be sampled.
+
+In contrast of conventional order parameters which measures the 
+spatial pattern, such as magnetization. If the order parameter is non-zero, 
+the system is said to undergo spontaneous symmetry breaking, in which the symmetry of 
+the states is lower than that of the Hamiltonian. If one calculates
+the EA order parameter, said for the ferromagnet, it will
+show a finite value. However, this is not a spin glass transition, a
+spin glass transition does not comes with a spontaneous symmetry breaking in space.
 
 According to the Parisi solution, for fixed J and (large) N, the structure of 
-the overlap is nontrivial, while in droplet picture, the distribution is just 
+the overlap is nontrivial, while in droplet picture, in the theromdynamic limit, the distribution is just 
 a pair of delta functions at $\pm 1$. 
 %insert figure for RSB/droplet overlap here
 
 \begin{figure}
-  \centering
+  \centering 
   \subfigure[RSB (mean field) picture]{
     \label{fig:overlap_rsb}
     \includegraphics[width=0.4\textwidth]{img/sg/sg_rsb.png}
@@ -188,11 +208,10 @@ droplet picture.}
 
 
 \section{Difficulties and Outstanding Problems}
-The EA model is a deceptively simple problem. %Since it is a classical spin 
-%model, one may think that its numerical study can be simply carried out by Monte
-%Carlo methods on conventional hardware. 
-One of the defining signatures of spin glass systems is their long relaxation 
-time. 
+The EA model is a deceptively simple problem. Since it is a classical spin 
+model, one may think that its numerical study can be simply carried out by Monte
+Carlo methods on conventional hardware. One of the defining signatures of spin glass 
+systems is their long relaxation time. 
 For sufficiently low temperatures, the system becomes very sluggish and 
 equilibration is prohibitively difficult even for modest systems sizes. 
 Moreover, it has been shown that finding the ground state of the three 
