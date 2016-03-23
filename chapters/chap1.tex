@@ -212,12 +212,14 @@ breaking picture, and the droplet picture.}
 Most phase transitions can be described by an order parameter, which measures
 the degree of order in a system. Usually an order parameter is zero in one phase,
 and non-zero in the other. At the critical point, the susceptibility of the order
-parameter usually diverges. An example of an order parameter is the 
+parameter should diverge at the thermodynamic limit. An example of an order parameter is the 
 magnetization in a ferromagnetic system. 
  
-Second order phase transitions, such as the magnetization in Ising model, and 
-spin glass transition in Edwards-Anderson model, are characterized by their 
-critical exponents. For example, 
+Second order phase transitions, such as the magnetic transition in the Ising model, and 
+spin glass transition in the Edwards-Anderson model, can be characterized by their 
+power law behaviors for various quantities, such as heat capacity and susceptibility,  
+close to the critical point. The systems can be categorized into different universality 
+class according to the values of the exponents of these power law behaviors. For example, 
 \begin{equation}
   \label{eq:20}
   \begin{array}{lrcl}
@@ -272,13 +274,16 @@ At $T_c$, the Binder ratio does not depend on $L$ since
   =\frac{L^{-4\beta/\nu}g_{M^4}(tL^{1/\nu})}{\left(L^{-2\beta/\nu}g_{M^2}(tL^{1/\nu})\right)^2}
   =g_c(tL^{1/\nu})
 \end{equation}
-therefore, $U_L$ tends towards an universal value.
+therefore, $U_L$ tends towards an universal value independent of the system size.
 
 So one can use various system sizes $L$, calculate $U_L$s as functions of $T$,
-and find the point where the $U_L(T)$ curve cross to identify $T_c$. 
- 
-
-
+and find the point where the $U_L(T)$ curve cross to identify $T_c$. The catch
+of the finite size scaling is that the power law scaling behaviors is valid
+only for the system is largely, usually one would like to have the system
+sizes to be larger than the correlation length. Even though, the finite size
+scaling can in principle extract the exponent of the thermodynamic system,
+it is still desirable to simulate large system sizes.
+  
 \section{Difficulties and Outstanding Problems}
 The Edwards-Anderson model is a deceptively simple problem. Since it is a classical spin 
 model, one may think that its numerical study can be simply carried out by Monte
@@ -287,7 +292,7 @@ systems is their long relaxation time.
 For sufficiently low temperatures, the system becomes very sluggish and 
 equilibration is prohibitively difficult even for modest systems sizes. 
 Moreover, it has been shown that finding the ground state of the three-dimensional
-Edwards-Anderson model is an NP-hard problem. \cite{Barahona-1982} 
+Edwards-Anderson model is an NP-hard problem. \cite{Barahona-1982,} 
 Until recently, there has been no consensus on whether there is a finite spin 
 glass critical temperature in the three-dimensional Edwards-Anderson model.
 
@@ -354,7 +359,7 @@ parallel algorithm, as realistic spin glass simulation using population
 annealing require population sizes of the order $10^6$ or more.
 %http://arxiv.org/pdf/1508.05647v2.pdf
 
-Another possibly to overcome the diverging autocorrelation time problem is the 
+Another possibility to overcome the diverging autocorrelation time problem is the 
 multicanonical reweighting method. Instead of sampling the Boltzmann 
 distribution $P=\exp(-\beta Ep)$, multicanonical ensemble uses the 
 Metropolis–Hastings algorithm with a sampling distribution given by the inverse 
