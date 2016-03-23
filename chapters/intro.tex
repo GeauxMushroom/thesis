@@ -1,4 +1,4 @@
-\chapter{Introduction}
+\chapter{General Introduction}
 \section{Computer Simulations}
 Computer simulation is the discipline of designing a model of an actual or 
 theoretical system, executing the model on a digital computer, and 
@@ -49,7 +49,26 @@ typically under the form of random coupling $J$ among the degrees of freedom $\s
   \label{eq:4}
   H=H(\sigma,J)
 \end{equation}
-Spin glasses are a classical example of quenched disorder. The most famous model 
+
+Spin glasses are a classical example of quenched disorder. 
+The term spin glass was given to materials that display the lack of long-range
+magnetic ordering down to zero temperature in the 1970s. 
+several families of spin glass materials have been identified. Examples include 
+dilute metallic alloys such as CuMn with 0.9\% Mn, and concentrated insulators 
+such as Eu$_x$Sr$_{1-x}$S.
+In these examples, the quenched disorder originates in the random dilution.  
+
+The signature of spin glass materials is the cusp in the low-field ac susceptibility,
+first found by Cannella and Mydosh(1972), indicating a transition to a state of 
+randomly frozen spins. 
+In addition to the cusp, some interesting slow dynamic 
+behaviors are also observed. For example, the remanent magnetization is found 
+if one cools the spin glass in a field to below the transition temperature and 
+turns off the field. The magnetization then decays very slowly as it approaches 
+zero, signaling a very long relaxation time. 
+
+
+The simplest model that captures the quenched random magnetic interaction
 is the Edwards-Anderson model,
 \begin{equation}
   \label{eq:11}
@@ -57,6 +76,54 @@ is the Edwards-Anderson model,
 \end{equation}
 where the spins $\sigma_i=\pm 1$ are the degree of freedom, and the random coupling
 $J_{ij}$ can be either Gaussian random variables, or binary random variables.
+
+The mean-field variant of this model, the Sherrington-Kirkpatrick model, was
+solved by Parisi using the replica symmetry breaking approach. In this picture,
+there is a hierarchy of the replica overlap, which can be described by an untra-metric
+tree. Although this theory has been accepted as the exact solution to an Edwards-Anderson
+like model with infinite range interactions, its applicability in lower dimensions 
+has been debated. Below the upper critical dimension ($d<6$), especially in three 
+dimensions, the nature of the spin glass phase is still not clear. The main 
+competing picture is the Droplet picture, proposed by Fisher and Huse, in which 
+there is only a pair of spin-flip related pure states.
+
+One of the most significant differences between the two pictures is the effect 
+of an external field. The droplet picture predicts that there is no phase transition
+in a field, while the replica symmetry breaking picture predicts that there is a 
+transition, and there is an AT line that separates the two phases. 
+
+There have been a lot of intensive numerical studies invested in this problem.
+
+Bhatt and Young studies used Monte Carlo simulations to study the three-dimensional
+Edwards-Anderson model in zero field for samples with $3<L<20$. Results for 
+$T\ge1.2$ are consistent with a conventional phase transition at $T_C=1.2$.
+However, at lower temperatures, the results indicate marginal behavior.
+
+Ballesteros et.al used the parallel tempering technique to study the three dimensional
+Edwards-Anderson model in helicoidal geometry. By measuring the correlation length
+in the critical region,  evidence for a second order finite-temperature phase 
+transition was obtained and critical exponents such as $\nu$ and $\eta$ were 
+calculated.
+
+Katzgraber et.al. studied the existence of a line of transitions of an Ising spin glass 
+in a magnetic field-known as the de Almeida-Thouless line-using one-dimensional 
+power-law diluted Ising spin-glass models. Their results for the model 
+corresponding to a three-dimensional system are consistent with there being no 
+de Almeida-Thouless line.
+
+The Janus collaboration built a special purpose computer with FPGA to simulate
+four-dimensional spin glass in a field. They studied the ratio of susceptibilities 
+at the two smallest momenta, and found a crossing at finite temperature, which 
+indicates that the spin glass phase can exist without time-reversal symmetry
+below the upper critical dimension.
+
+An example for real material featuring Ising-like spin interaction is the 
+LiHo$_x$Y$_{1-x}$F$_4$ insulator. Since the single-ion crystal field anisotropy
+is strong compared to the magnetic interaction between Ho$^{3+}$ ions, the magnetic 
+moments can be mapped on to Ising spins that only point parallel or antiparallel
+to the c-axis of the tetragonal crystalline structure of the lattice. Ka-Ming Tam
+et.al showed that a SG transition at nonzero temperature occurs in a realistic
+microscopic model of this material.
 
 
 A system is said to present annealed disorder when some parameters entering 

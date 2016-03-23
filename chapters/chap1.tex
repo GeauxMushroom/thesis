@@ -1,6 +1,6 @@
 \chapter{Spin Glass}
 \label{chap:SGintro}
-\section{Introduction}
+\section{Introduction to Spin Glass}
 Spin glasses are magnetic systems where the frozen-in quenched  
 disorder leads to conflicting couplings among magnetic moments, which prevents the formation 
 of long-range magnetic ordering, e.g.,ferromagnetic ordering.
@@ -16,7 +16,7 @@ The physics underlying the spin glass behavior comes from the quenched
 randomness: a pair of spins has a roughly equal a priori probability of having
 a ferromagnetic or an anti-ferromagnetic interaction. For the dilute magnetic 
 alloy, the conduction electron-mediated 
-Ruderman-Kittel-Kasuya-Yoshida (RKKY) interactions between the localized moments
+Ruderman-Kittel-Kasuya-Yosida (RKKY) interactions between the localized moments
  oscillates strongly with distance, 
  \begin{equation}
    \label{eq:RKKY}
@@ -57,12 +57,12 @@ equilibrium can  never be achieved.
   \caption{Magnetic features of spin glass in a small field.}
 \end{figure}
 
-\section{Theoretical understanding on spin glass}
+\section{Theoretical Understanding on Spin Glass}
 A simple model that captures the consequences of disorder is an Ising model 
 with quenched randomly disordered couplings, first proposed by Edwards and 
 Anderson:
 \begin{equation}
-  \label{eq:EA}
+  \label{eq:Edwards-Anderson}
   H=-\sum_{\langle i,j \rangle}J_{ij}S_iS_j-h\sum_iS_i
 \end{equation}
 Here $S_i$ is the spin in a $d$-dimensional lattice that can take values $\pm 1$,
@@ -72,7 +72,7 @@ them, and $h$ is the external field.
 Numerical evidence suggests that the criticality of the three-dimensional
 spin glass systems are largely independent of the distribution of the randomness,
 that is they are in the same universality class for different distributions. 
-But, the two main paradigmatic cases for the $J_{ij}$ in EA model are:
+But, the two main paradigmatic cases for the $J_{ij}$ in Edwards-Anderson model are:
 \begin{itemize}
 \item Gaussian distribution of random coupling:
   \begin{equation}
@@ -88,7 +88,7 @@ But, the two main paradigmatic cases for the $J_{ij}$ in EA model are:
 
 \subsection{Frustration}
 \label{sec:frustration}
-Frustration naturally present in the Hamiltonian in Eq \ref{eq:EA}, when no spin 
+Frustration naturally present in the Hamiltonian in Eq \ref{eq:Edwards-Anderson}, when no spin 
 configurations can satisfy all couplings at the same time. 
 Figure \ref{fig:frustration} demonstrate two situations where frustrations 
 happens. In Fig \ref{fig:frustration_geo}, the two spins on the top and the left
@@ -108,7 +108,7 @@ anti-ferromagnetic coupling, while $J=+1$ means ferromagnetic coupling.]{
     \label{fig:frustration_quench}
     \includegraphics[width=0.4\textwidth]{img/ea-4-spin.png}
   }
-  \caption{Frustration in EA model.}
+  \caption{Frustration in Edwards-Anderson model.}
   \label{fig:frustration}
 \end{figure}
 
@@ -119,7 +119,7 @@ landscape; and dynamical behaviors such as slow relaxation, irreversibility,
 memory effects, hysteresis, etc. 
 
 
-\subsection{Pictures on the nature of the spin galss phase}
+\subsection{Pictures on the Nature of the Spin Glass Phase}
 \label{sec:meanfield-model}
 
 An infinite-ranged version of spin glass models 
@@ -149,12 +149,12 @@ represent clusters, as sketched in Fig. \ref{fig:TreeRSB}.
   \centering
   \includegraphics[width=0.6\textwidth]{img/TreeRSB.png}
   \caption{Hierarchical structure of the ensemble of spin-glass states, according
-to the RSB picture. The end points represents states; branches (with all their descendents)
+to the replica symmetry breaking picture. The end points represents states; branches (with all their descendents)
 represent clusters.}
 \end{figure}
 
 
-RSB is successful in the description of infinite range models, but whether it 
+Replica symmetry breaking is successful in the description of infinite range models, but whether it 
 holds in finite dimensions remains the most prominent open question in the study of spin glass systems. 
 A competing picture, known as droplet/scaling, is based on domain-wall 
 renormalization group ideas. In this picture, there is only a single of
@@ -172,7 +172,7 @@ It was first studied by the seminal paper by Edwards and Anderson,
 \end{equation}
 where $\alpha$ and $\beta$ are two copies of lattice with the same disorder 
 configuration, but simulated with different random seeds, so they are
-statistically independent of each other. The EA order paremeter, q, 
+statistically independent of each other. The Edwards-Anderson order paremeter, q, 
 is the order parameter of measuring the breaking of ergodicity. 
 
 The order parameter defined for the spin glass measuring the change of the systems
@@ -184,7 +184,7 @@ In contrast to conventional order parameters which measures the
 spatial pattern, such as magnetization. If the order parameter is non-zero, 
 the system is said to undergo spontaneous symmetry breaking, in which the symmetry of 
 the states is lower than that of the Hamiltonian. If one calculates
-the EA order parameter, said for the ferromagnet, it will
+the Edwards-Anderson order parameter, said for the ferromagnet, it will
 show a finite value. However, this is not a spin glass transition, a
 spin glass transition does not come with a spontaneous symmetry breaking in space.
 
@@ -195,31 +195,101 @@ the distribution is just a pair of delta functions at $\pm 1$.
 
 \begin{figure}
   \centering 
-  \subfigure[RSB (mean field) picture]{
+  \subfigure[Replica symmetry breaking picture]{
     \label{fig:overlap_rsb}
     \includegraphics[width=0.4\textwidth]{img/sg/sg_rsb.png}
-m  }\hspace{0.5cm}
+  }\hspace{0.5cm}
   \subfigure[Droplet picture]{
     \label{fig:overlap_droplet}
     \includegraphics[width=0.4\textwidth]{img/sg/sg_droplet.png}
   }
-  \caption{Sketch of the overlap distribution $P(q)$ for the RSB picture, and the
-droplet picture.}
+  \caption{Sketch of the overlap distribution $P(q)$ for the replica symmetry 
+breaking picture, and the droplet picture.}
   \label{fig:overlap}
 \end{figure}
 
+\section{Finite Size Scaling}
+Most phase transitions can be described by an order parameter, which measures
+the degree of order in a system. Usually an order parameter is zero in one phase,
+and non-zero in the other. At the critical point, the susceptibility of the order
+parameter usually diverges. An example of an order parameter is the 
+magnetization in a ferromagnetic system. 
+ 
+Second order phase transitions, such as the magnetization in Ising model, and 
+spin glass transition in Edwards-Anderson model, are characterized by their 
+critical exponents. For example, 
+\begin{equation}
+  \label{eq:20}
+  \begin{array}{lrcl}
+    \mathrm{Magnetization}& M& \sim& \left|T-T_c\right|^\beta\\
+    \mathrm{Magnetic~susceptibility}& \chi_M& \sim& \left|T-T_c\right|^{-\gamma}\\
+    \mathrm{Heat~capacity}& C_V& \sim& \left|T-T_c\right|^{-\alpha}\\
+    \mathrm{Correlation~length}& \xi& \sim& \left|T-T_c\right|^{-\nu}
+  \end{array}
+\end{equation}
+
+Close to the critical temperature, one can use the following ansatzes:
+\begin{equation}
+  \label{eq:17}
+  M=L^{-\beta/\nu}g_M(tL^{1/\nu})
+\end{equation}
+\begin{equation}
+  \label{eq:19}
+  \chi=L^{\gamma/\nu}g_\chi(tL^{1/\nu})
+\end{equation}
+\begin{equation}
+  \label{eq:18}
+  C_V=L^{\alpha/\nu}g_C(tL^{1/\nu})
+\end{equation}
+where $t=(T-T_c)/T_c$.
+
+A frequently used method to determine the critical point is to use
+the intersection points of the Binder cumulants:
+\begin{equation}
+  \label{eq:14}
+  U_L=\frac{1}{2}\left(3-\frac{\langle M^4\rangle_L}{\langle M^2\rangle^2_L}\right)
+\end{equation}
+
+For $T>T_c$, $\langle M^4\rangle_L = 3 \langle M^2\rangle_L^2$. 
+For $T<T_c$, $\langle M^4\rangle_L = \langle M^2\rangle_L^2$.
+
+As a result, the binder ratio
+\begin{equation}
+  \label{eq:16}
+  U_L=\frac{1}{2}\left(3-\frac{\langle M^4\rangle_L}{\langle M^2\rangle^2_L}\right)
+  =\left\{
+    \begin{array}{ccc}
+      0 & \mathrm{for} & T>T_c\\
+      1 & \mathrm{for} & T<T_c
+    \end{array}
+  \right.
+\end{equation}
+
+At $T_c$, the Binder ratio does not depend on $L$ since
+\begin{equation}
+  \label{eq:15}
+  \frac{\langle M^4\rangle_L}{\langle M^2\rangle^2_L}
+  =\frac{L^{-4\beta/\nu}g_{M^4}(tL^{1/\nu})}{\left(L^{-2\beta/\nu}g_{M^2}(tL^{1/\nu})\right)^2}
+  =g_c(tL^{1/\nu})
+\end{equation}
+therefore, $U_L$ tends towards an universal value.
+
+So one can use various system sizes $L$, calculate $U_L$s as functions of $T$,
+and find the point where the $U_L(T)$ curve cross to identify $T_c$. 
+ 
+
 
 \section{Difficulties and Outstanding Problems}
-The EA model is a deceptively simple problem. Since it is a classical spin 
+The Edwards-Anderson model is a deceptively simple problem. Since it is a classical spin 
 model, one may think that its numerical study can be simply carried out by Monte
 Carlo methods on conventional hardware. One of the defining signatures of spin glass 
 systems is their long relaxation time. 
 For sufficiently low temperatures, the system becomes very sluggish and 
 equilibration is prohibitively difficult even for modest systems sizes. 
 Moreover, it has been shown that finding the ground state of the three-dimensional
- EA model is an NP-hard problem. \cite{Barahona-1982} 
+Edwards-Anderson model is an NP-hard problem. \cite{Barahona-1982} 
 Until recently, there has been no consensus on whether there is a finite spin 
-glass critical temperature in the three-dimensional EA model.
+glass critical temperature in the three-dimensional Edwards-Anderson model.
 
 %It also requires a large number of disorder realizations to reach any 
 %meaningful result.
@@ -236,7 +306,7 @@ the phase transition completely (Fig.\ref{fig:at_droplet}).
 
 \begin{figure}
   \centering
-  \subfigure[RSB (mean field) picture]{
+  \subfigure[Replica symmetry breaking picture]{
     \label{fig:at_rsb}
     \includegraphics[width=0.4\textwidth]{img/sg/at_rsb.png}
   }\hspace{0.5cm}
@@ -244,7 +314,8 @@ the phase transition completely (Fig.\ref{fig:at_droplet}).
     \label{fig:at_droplet}
     \includegraphics[width=0.4\textwidth]{img/sg/at_droplet.png}
   }
-  \caption{Sketch of the AT line in the RSB picture, and the droplet picture.}
+  \caption{Sketch of the de Almeida-Thouless line in the replica symmetry breaking 
+picture, and the droplet picture.}
   \label{fig:at_line}
 \end{figure}
 
@@ -254,7 +325,7 @@ phase transition in a field. In three dimensions, numerical simulations give
 conflicting results.
 
 
-\section{Algorithms for spin glass simulation}
+\section{Algorithms for Spin Glass Simulation}
 The breakthrough in the numerical study of spin glass systems came with the 
 introduction of the parallel tempering method. Parallel tempering (PT), also known
 as replica exchange, is a simulation method aimed at improving the dynamic 
@@ -265,19 +336,19 @@ By making the configurations at high temperatures available to simulations at
 low temperatures, this method allows better sampling over the entire energy
 landscape. We discuss this method further in \ref{sec:PT}.
 
-Simulated annealing (SA) is another commonly used algorithm for heuristic optimization,
+Simulated annealing is another commonly used algorithm for heuristic optimization,
 due to its simplicity and effectiveness. In physics, one usually select the 
 energy as the cost function, start the Monte Carlo simulation at a high temperature
 and slowly tune down the temperature during the simulation, and in the end, the
 configuration of the system would stay in a local minimum. With slow-enough annealing
 and multiple repetitions, one would expect to find the global minimum.  
 
-Population annealing (PA) combines simulated annealing and Boltzmann weighted 
+Population annealing combines simulated annealing and Boltzmann weighted 
 differential reproduction within a population of replicas to sample equilibrium 
 states. Similar to simulated annealing, population annealing involves lowering 
-the temperature of the system at a sequence of temperatures. However, PA uses a 
+the temperature of the system at a sequence of temperatures. However, population annealing uses a 
 population of replicas and this population is resampled at each time step.
-By doing this, PA aims to ensure that the population always stay close to the 
+By doing this, population annealing aims to ensure that the population always stay close to the 
 Gibbs distribution. Population annealing is naturally a massively
 parallel algorithm, as realistic spin glass simulation using population 
 annealing require population sizes of the order $10^6$ or more.

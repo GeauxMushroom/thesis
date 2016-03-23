@@ -1,12 +1,28 @@
-\chapter{Results for EA model}
+\chapter{Results for Three-Dimensional Edwards Anderson Model in 
+an Externel Field}
 \label{chap:sg_result}
-This following chapter is a published work titled {\bf Parallel Tempering Simulation of the three-dimensional Edwards-Anderson Model  with  Compact Asynchronous Multispin Coding on GPU}.
+This following chapter is a work titled {\bf Parallel Tempering Simulation of 
+the three-dimensional Edwards-Anderson Model  with  Compact Asynchronous 
+Multispin Coding on GPU}, submitted for publication in Physics Review E.
+
 In this paper, we discussed the results Monte Carlo
 Simulation of 3D Edwards-Anderson model.
 
-This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun,
-Juana Moreno, J. Ramanujam and Mark Jarrell. %This work will also appear in 
-%Ye Fang's doctoral dissertation. 
+This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun, 
+Juana Moreno, J. Ramanujam and Mark Jarrell. 
+
+The idea of the project was first proposed by Ka-Ming Tam. 
+Ye Fang and I developed the implementation together. With the code, I ran simulations
+on the GPU clusters, accumulated and analyzed all the data. 
+
+This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Juana Moreno, 
+and Mark Jarrell. I started a first draft, including the introduction, the 
+simulation methods, the measured quantities and the conclusions. I also plotted 
+all the figures from the data obtained in the simulation. 
+Ka-Ming contributed to the introduction and conclusions. Juana Moreno
+and Mark Jarrell also reviewed the paper and improved the conclusions.
+
+
 \section{Introduction} 
 Most spin systems order when the temperature is sufficiently low. 
 Conventional magnetic orderings break the spin symmetry, and the moments align 
@@ -14,7 +30,7 @@ in a pattern with long range order. However, magnetic
 systems with random frustrated couplings can avoid conventional 
 ordering by breaking ergodicity. Typical spin glass systems with 
 such competing magnetic couplings include localized spins in metals coupled 
-via the oscillating Rudermann-Kittel-Kasuya-Yoshida 
+via the oscillating Rudermann-Kittel-Kasuya-Yosida 
 exchange as CuFe and CuMn, and in insulators with competing interactions 
 as in LiHoYF and EuSrS \cite{Binder-Young-1986,Mydosh-1993,Diep-2004}. These 
 systems do not display long range order for a wide range of diluted spin 
@@ -23,7 +39,7 @@ concentrations.
 A widely studied model to describe spin glass physics is the Edwards-Anderson 
 (EA) model\cite{Edwards-Anderson-1975}. It is composed of spins interacting
 with their nearest neighbors via random couplings. The mean-field variant of the 
-EA model, the Sherrington-Kirkpatrick (SK) model\cite{Sherrington-Kirkpatrick1978,Sherrington-Kirkpatrick-1975},
+Edwards-Anderson model, the Sherrington-Kirkpatrick (SK) model\cite{Sherrington-Kirkpatrick1978,Sherrington-Kirkpatrick-1975},
 was solved by the replica technique in 1975 with the striking observation that 
 the entropy can be negative at low temperature\cite{Sherrington-Kirkpatrick-1975,Sherrington-Kirkpatrick1978}. 
 A cavity mean field method was proposed by Thouless, Anderson 
@@ -35,7 +51,7 @@ However, multiple solutions were found\cite{Bray-Moore-1980}.
 Motivated by the deficits of previous approaches, de Almeida and Thouless
 further studied the replica symmetric mean field solution and found a line 
 in the temperature--magnetic field plane where the replica symmetry
-solution is unstable towards replica symmetry breaking (RSB) \cite{Almedia-Thouless-1978,Bray-Moore-1978}
+solution is unstable towards replica symmetry breaking (replica symmetry breaking) \cite{Almedia-Thouless-1978,Bray-Moore-1978}
 The replica overlap has more structure than simply a constant. The way to 
 characterize this structure for a stable mean field solution was developed 
 by Parisi \cite{Parisi-1980a,Parisi-1980b,Parisi-1980c}.  There is a hierarchy 
@@ -43,7 +59,7 @@ of the replica overlap, and this can be described in terms of an ultra-metric tr
 The replica symmetry breaking scheme resolved the negative entropy crisis and naturally 
 explained the many solutions found in the TAP approach.
 
-The RSB theory is accepted to be the correct description of the SK model; indeed 
+The replica symmetry breaking theory is accepted to be the correct description of the Sherrington-Kirkpatrick model; indeed 
 it provides the exact free energy \cite{Talagrand-2006,Guerra-2003}. 
 However, its applicability to low dimensional spin glass systems has been intensively debated 
 over the last three decades, especially in the three dimensions case. For systems 
@@ -57,7 +73,7 @@ destroyed by any finite external field. Moreover, those excitations are assumed 
 be compact and with fractal dimension smaller than the spacial dimension, in contrast 
 with the space-filling excitations in the mean field theory. 
 
-Thus a possible scheme to discern between the RSB and the droplet theories is to determine
+Thus a possible scheme to discern between the replica symmetry breaking and the droplet theories is to determine
 whether a spin glass phase exists at a finite external field \cite{Young-Katzgraber2004}. 
 There are other schemes based on the differences in the overlap and the excitations in these two theories. 
 For example, the distribution of the overlap and the parameters that characterize it \cite{Hatano-Gubernatis-2002, 
@@ -70,7 +86,7 @@ Unfortunately, the conclusions drawn from different studies are often controvers
 This is mostly due to two factors, the limitation in the system sizes that can be 
 simulated and the interpretation of the data. 
 
-Using the same techniques on the three dimensional EA model under an external field, no signal of 
+Using the same techniques on the three dimensional Edwards-Anderson model under an external field, no signal of 
 a crossing of the scaled correlation length for different system sizes can be 
 detected\cite{Young-Katzgraber2004}.  We will show this is also 
 the case for the Binder ratio.  The absence of crossing is powerful evidence that a spin
@@ -93,7 +109,7 @@ been shown that in four dimensions this quantity displays a crossing
 at finite temperature which is an important clue that the spin glass can still 
 exist without time reversal symmetry below the upper critical dimension \cite{Banos-2012}. 
 Giving the success of using $R_{12}$ to capture the spin glass phase
-at four dimensions, we reexamine the three dimensional EA model on a simple cubic lattice using 
+at four dimensions, we reexamine the three dimensional Edwards-Anderson model on a simple cubic lattice using 
 a new development in computer architecture, and the recently proposed $R_{12}$. 
 We will demonstrate that graphic card computing is particularly well suited for 
 equilibrium simulations of spin glass systems, in particular for cases where a huge number 
@@ -106,7 +122,7 @@ section IV.
 
 
 \section{Method and Measured Quantities} 
-The Hamiltonian for the EA model is given as
+The Hamiltonian for the Edwards-Anderson model is given as
 \begin{eqnarray}
 H=-\sum_{<i,j>} J_{ij} S_{i}S_{j}-h\sum_{i}S_{i},
 \label{Hamiltonian}

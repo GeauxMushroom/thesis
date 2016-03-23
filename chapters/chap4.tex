@@ -885,10 +885,10 @@ performance, including:
 \begin{itemize}
 \item Random number generators
     The Monte Carlo sampling technique we use requires multiple random numbers 
-generated on each thread with every update step, and we use pseudo-random generators (RNG)
+generated on each thread with every update step, and we use pseudo-random generators (random number generator)
 to produce them. 
 
-  The most commonly used RNG in C is the \texttt{rand()} function, which 
+  The most commonly used random number generator in C is the \texttt{rand()} function, which 
 returns a pseudo-random integer using a hidden state. The \texttt{srand()} set 
 its argument as the seed for a new sequence of pseudo-random number to be returned
 by \texttt{rand()}. The function rand() is not thread-safe, since the hidden 
@@ -909,10 +909,10 @@ to avoid performance penalty and ensure code correctness.
   \caption{Performance using different random number generators.}
 \end{figure}
 
-  We also tested other more advanced RNGs in our code, such as Mersenne Twister, 
+  We also tested other more advanced random number generators in our code, such as Mersenne Twister, 
 and PCG. They offer better statistical quality in the pseudo-random number sequence,
 and also have great multi-threading efficiency. However, the overall performance
-gain is not significant, since the thread-safe RNG itself is not very time consuming
+gain is not significant, since the thread-safe random number generator itself is not very time consuming
 comparing to other parts of the code. 
 
 \item Move memory allocation out of the OpenMP region
@@ -968,7 +968,7 @@ Here $\beta = 50, U = 2, \mu = −1, v^2 = 0.156, D = 1, \Delta = v^2(log(i\omeg
 
 
 
-\section{Discussions\label{sec:hyb-concl}}
+\section{Discussion\label{sec:hyb-concl}}
 
 Although the formalism shown in \ref{sec:hyb-alg} is derived for single 
 impurity Anderson model, the CT-HYB algorithm can be extended to more orbitals,

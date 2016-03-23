@@ -1,22 +1,23 @@
-\chapter{GPU Implementation}
+\chapter{Implementation on Graphic Processing Units}
 \label{chap:SG_imp}
 This following chapter is a published work titled {\bf Parallel Tempering 
 Simulation of the three-dimensional Edwards-Anderson Model  with  Compact 
-Asynchronous Multispin Coding on GPU}.
+Asynchronous Multispin Coding on GPU} that appears in Computer Physics Communications.
+
 In this paper, we discussed an efficient GPU implementation of Monte Carlo 
 Simulation of 3D Edwards-Anderson model, with parallel tempering and multispin 
 coding technique. 
 
 This paper is written in collaboration with Ye Fang, Ka-Ming Tam, Zhifeng Yun, 
-Juana Moreno, J. Ramanujam and Mark Jarrell. I am the second author of this 
-paper.  This work may also appear in Ye Fang's doctoral dissertation. 
+Juana Moreno, J. Ramanujam and Mark Jarrell. 
+This work will also appear in Ye Fang's doctoral dissertation. 
 
-The idea of the project was first proposed by Ka-Ming. 
+The idea of the project was first proposed by Ka-Ming Tam. 
 Ye Fang and I developed the implementation together. 
 During the collaboration, I focused on the validity of the code, including the 
 Monte Carlo sampling procedures, the parallel tempering movements, and the 
 measurements, and benchmarked the code against published results. 
-Ye Fang dedicates his efforts on the efficiency of the code, including 
+Ye Fang dedicated his efforts on the efficiency of the code, including 
 introducing and testing various multispin coding paradigms, optimizing the 
 procedure calls, the memory accesses, and core computations, and profiling the 
 code to evaluate the performance. 
@@ -33,13 +34,13 @@ feedbacks.
 
 \section{Introduction}
 
-Stochastic or Monte Carlo (MC) simulation is one of the most important methods in 
+Stochastic or Monte Carlo  simulation is one of the most important methods in 
 the study of complex interacting systems. However, even with the huge success 
 of Monte Carlo methods, many systems remain very difficult to simulate. 
 The main obstacle very often is the long required simulation time, while 
 the memory demands are quite modest. A prominent example is the Edwards-Anderson (EA) 
 model, where the inherent randomness and frustration lead to very long relaxation 
-times. Although the EA model has been intensively simulated over the 
+times. Although the Edwards-Anderson model has been intensively simulated over the 
 past few decades, including implementations using gate-level reconfigurable processors 
 \cite{Monaghan-1993} and some dedicated computers designed specifically for solving this model, 
 \cite{Ogielski-Morgenstern-1985,Ogielski-1985,Cruz-2001,Condon-Ogielski-1985,Taiji-Ito-Suzuki-1988} 
@@ -109,7 +110,7 @@ coupling in metallic systems, introduce frustration.
 
 The simplest model that captures the consequences of disorder is an Ising model 
 with quenched randomly disordered couplings. This model was first proposed by Edwards 
-and Anderson. \cite{Edwards-Anderson1975} The mean field solution of the EA 
+and Anderson. \cite{Edwards-Anderson1975} The mean field solution of the Edwards-Anderson 
 model for infinite dimensions was first attempted by Sherrington and Kirkpatrick. 
 \cite{Sherrington-Kirkpatrick1978} However, the replica symmetric mean field solution was found to be 
 unstable below the Almeida-Thouless line, \cite{Almedia-Thouless1978,Bray-Moore-1978}
@@ -122,23 +123,23 @@ physics in finite dimensions, which presumably is more relevant to experiments, 
 still not fully understood. Indeed, it had long been debated whether a spin glass 
 phase at finite temperatures exists in three dimensions.
 
-The EA model may be deceptively simple. Since it is a classical spin 
+The Edwards-Anderson model may be deceptively simple. Since it is a classical spin 
 model, one may think that its numerical study can be simply carried out by Monte 
 Carlo methods on conventional hardware. One of the defining signatures of 
 spin glass systems is their long relaxation time. For sufficiently low temperatures, the 
 system becomes very sluggish and equilibration is prohibitively difficult  
 even for modest systems sizes.  Moreover, it has been shown
-that finding the ground state of the three dimensional EA model is
+that finding the ground state of the three dimensional Edwards-Anderson model is
 an NP-hard problem. \cite{Barahona-1982} Until recently, there has been no %universal 
 consensus on whether there is a finite spin glass critical temperature in the three 
-dimensional EA model.
+dimensional Edwards-Anderson model.
 
 The breakthrough in the numerical study of spin glass systems came with the 
 introduction of the parallel tempering method. It allowed the study of larger 
 systems at lower temperatures than the simple single spin flip %Monte Carlo 
 method. \cite{Swendsen-Wang-1986,Hukushima-Nemoto1996,Marinari-Parisi1992} Combined with 
 improved schemes for finite size scaling, it is now widely believed that the thermodynamic 
-finite-temperature spin glass phase does exist in the three dimensional EA 
+finite-temperature spin glass phase does exist in the three dimensional Edwards-Anderson 
 model~\cite{Ballesteros2000}. As the upper critical dimension of the 
 model is six \cite{Harris-Lubensky-Chen-1976,Tasaki-1989,Green-Moore-Bray-1983}, a
 prominent remaining question is the nature of the 
@@ -161,7 +162,7 @@ on the GPU.
 
 \subsection{Edwards-Anderson Model}
 
-We consider the EA Model \cite{Edwards-Anderson1975} on a 
+We consider the Edwards-Anderson Model \cite{Edwards-Anderson1975} on a 
 simple cubic lattice. Spins on each lattice site have two states 
 $S_i=+1$ or $-1$. The couplings $J_{ij}$ are between nearest neighbors. In this 
 study, we focus on a distribution of the couplings which is bimodal with a mean 
@@ -215,7 +216,7 @@ temperature and back to the lowest temperature. This largely depends on
 the system being simulated. Fine tuning the range of temperatures and the 
 spacing between them is crucial to optimize the performance. Some 
 recent proposals have been tested on the non-disorder Ising model \cite{PhysRevLett.101.130603,1742-5468-2006-03-P03018,jcp/124/17/10.1063/1.2186639}.
-Models with explicit disorder such as the EA lack an efficient 
+Models with explicit disorder such as the Edwards-Anderson lack an efficient 
 general method. For a practical GPU implementation, one also 
 needs to consider the effect of the number of replicas on the performance.
 
@@ -1020,7 +1021,7 @@ only need $16$ to $64$ realizations to fully utilize all the
 multiprocessors.
 
 For benchmarking, we simulate 64 disorder realizations of the
-EA model on a $16^3$ lattice with 24 temperature
+Edwards-Anderson model on a $16^3$ lattice with 24 temperature
 replicas, and propose to swap adjacent temperatures every 10 Monte
 Carlo sweeps.  We are able to complete $10^7$ Monte Carlo sweeps in 40 minutes. 
 % the wall time speed is 38PS/s
@@ -1069,7 +1070,7 @@ which equals to 125 ps/spin.
 \label{section_result}
 
 We test the code by simulating  both the simple ferromagnetic
-Ising and the EA spin glass models.  In Figure
+Ising and the Edwards-Anderson spin glass models.  In Figure
 \ref{fig:energy-ising}, our results from the GPU code are found to be
 consistent with the results from our CPU code for the ferromagnetic
 Ising model, at various external magnetic fields. We also compare the
@@ -1081,11 +1082,11 @@ the correlation length for the ferromagnetic Ising model in three
 dimensions; here, the crossing point for the correlation length coincides
 with the known critical temperature for the ferromagnetic
 ordering. \cite{PhysRevB.44.5081}
-For the EA model we calculate the Binder ratio
+For the Edwards-Anderson model we calculate the Binder ratio
 of the system at zero external magnetic field as shown in Figure
 \ref{fig:binder-ea}. The results match reasonably well with the
 published data. \cite{Katzgraber-Korner-Young-2006} Figure \ref{fig:qvst} demonstrates the effectiveness
-of parallel tempering for the EA spin glass. The
+of parallel tempering for the Edwards-Anderson spin glass. The
 parallel-tempering simulation reaches equilibrium after $10^5$ Monte
 Carlo sweeps, while without parallel tempering, the system did not
 reach equilibrium even with 100 times more iterations. This further
