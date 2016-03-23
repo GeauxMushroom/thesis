@@ -37,11 +37,10 @@ disordered systems, strongly coupled systems, etc.
 
 \section{Disordered Systems}
 In physics, the terms order and disorder designate the presence or absence of 
-some symmetry or correlation in a many-particle system. 
-The disorder can be put into two main categories according to their dynamics: 
-annealed disorder and quenched disorder.
+translational symmetry of a system. The disorder can be put into two main categories 
+according to their dynamics: annealed disorder and quenched disorder.
 
-In statistical physics, a system is said to present quenched disorder when 
+A system is said to present quenched disorder when 
 some parameters defining its behavior are random variables which do not evolve 
 with time. In these systems, the disorder is explicitly present in the Hamiltonian, 
 typically under the form of random coupling $J$ among the degrees of freedom $\sigma$,
@@ -53,20 +52,30 @@ typically under the form of random coupling $J$ among the degrees of freedom $\s
 Spin glasses are a classical example of quenched disorder. 
 The term spin glass was given to materials that display the lack of long-range
 magnetic ordering down to zero temperature in the 1970s. 
-several families of spin glass materials have been identified. Examples include 
+Several families of spin glass materials have been identified. The classic examples include 
 dilute metallic alloys such as CuMn with 0.9\% Mn, and concentrated insulators 
-such as Eu$_x$Sr$_{1-x}$S.
-In these examples, the quenched disorder originates in the random dilution.  
+such as Eu$_x$Sr$_{1-x}$S. In these systems, the quenched disorder originates in the random dilution.
+The magnetic moments in Mn and Eu can be described in term of the Heisenberg spins.
+An example for real material featuring Ising-like spin is the 
+LiHo$_x$Y$_{1-x}$F$_4$ insulator. Since the single-ion crystal field anisotropy
+is strong compared to the magnetic interaction between Ho$^{3+}$ ions, the magnetic 
+moments can be mapped on to Ising spins that only point parallel or antiparallel
+to the c-axis of the tetragonal crystalline structure of the lattice. 
 
-The signature of spin glass materials is the cusp in the low-field ac susceptibility,
-first found by Cannella and Mydosh(1972), indicating a transition to a state of 
-randomly frozen spins. 
+The discovery of the spin glass materials is due to its unique behaviors of
+the susceptiblity. The now defining signature of spin glass materials is 
+the cusp in the low-field ac susceptibility, first found by Cannella and Mydosh(1972).
+In contrast of the usual ferromagnetic systems, this signature strongly 
+suggests the lack of long range order. The physical picture of the lack 
+of divergence in the susceptibility indicates a transition to a state of randomly 
+frozen spins. 
+
 In addition to the cusp, some interesting slow dynamic 
 behaviors are also observed. For example, the remanent magnetization is found 
 if one cools the spin glass in a field to below the transition temperature and 
 turns off the field. The magnetization then decays very slowly as it approaches 
-zero, signaling a very long relaxation time. 
-
+zero, signaling a very long relaxation time. Indeed, experimental spin glass
+systems can never truly attain equilibrium. 
 
 The simplest model that captures the quenched random magnetic interaction
 is the Edwards-Anderson model,
@@ -82,48 +91,10 @@ solved by Parisi using the replica symmetry breaking approach. In this picture,
 there is a hierarchy of the replica overlap, which can be described by an untra-metric
 tree. Although this theory has been accepted as the exact solution to an Edwards-Anderson
 like model with infinite range interactions, its applicability in lower dimensions 
-has been debated. Below the upper critical dimension ($d<6$), especially in three 
-dimensions, the nature of the spin glass phase is still not clear. The main 
-competing picture is the Droplet picture, proposed by Fisher and Huse, in which 
+has been debated. Below the upper critical dimension ($d<6$), especially at the most
+physically relevant three dimensions, the nature of the spin glass phase is still not clear. 
+The main competing picture is the Droplet picture, proposed by Fisher and Huse, in which 
 there is only a pair of spin-flip related pure states.
-
-One of the most significant differences between the two pictures is the effect 
-of an external field. The droplet picture predicts that there is no phase transition
-in a field, while the replica symmetry breaking picture predicts that there is a 
-transition, and there is an AT line that separates the two phases. 
-
-There have been a lot of intensive numerical studies invested in this problem.
-
-Bhatt and Young studies used Monte Carlo simulations to study the three-dimensional
-Edwards-Anderson model in zero field for samples with $3<L<20$. Results for 
-$T\ge1.2$ are consistent with a conventional phase transition at $T_C=1.2$.
-However, at lower temperatures, the results indicate marginal behavior.
-
-Ballesteros et.al used the parallel tempering technique to study the three dimensional
-Edwards-Anderson model in helicoidal geometry. By measuring the correlation length
-in the critical region,  evidence for a second order finite-temperature phase 
-transition was obtained and critical exponents such as $\nu$ and $\eta$ were 
-calculated.
-
-Katzgraber et.al. studied the existence of a line of transitions of an Ising spin glass 
-in a magnetic field-known as the de Almeida-Thouless line-using one-dimensional 
-power-law diluted Ising spin-glass models. Their results for the model 
-corresponding to a three-dimensional system are consistent with there being no 
-de Almeida-Thouless line.
-
-The Janus collaboration built a special purpose computer with FPGA to simulate
-four-dimensional spin glass in a field. They studied the ratio of susceptibilities 
-at the two smallest momenta, and found a crossing at finite temperature, which 
-indicates that the spin glass phase can exist without time-reversal symmetry
-below the upper critical dimension.
-
-An example for real material featuring Ising-like spin interaction is the 
-LiHo$_x$Y$_{1-x}$F$_4$ insulator. Since the single-ion crystal field anisotropy
-is strong compared to the magnetic interaction between Ho$^{3+}$ ions, the magnetic 
-moments can be mapped on to Ising spins that only point parallel or antiparallel
-to the c-axis of the tetragonal crystalline structure of the lattice. Ka-Ming Tam
-et.al showed that a SG transition at nonzero temperature occurs in a realistic
-microscopic model of this material.
 
 
 A system is said to present annealed disorder when some parameters entering 
@@ -139,7 +110,67 @@ function $V(r)$ is a potential. Even though there is no quenched disorder in
 the Hamiltonian, at low temperature, the system stays in a frozen glassy state, 
 and each particle is in a different, disordered environment.
 
+One of the most significant differences between the two pictures is the effect 
+of an external field. The droplet picture predicts that there is no phase transition
+in a field, while the replica symmetry breaking picture predicts that there is a 
+transition, and there is an AT line that separates the two phases. 
 
+There have been a lot of intensive numerical studies invested in this problem over 
+the last four decades. As we will explain in more detail in this thesis, numerical
+simulations of spin glass system present a tremendous challenge. Obtaining the ground
+state by minimization method such as branch-and-cut method is mostly useful for 
+two dimensions. 
+
+The difficulty of using minimization at three dimensions can be 
+considered as consequence of the proof that the ground state energy of a three dimensional
+Edwards-Anderson model is NP-complete. Therefore, the study of the three dimensional
+cases is only practically feasible at finite temperatures. The best available method
+is the Monte Carlo. By the very nature of spin glass systems, the long relaxation time, 
+Monte Carlo simulation is bound to be very slow. This problem can be attacked from 
+two directions, the advancements in algorithms and computer implementations. 
+Over the last few decades, different methods to accelerate the Monte Carlo 
+have been proposed and tested, we will explain more detail on these methods in this thesis. 
+In addition, computer implementations have been improved to shorten the simulation
+time. This is not solely on the software programming. Due to the relatively 
+simple Monte Carlo method, various dedicated machines were built exclusively for the simulation
+of spin glass systems. 
+
+In the following we will review a few important milestones in the numerical study of
+Edwards-Anderson model. Although the model was proposed at 1975, reliable simulations
+only appear from around mid-80s.
+
+Bhatt and Young studies used Monte Carlo simulations to study the three-dimensional
+Edwards-Anderson model in zero field for samples with $3<L<20$. Results for 
+$T\ge1.2$ are consistent with a conventional phase transition at $T_C=1.2$.
+However, at lower temperatures, the results indicate marginal behavior. This existence
+of a spin glass transition has long been considered as a open question due to the
+results from this paper. 
+
+Ballesteros et.al used the parallel tempering technique to study the three dimensional
+Edwards-Anderson model in helicoidal geometry. By measuring the correlation length
+in the critical region,  evidence for a second order finite-temperature phase 
+transition was obtained and critical exponents such as $\nu$ and $\eta$ were 
+calculated. This is the beginning of a new chapter in the numerical simulation 
+of spin glass. The wisdom from this paper is that the conventional indicators,
+in particular the ration of cumulants of order parameter, are not sufficient 
+for detecting a transition. The results from this paper bring to a universal
+consensus that the spin glass transition does exist in the three dimensional
+Edwards-Anderson model
+
+Katzgraber and Young studied the model in a magnetic field-known and 
+found the absence of the de Almeida-Thouless lin. Later, a one-dimensional 
+power-law diluted Ising spin-glass model has been proposed to produce an
+effective model at higher dimensions. Their results for the model 
+corresponding to a three-dimensional system are consistent with there being no 
+de Almeida-Thouless line.
+
+Recently, it has been suggested that the correlation length may not be a 
+good indicator for the model in an external magnetic field.
+The Janus collaboration used their special purpose computer with FPGA to simulate
+four-dimensional spin glass in a field. They studied the ratio of susceptibilities 
+at the two smallest momenta, and found a crossing at finite temperature, which 
+indicates that the spin glass phase can exist without time-reversal symmetry
+below the upper critical dimension.
 %Define what kind of disorder in real systems. They are most from dilution or 
 %doping, giving examples. 
 
