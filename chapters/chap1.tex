@@ -213,12 +213,14 @@ breaking picture, and the droplet picture.}
 Most phase transitions can be described by an order parameter, which measures
 the degree of order in a system. Usually an order parameter is zero in one phase,
 and non-zero in the other. At the critical point, the susceptibility of the order
-parameter usually diverges. An example of an order parameter is the 
+parameter should diverge at the thermodynamic limit. An example of an order parameter is the 
 magnetization in a ferromagnetic system. 
  
-Second order phase transitions, such as the magnetization in Ising model, and 
-spin glass transition in Edwards-Anderson model, are characterized by their 
-critical exponents. For example, 
+Second order phase transitions, such as the magnetic transition in the Ising model, and 
+spin glass transition in the Edwards-Anderson model, can be characterized by their 
+power law behaviors for various quantities, such as heat capacity and susceptibility,  
+close to the critical point. The systems can be categorized into different universality 
+class according to the values of the exponents of these power law behaviors. For example, 
 \begin{equation}
   \label{eq:20}
   \begin{array}{lrcl}
@@ -273,13 +275,16 @@ At $T_c$, the Binder ratio does not depend on $L$ since
   =\frac{L^{-4\beta/\nu}g_{M^4}(tL^{1/\nu})}{\left(L^{-2\beta/\nu}g_{M^2}(tL^{1/\nu})\right)^2}
   =g_c(tL^{1/\nu})
 \end{equation}
-therefore, $U_L$ tends towards an universal value.
+therefore, $U_L$ tends towards an universal value independent of the system size.
 
 So one can use various system sizes $L$, calculate $U_L$s as functions of $T$,
-and find the point where the $U_L(T)$ curve cross to identify $T_c$. 
- 
-
-
+and find the point where the $U_L(T)$ curve cross to identify $T_c$. The catch
+of the finite size scaling is that the power law scaling behaviors is valid
+only for the system is largely, usually one would like to have the system
+sizes to be larger than the correlation length. Even though, the finite size
+scaling can in principle extract the exponent of the thermodynamic system,
+it is still desirable to simulate large system sizes.
+  
 \section{Difficulties and Outstanding Problems}
 The Edwards-Anderson model is a deceptively simple problem. Since it is a classical spin 
 model, one may think that its numerical study can be simply carried out by Monte
@@ -355,7 +360,7 @@ parallel algorithm, as realistic spin glass simulation using population
 annealing require population sizes of the order $10^6$ or more.
 %http://arxiv.org/pdf/1508.05647v2.pdf
 
-Another possibly to overcome the diverging autocorrelation time problem is the 
+Another possibility to overcome the diverging autocorrelation time problem is the 
 multicanonical reweighting method. Instead of sampling the Boltzmann 
 distribution $P=\exp(-\beta Ep)$, multicanonical ensemble uses the 
 Metropolis–Hastings algorithm with a sampling distribution given by the inverse 
@@ -363,16 +368,6 @@ of the density of states of the system. The density of states has to be known
 a priori or be computed using techniques such as the Wang and Landau algorithm.
 
 
-
-% \section{Computer simulations review}
-% Universality in three-dimensional Ising spin glasses: A Monte Carlo study
-% arXiv:cond-mat/0602212 Phys. Rev. B, 73, 224432 (2006)
-
-
-% 20. H. G. Katzgraber and A. P. Young, “Monte Carlo studies of the one-dimensional Ising spin glass with power-law interactions,” Phys, Rev. B, vol. 67, p. 134410, 2003. (cond-mat/0210451).
-% 21. H. G. Ballesteros et al., “Critical behavior of the three-dimensional Ising spin glass,” Phys. Rev. B, vol. 62, p. 14237, 2000. (cond-mat/0006211).
-% 22. E. Marinari, G. Parisi, and J. J. Ruiz-Lorenzo, “On the phase structure of the 3d Edwards Anderson spin glass,” Phys. Rev. B, vol. 58, p. 14852, 1998.
-% 23. H. G. Katzgraber and A. P. Young, “Absence of an Almeida-Thouless line in three-dimensional spin glasses,” Phys. Rev. Lett., vol. 93, p. 207203, 2004. (cond- mat/0407031).
 
 %%% Local Variables:
 %%% mode: latex
