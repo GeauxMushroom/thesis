@@ -80,8 +80,10 @@ obstacle. Once the single particle picture fails, there
 is no good starting point for many perturbative calculations. It renders
 into a regime almost all analytical methods will fail. In the following we 
 will discuss two majors progress in attacking correlated systems. The first one 
-is DFT, a many-site single particle treatment; and the other one is DMFT, a single site 
-many-body treatment. 
+is Density Functional Theory (DFT)\cite{PhysRev.136.B864,PhysRev.140.A1133} , 
+a many-site single particle treatment; 
+and the other one is Dynamical Mean Field Theory (DMFT) \cite{RevModPhys.68.13,PhysRevB.45.6479}, 
+a single site many-body treatment. 
 
 \section{Numerical approaches in strongly correlated materials}
 Numerical calculation in strongly correlated fermion systems is a major 
@@ -108,7 +110,7 @@ plays an important part. However, it seems to be quite
 difficult to handle such strong correlation by simple improvements of the 
 DFT. A promising direction is to combine other methods which can treat
 strong correlation with the DFT method. A popular choice is to employ 
-the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
+the Dynamical Mean Field Theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
 to include the effect from the electron-electron
 correlation on top of the single particle dispersion obtained from the DFT. 
 
@@ -763,7 +765,7 @@ When the Hamiltonian is not diagonal, the update of the trace can be very expens
 matrix, and $n$ is the number of fermion operators in the series. Since $m$ 
 scales exponentially with the number of orbitals, this can be 
 very expensive even for a moderate number of orbitals (say 5). Instead, we can 
-use the Krylov method to find the trace.
+use the Krylov method\cite{PhysRevB.80.235117} to find the trace.
 
 First, we find the few lowest eigenstates of the Hamiltonian $|i\rangle$, since 
 they are usually more relevant at low temperatures. Then the trace is 
@@ -817,8 +819,8 @@ Overall the complexity scales as $O(m^2kn)$.
 \subsection{Using Legendre Polynomials}
 
 To reduce high-frequency noise in the measurements of Green's function, 
-one can use a set of Legendre polynomials as basis and measure the coefficients. 
-%See arxiv:1104.32115.
+one can use a set of Legendre polynomials\citep{2011PhRvB..84g5145B} as basis and measure the coefficients. 
+%See arxiv:1104.3215.
 \[
 G_l=\sqrt{2l+1}\int_0^\beta d\tau P_l(x(\tau))G(\tau)
 \]
@@ -973,10 +975,10 @@ Here $\beta = 50, U = 2, \mu = −1, v^2 = 0.156, D = 1, \Delta = v^2(log(i\omeg
 Although the formalism shown in \ref{sec:hyb-alg} is derived for single 
 impurity Anderson model, the CT-HYB algorithm can be extended to more orbitals,
 or other models easily, by changing the $H_\textrm{loc}$ term in the Hamiltonian 
-and treating the term exactly. For example, we can easily extend the code to two
+and treating the term exactly. For example, we can easily extend the code to two or more
 orbitals, and use exact diagonalization to calculate the contribution of the 
-local term. For more orbitals, a Krylov solver \cite{PhysRevB.80.235117} can be used to reduce the cost of
-trace computation.
+local term. For more orbitals, a Krylov solver\cite{PhysRevB.80.235117} can be used to reduce the cost of
+trace computation, as discussed in section \ref{sec:cthyb_krylov}.
 
 One of the possible application of the solver is the Dynamical Hubbard Models. 
 The Dynamical Hubbard models contain the idea of break the electron-hole 

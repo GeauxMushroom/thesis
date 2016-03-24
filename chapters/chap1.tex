@@ -333,7 +333,8 @@ conflicting results.
 
 \section{Algorithms for Spin Glass Simulation}
 The breakthrough in the numerical study of spin glass systems came with the 
-introduction of the parallel tempering method. Parallel tempering (PT), also known
+introduction of the parallel tempering method\cite{Swendsen-Wang-1986,Hukushima-Nemoto1996,Marinari-Parisi1992}. 
+Parallel tempering (PT), also known
 as replica exchange, is a simulation method aimed at improving the dynamic 
 properties of Monte Carlo sampling. Instead of simulating one Markov chain at 
 a time, one runs N copies of the system with random seeds at different 
@@ -342,14 +343,14 @@ By making the configurations at high temperatures available to simulations at
 low temperatures, this method allows better sampling over the entire energy
 landscape. We discuss this method further in \ref{sec:PT}.
 
-Simulated annealing is another commonly used algorithm for heuristic optimization,
+Simulated annealing\citep{1983Sci...220..671K} is another commonly used algorithm for heuristic optimization,
 due to its simplicity and effectiveness. In physics, one usually select the 
 energy as the cost function, start the Monte Carlo simulation at a high temperature
 and slowly tune down the temperature during the simulation, and in the end, the
 configuration of the system would stay in a local minimum. With slow-enough annealing
 and multiple repetitions, one would expect to find the global minimum.  
 
-Population annealing combines simulated annealing and Boltzmann weighted 
+Population annealing\citep{2015PhRvE..92f3307W} combines simulated annealing and Boltzmann weighted 
 differential reproduction within a population of replicas to sample equilibrium 
 states. Similar to simulated annealing, population annealing involves lowering 
 the temperature of the system at a sequence of temperatures. However, population annealing uses a 
@@ -361,7 +362,7 @@ annealing require population sizes of the order $10^6$ or more.
 %http://arxiv.org/pdf/1508.05647v2.pdf
 
 Another possibility to overcome the diverging autocorrelation time problem is the 
-multicanonical reweighting method. Instead of sampling the Boltzmann 
+multicanonical reweighting method\citep{1998PhyA..254..164J}. Instead of sampling the Boltzmann 
 distribution $P=\exp(-\beta Ep)$, multicanonical ensemble uses the 
 Metropolis–Hastings algorithm with a sampling distribution given by the inverse 
 of the density of states of the system. The density of states has to be known 
