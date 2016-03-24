@@ -100,25 +100,25 @@ provides a framework to solve the
 electron structure problem. Using this theory, the properties of a many-electron
 system can be described by a functional of election density. Combined with 
 approximations that address the exchange-correlations such as the local density 
-approximation (LDA) \cite{lundqvist1983}, DFT produces satisfactory data that agrees well the 
+approximation (LDA) \cite{lundqvist1983}, density functional theory produces satisfactory data that agrees well the 
 experiments for many cases. However, despite the success in weakly correlated 
 materials, there are still difficulties in applying this method to other 
 cases, such as systems with strongly correlation \cite{0953-8984-9-35-010}. 
-The accuracy of DFT has seen gradually improve over the year, the continual
+The accuracy of density functional theory has seen gradually improve over the year, the continual
 development in functional to include correction from beyond local density 
 plays an important part. However, it seems to be quite
 difficult to handle such strong correlation by simple improvements of the 
-DFT. A promising direction is to combine other methods which can treat
-strong correlation with the DFT method. A popular choice is to employ 
+density functional theory. A promising direction is to combine other methods which can treat
+strong correlation with the density functional theory method. A popular choice is to employ 
 the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
 to include the effect from the electron-electron
-correlation on top of the single particle dispersion obtained from the DFT. 
+correlation on top of the single particle dispersion obtained from the density functional theory. 
 
 %DFT, ab inito
 
 %maybe mention other numerical methods here?
 
-DMFT has been widely used on a range of strongly correlated systems. 
+Dynamical mean field theory has been widely used on a range of strongly correlated systems. 
 It is a method well suited for strongly correlated systems, in particular, it 
 captures the Mott transition, a hallmark of strong correlation, of the Hubbard 
 model. In this approach, the solution of the lattice model is mapped to a 
@@ -320,7 +320,7 @@ we have
 \[
 e^{-Ht}=e^{-UVU^Tt}=Ue^{-Vt}U^T
 \]
- the term becomes
+ the term \ref{eq:1} becomes
 \[
 Ue^{-V*(\beta-t_n)}U^TF_{t_n}Ue^{-V*(t_n-t_{n-1})}\ldots F_{t_0}Ue^{-Vt_0}U^T
 \]
@@ -574,20 +574,24 @@ column in the hybridization matrix.
 \label{sec:cthyb_measurement}
 \subsection{Single Particle Green's Function}
 The imaginary time green's function can be found by:
-\[
+\begin{equation}
+  \label{eq:12}
 G(\tau)=-\left\langle\frac{1}{\beta}\sum_{ij}^k
 \left(\Delta^{(k)}\right)^{-1}_{ji}\delta(\tau,\tau_i'-\tau_j)\right\rangle_{MC}
 =-\left\langle\frac{1}{\beta}\sum_{ij}^k
 M^{(k)}_{ji}\delta(\tau,\tau_i'-\tau_j)\right\rangle_{MC}
-\]
+\end{equation}
+
 To reduce noise and save memory, we split $\beta$ in to fine grids \verb|N_TAU| 
 and bin data. 
 
 We can also find the Matsubara frequency Green's function by 
 Fourier transform:
-\[
-G(i\omega)=-\langle\frac{1}{\beta}\sum_{i,j}\exp^{i\omega(\tau_j'-\tau_j)}M_{ji}\rangle_{MC}
-\]
+
+\begin{equation}
+  \label{eq:21}
+G(i\omega)=-\langle\frac{1}{\beta}\sum_{i,j}\exp^{i\omega(\tau_j'-\tau_j)}M_{ji}\rangle_{MC}  
+\end{equation}
 
 Note that for a small number of \verb|N_TAU|,
 the Fourier transform back to Matsubara frequency may be inaccurate. 
@@ -770,10 +774,13 @@ use the Krylov method\cite{PhysRevB.80.235117} to find the trace.
 First, we find the few lowest eigenstates of the Hamiltonian $|i\rangle$, since 
 they are usually more relevant at low temperatures. Then the trace is 
 approximately
-\[
+
+\begin{equation}
+  \label{eq:22}
 \sum_i\langle i|  e^{-H*(\beta-t_n)}F_{t_n}e^{-H*(t_n-t_{n-1})}F_{t_{n-1}}
-\ldots F_{t_0}e^{-Ht_0}  |i\rangle
-\]
+\ldots F_{t_0}e^{-Ht_0}  |i\rangle  
+\end{equation}
+
 
 Then each of the term in the summation become of a series of the following 
 operations:
@@ -806,9 +813,12 @@ $V_k=[v_1,v_2,\ldots, v_k]$
 and a $k\times k$ matrix $H_k$, where $H_k(i,j)=h_{i,j}$.
 
 The exponential term can be just evaluated by:
-\[
-e^{-Ht}v \approx ||v|| V_m e^{-H_k t}e_1
-\]
+
+\begin{equation}
+  \label{eq:23}
+e^{-Ht}v \approx ||v|| V_m e^{-H_k t}e_1  
+\end{equation}
+
 where $e_1 = [1, 0, 0, \ldots 0]^T$ . 
 
 The complexity of this operation is $O(k^3+mk^2+m^2k)$. Usually a small value ($\sim 3$)
@@ -820,40 +830,51 @@ Overall the complexity scales as $O(m^2kn)$.
 
 To reduce high-frequency noise in the measurements of Green's function, 
 one can use a set of Legendre polynomials\citep{2011PhRvB..84g5145B} as basis and measure the coefficients. 
-%See arxiv:1104.3215.
-\[
-G_l=\sqrt{2l+1}\int_0^\beta d\tau P_l(x(\tau))G(\tau)
-\]
+\begin{equation}
+  \label{eq:24}
+G_l=\sqrt{2l+1}\int_0^\beta d\tau P_l(x(\tau))G(\tau)  
+\end{equation}
 
-In CTHYB:
-\[
-G_l=-\frac{\sqrt{2l+1}}{\beta}\left\langle\sum_{ij}M_{ji}\tilde{P}_l(\tau_i'-\tau_j)\right\rangle_{MC}
-\]
+In CT-HYB:
+
+\begin{equation}
+  \label{eq:25}
+G_l=-\frac{\sqrt{2l+1}}{\beta}\left\langle\sum_{ij}M_{ji}\tilde{P}_l(\tau_i'-\tau_j)\right\rangle_{MC}  
+\end{equation}
+
 Where
-\[
+
+\begin{equation}
+  \label{eq:26}
 \tilde{P}(\tau)=\left\{
 \begin{array}{ll}
   P_l(x(\tau))& \tau >0\\
   -P_l(x(\tau+\beta))&\tau<0
 \end{array}
-\right.
-\]
-and \[
-x(\tau)=2\tau/\beta-1
-\]
+\right.  
+\end{equation}
+and 
+\begin{equation}
+  \label{eq:27}
+x(\tau)=2\tau/\beta-1  
+\end{equation}
+
 
 To restore $G(\tau)$ or $G(i\omega)$ from the measured set of coefficients,
-\[
-G(\tau) = \sum_{l\ge 0}\frac{\sqrt{2l+1}}{\beta}P_l(x(\tau))G_l
-\]
+\begin{equation}
+  \label{eq:28}
+G(\tau) = \sum_{l\ge 0}\frac{\sqrt{2l+1}}{\beta}P_l(x(\tau))G_l  
+\end{equation}
 and
-\[
-G(i\omega) = \sum_{l\ge 0} G_l\frac{\sqrt{2l+1}}{\beta}\int_0^\beta\exp^{i\omega_n\tau}P_l(x(\tau))=\sum_{l\ge 0}T_{nl}G_l
-\]
+\begin{equation}
+  \label{eq:29}
+G(i\omega) = \sum_{l\ge 0} G_l\frac{\sqrt{2l+1}}{\beta}\int_0^\beta\exp^{i\omega_n\tau}P_l(x(\tau))=\sum_{l\ge 0}T_{nl}G_l  
+\end{equation}
 Where
-\[
-T_{nl}=(-1)^ni^{l+1}\sqrt{2l+1}j_l\left(\frac{(2n+1)\pi}{2}\right)
-\]
+\begin{equation}
+  \label{eq:30}
+T_{nl}=(-1)^ni^{l+1}\sqrt{2l+1}j_l\left(\frac{(2n+1)\pi}{2}\right)  
+\end{equation}
 and $j_l(z)$ are spherical Bessel functions. Note that in the procedure, no model-guided Fourier transform is used.
 
 By setting an appropriate cut-off at the number of Legendre series, high-frequency noise is filtered. 
