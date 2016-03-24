@@ -1,7 +1,7 @@
 \chapter{Spin Glass}
 \label{chap:SGintro}
 \section{Introduction to Spin Glass}
-Spin glasses are magnetic systems where the frozen-in quenched  
+Spin glasses \cite{Binder-Young-1986} are magnetic systems where the frozen-in quenched  
 disorder leads to conflicting couplings among magnetic moments, which prevents the formation 
 of long-range magnetic ordering, e.g.,ferromagnetic ordering.
 
@@ -43,16 +43,16 @@ susceptibility and the discrepancy of magnetic response between zero-field and f
 measurements, as shown in Fig \ref{fig:experimentsSG}. 
 
 These facts suggest that spin glass system has no conventional 
-long range magnetic ordering and exhibits very slow dynamics. For experimental systems, 
-equilibrium can  never be achieved. 
+long range magnetic ordering and exhibits very slow dynamics. For experimental 
+systems, equilibrium can never be achieved. 
 
 \begin{figure}[!h]
   \label{fig:experimentsSG}
   \centering
-  \subfigure[Low frequency susceptibility of CuMn with 1\% Mn, (Mulder et al 1981)]
+  \subfigure[Low frequency susceptibility of CuMn with 1\% Mn, from \citet{PhysRevB.23.1384}]
   {\includegraphics[width=0.6\textwidth]{img/cusp_low_freq.png}}\\  
-\subfigure[Susceptibilities of CuMn vs temperature for 1.08\% and 2.02\% Mn.
-(Natata et.al 1979)]
+\subfigure[Susceptibilities of CuMn vs temperature for 1.08\% and 2.02\% Mn, from 
+\citet{PhysRevB.19.1633}]
 {\includegraphics[width=0.6\textwidth]{img/fc_zfc.png}}
   \caption{Magnetic features of spin glass in a small field.}
 \end{figure}
@@ -60,7 +60,7 @@ equilibrium can  never be achieved.
 \section{Theoretical Understanding on Spin Glass}
 A simple model that captures the consequences of disorder is an Ising model 
 with quenched randomly disordered couplings, first proposed by Edwards and 
-Anderson:
+Anderson\cite{Edwards-Anderson1975}:
 \begin{equation}
   \label{eq:Edwards-Anderson}
   H=-\sum_{\langle i,j \rangle}J_{ij}S_iS_j-h\sum_iS_i
@@ -123,7 +123,7 @@ memory effects, hysteresis, etc.
 \label{sec:meanfield-model}
 
 An infinite-ranged version of spin glass models 
-was proposed by Sherrington and Kirkpatrick (SK).
+was proposed by Sherrington and Kirkpatrick (SK) \cite{Sherrington-Kirkpatrick-1975,Sherrington-Kirkpatrick1978}.
 \begin{equation}
   \label{eq:SK}
   H=-\frac{1}{\sqrt{N}}\sum_{1\le i\le j\le N}J_{ij}S_iS_j
@@ -131,7 +131,7 @@ was proposed by Sherrington and Kirkpatrick (SK).
 Here $J_{ij}$ is chosen from a Gaussian distribution in equation 
 \ref{eq:Jij_Gaussian}.
 This model has an equilibrium phase transition at $T_c = 1$.
-For the spin glass phase below $T_c$, Parisi employed a novel ansatz and 
+For the spin glass phase below $T_c$, Parisi\cite{Parisi1980,Parisi-1980b,Parisi-1980a} employed a novel ansatz and 
 developed a  possible physical interpretation of the nature of spin glass, 
 which is now known as the ``Replica Symmetry Breaking'' (RSB) picture. The main
 idea behind the picture is that the spin glass phase consists of an infinite 
@@ -156,7 +156,8 @@ represent clusters.}
 
 Replica symmetry breaking is successful in the description of infinite range models, but whether it 
 holds in finite dimensions remains the most prominent open question in the study of spin glass systems. 
-A competing picture, known as droplet/scaling, is based on domain-wall 
+A competing picture, known as droplet/scaling\cite{Fisher-Huse-1987,Fisher-Huse-1988}, 
+is based on domain-wall 
 renormalization group ideas. In this picture, there is only a single of
 pure states that are spin-flip-symmetrical at low temperature in any finite 
 dimension. The difference between the consequence from these two pictures 

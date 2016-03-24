@@ -46,7 +46,10 @@ past few decades, including implementations using gate-level reconfigurable proc
 \cite{Ogielski-Morgenstern-1985,Ogielski-1985,Cruz-2001,Condon-Ogielski-1985,Taiji-Ito-Suzuki-1988} 
 many aspects are still far from completely understood. Some prominent 
 topics, such as the nature of the spin glass phase below the upper critical 
-dimension, remain highly debated issues.~\cite{Jorg-Katzgraber-Krzakala-2008,Moore-2005,Young-Katzgraber-2004,Temesvari-2008,Katzgraber-2008,Sasaki-etal-2008,Sasaki-etal-2007,Larson-etal-2013,Banos2012,Katzgraber-2012,Katzgraber-Larson-Young-2009,Leuzzi-2009}
+mdimension, remain highly debated issues.~\cite{Jorg-Katzgraber-Krzakala-2008,
+Moore-2005,Young-Katzgraber2004,Temesvari-2008,Katzgraber-2008,Sasaki-etal-2008,
+Sasaki-etal-2007,Larson-etal-2013,Banos-2012,Katzgraber-2012,Katzgraber-Larson-Young-2009,
+Leuzzi-2009}
 
 The Graphics Processing Unit (GPU) provides an opportunity to 
 significantly improve the computational performance of Monte Carlo simulations 
@@ -80,9 +83,9 @@ precision. Combining various tuning techniques, we achieve an average
 spin flip time of 33.5 picoseconds. This is the fastest GPU
 implementation for the random frustrated Ising system on a $16^3$
 cubic lattice, and is comparable to that obtained with a field
-programmable gate array (FPGA) hardware \cite{2012arXiv1204.4134J} for
+programmable gate array (FPGA) hardware \cite{Baity-Jesi2012} for
 small to intermediate system sizes. We note that a very recent preprint reported a faster speed in
-a new FPGA system \cite{Janus2-2013}. 
+a new FPGA system\cite{TheJanusCollaboration:2012:JFS:2322156.2322158}. 
 
 The paper is organized as follows. In Section 2, we discuss the algorithm. In section 3, 
 we present an outline of the code framework. The implementation 
@@ -97,7 +100,7 @@ results. Conclusions and future directions are described in Section 6.
 \subsection{Spin Glass}
 
 The discovery of a plethora of unusual magnetic behaviors in disordered materials 
-initiated the field of glassy systems.\cite{Binder-Young1986} Spin glasses are 
+initiated the field of glassy systems.\cite{Binder-Young-1986} Spin glasses are 
 beyond the conventional description of long range magnetic ordering, e.g., 
 ferromagnetic ordering. Some of their features, including their frequency-dependent 
 susceptibilities and the discrepancy between zero-field and field cooling measurements, 
@@ -116,7 +119,7 @@ model for infinite dimensions was first attempted by Sherrington and Kirkpatrick
 unstable below the Almeida-Thouless line, \cite{Almedia-Thouless1978,Bray-Moore-1978}
 a line in the temperature-field plane below which replica symmetry is broken. The difficulty 
 of obtaining a stable solution was solved by Parisi with his replica symmetry breaking 
-ansatz. \cite{Parisi-1979,Mezard-etal-1984,Parisi-1980a,Parisi-1980b,Parisi-1980c,Parisi-dirac-medal-2002} 
+ansatz. \cite{Parisi-1979,PhysRevLett.52.1156,Parisi-1980a,Parisi-1980b,Parisi1980,Parisi-dirac-medal-2002} 
 Although the mean field solution has been proven to provide the exact free energy for the spin glass phase 
 in infinite dimensions, \cite{Talagrand-2006,Guerra-2003} the spin glass 
 physics in finite dimensions, which presumably is more relevant to experiments, is 
@@ -140,7 +143,7 @@ systems at lower temperatures than the simple single spin flip %Monte Carlo
 method. \cite{Swendsen-Wang-1986,Hukushima-Nemoto1996,Marinari-Parisi1992} Combined with 
 improved schemes for finite size scaling, it is now widely believed that the thermodynamic 
 finite-temperature spin glass phase does exist in the three dimensional Edwards-Anderson 
-model~\cite{Ballesteros2000}. As the upper critical dimension of the 
+model~\cite{PhysRevB.62.14237}. As the upper critical dimension of the 
 model is six \cite{Harris-Lubensky-Chen-1976,Tasaki-1989,Green-Moore-Bray-1983}, a
 prominent remaining question is the nature of the 
 spin glass phase below the upper critical dimension~\cite{Young-Katzgraber2004}. 
@@ -149,14 +152,14 @@ breaking scenario, there should be an Almeida-Thouless line below the upper
 critical dimension. A possible test of whether the Almeida-Thouless 
 line exists is to determine whether a spin glass phase exists under an external 
 magnetic field. Correlation length scaling analysis seems to suggest the 
-absence of the spin glass phase in cubic lattices when a finite external field is applied.\cite{Young-Katzgraber-2004} 
+absence of the spin glass phase in cubic lattices when a finite external field is applied.\cite{Young-Katzgraber2004} 
 On the other hand, a recent study in four-dimensional lattices suggests that by using a different quantity for the 
-finite size scaling analysis, a spin glass phase can be revealed. \cite{Banos2012} 
+finite size scaling analysis, a spin glass phase can be revealed. \cite{Banos-2012} 
 Given the relevance of spin glasses and the on-going controversy on the nature 
 of the spin glass phase below the upper critical dimension, it is desirable to 
 implement an efficient parallel tempering Monte Carlo algorithm using 
 graphics processing units to accelerate the simulations. In this work we show that 
-using the multispin coding method, \cite{Zorn-Herrmann-Rebbi-1981} an efficient Monte Carlo algorithm can be implemented 
+using the multispin coding method, \cite{Zorn1981337} an efficient Monte Carlo algorithm can be implemented 
 on the GPU. 
 
 
@@ -197,7 +200,8 @@ severe when the temperature is close to the critical temperature for the second 
 transition. For certain spin glass models where random dilution is sufficiently 
 large, some form of cluster algorithm can improve the rate of thermalization. Unfortunately, 
 there is no efficient cluster methods for general spin glass systems. The possible exceptions are 
-some random diluted systems or systems in low dimension \cite{Houdayer-2001,Liang-1992,Jorg-2005}. Various other methods have been proposed 
+some random diluted systems or systems in low dimension 
+\cite{Houdayer-2001,Liang-1992,Jorg-2005}. Various other methods have been proposed 
 in the past to improve the rate of thermalization including the umbrella sampling, 
 the multi-canonical method, and rejection-free methods. It is now widely accepted that 
 the parallel tempering method is one of the most efficient algorithms for improving 
@@ -215,7 +219,8 @@ round trip along the temperature axis, that is from the lowest to the highest
 temperature and back to the lowest temperature. This largely depends on 
 the system being simulated. Fine tuning the range of temperatures and the 
 spacing between them is crucial to optimize the performance. Some 
-recent proposals have been tested on the non-disorder Ising model \cite{PhysRevLett.101.130603,1742-5468-2006-03-P03018,jcp/124/17/10.1063/1.2186639}.
+recent proposals have been tested on the non-disorder Ising model 
+\cite{PhysRevLett.101.130603,1742-5468-2006-03-P03018,jcp/124/17/10.1063/1.2186639}.
 Models with explicit disorder such as the Edwards-Anderson lack an efficient 
 general method. For a practical GPU implementation, one also 
 needs to consider the effect of the number of replicas on the performance.
@@ -615,7 +620,7 @@ The basic idea of multispin coding (MSC) is to present many binaries or short ve
 packed word. For example, Ising spins may be stored with a single bit per spin, with 0 being spin 
 down and 1 being up.  In our particular implementation, we also encode the 4 bit string of one site's 
 spin-flip probability table's row index (section \ref{section_prob}) into an integer word. 
-MSC \cite{PhysRevLett.42.1390,Zorn-Hermann-Rebbi-1981} yields a more efficient way of calculating local energies 
+MSC \cite{PhysRevLett.42.1390,Zorn1981337} yields a more efficient way of calculating local energies 
 ($E$) and reduces the memory required for the spin configurations.  This packing prevents the Arithmetic 
 Logic Unit, which performs integer arithmetic and logical operations, and the memory bandwidth from 
 being under utilized. Also, a memory transaction (7 loads and 1 store) can serve the calculation of 
@@ -1047,7 +1052,7 @@ Our program is substantially faster than any other GPU implementation
 \cite{CSTN-093,2010CoPhC.181.1549B,doi:10.1142/S0129183112400025,Weigel:2012:PPS:2151219.2151631} for
 small to intermediate system sizes. We are comparable to the
 performance achieved by special-purpose FPGA
-implementations\cite{2012arXiv1204.4134J}.
+implementations\cite{Baity-Jesi2012}.
 
 
 \begin{figure}[!ht]
@@ -1085,7 +1090,7 @@ ordering. \cite{PhysRevB.44.5081}
 For the Edwards-Anderson model we calculate the Binder ratio
 of the system at zero external magnetic field as shown in Figure
 \ref{fig:binder-ea}. The results match reasonably well with the
-published data. \cite{Katzgraber-Korner-Young-2006} Figure \ref{fig:qvst} demonstrates the effectiveness
+published data. \cite{2006PhRvB..73v4432K} Figure \ref{fig:qvst} demonstrates the effectiveness
 of parallel tempering for the Edwards-Anderson spin glass. The
 parallel-tempering simulation reaches equilibrium after $10^5$ Monte
 Carlo sweeps, while without parallel tempering, the system did not
@@ -1121,7 +1126,7 @@ correctly.
    % \includegraphics[width=0.5\textwidth]{../img/result/binder_compare.pdf}
     \includegraphics[width=0.8\textwidth]{img/binder_compare.pdf}
     \caption{Binder Ratio for the 3D Edwards-Anderson model. The data generated by our GPU code is compared 
-    with the data extracted from the paper by Katzgraber {\it et al.} \cite{Katzgraber-Korner-Young-2006}}
+    with the data extracted from the paper by Katzgraber {\it et al.} \cite{2006PhRvB..73v4432K}}
     \label{fig:binder-ea}
     \end{figure}
   %\end{minipage}
@@ -1153,7 +1158,7 @@ We design and implement a CUDA code for simulating the random frustrated
 three-dimensional Edwards-Anderson Ising model on GPUs. 
 For small to intermediate system sizes, our code runs faster than other
 GPU implementations, and its speed is close to that of the specially built FPGA
-computer. We note a very recent	preprint has reported an improvement in FPGA system. \cite{Janus2-2013}
+computer. We note a very recent	preprint has reported an improvement in FPGA system. \cite{TheJanusCollaboration:2012:JFS:2322156.2322158}
 Our performance tuning strategies include constructing three
 levels (tasks, threads, bits) of parallel workloads for GPU;
 optimizing the memory access via a proper data layout and tiling; 

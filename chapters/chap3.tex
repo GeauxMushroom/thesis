@@ -37,7 +37,7 @@ systems do not display long range order for a wide range of diluted spin
 concentrations.
 
 A widely studied model to describe spin glass physics is the Edwards-Anderson 
-(EA) model\cite{Edwards-Anderson-1975}. It is composed of spins interacting
+(EA) model\cite{Edwards-Anderson1975}. It is composed of spins interacting
 with their nearest neighbors via random couplings. The mean-field variant of the 
 Edwards-Anderson model, the Sherrington-Kirkpatrick (SK) model\cite{Sherrington-Kirkpatrick1978,Sherrington-Kirkpatrick-1975},
 was solved by the replica technique in 1975 with the striking observation that 
@@ -51,10 +51,10 @@ However, multiple solutions were found\cite{Bray-Moore-1980}.
 Motivated by the deficits of previous approaches, de Almeida and Thouless
 further studied the replica symmetric mean field solution and found a line 
 in the temperature--magnetic field plane where the replica symmetry
-solution is unstable towards replica symmetry breaking (replica symmetry breaking) \cite{Almedia-Thouless-1978,Bray-Moore-1978}
+solution is unstable towards replica symmetry breaking (RSB) \cite{Almedia-Thouless1978,Bray-Moore-1978}
 The replica overlap has more structure than simply a constant. The way to 
 characterize this structure for a stable mean field solution was developed 
-by Parisi \cite{Parisi-1980a,Parisi-1980b,Parisi-1980c}.  There is a hierarchy 
+by Parisi \cite{Parisi-1980a,Parisi-1980b,Parisi1980}.  There is a hierarchy 
 of the replica overlap, and this can be described in terms of an ultra-metric tree. 
 The replica symmetry breaking scheme resolved the negative entropy crisis and naturally 
 explained the many solutions found in the TAP approach.
@@ -216,7 +216,7 @@ The first half of the Monte Carlo sweeps are used for thermalization and the sec
 We list the parameters of our simulation in Table \ref{tab:parameters}. We 
 benchmarked the code against existing results at $h=0$.  The smallest 
 $\beta$ used in the parallel tempering is well below the critical temperature ($1/\beta_{c} = T_{c} \approx 1.1019 \pm 0.0029$) \cite{Baity-Jesi-etal-2013} of 
-the spin glass transition at zero field\cite{Ballesteros2000,Baity-Jesi-etal-2013}, while the largest $\beta$ 
+the spin glass transition at zero field\cite{PhysRevB.62.14237,Baity-Jesi-etal-2013}, while the largest $\beta$ 
 is about two times larger.  The estimated critical field at zero temperature is around $h \approx 0.65$ for 
 the model with zero mean and unit variance Gaussian distributed couplings\cite{Krzakala-etal-2001}. 
 We choose to work in a relatively small field, $h=0.1$. 
@@ -264,7 +264,7 @@ range  $\beta=0.1\sim1.8$ for system sizes $L=6,8,10$.}
 
 Fig.~\ref{fig:c-h0} displays the scaled correlation length. This is now a standard 
 diagnosis for the detection of a spin glass transition. The correlation length is 
-extracted from the Ornstein-Zernike form (Eq.~\ref{eq:corrlength}), and thus essentially given by the ratio 
+extracted from the Ornstein-Zernike form (Eq.~\ref{eq:corr}), and thus essentially given by the ratio 
 between the zero and the smallest finite momentum susceptibilities. 
 Similar to the Binder ratio, and consistent with other results in the literature, 
 there is no crossing or even merging down to a rather low temperature~\cite{Young-Katzgraber2004}.
