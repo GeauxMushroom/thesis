@@ -76,26 +76,23 @@ B.Sc., University of Science and Technology of China, 2010\\
 \markboth{Abstract}{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
+
 We study the Edwards-Anderson model on a simple cubic lattice with a finite 
-constant external field. We implement and optimize a code with CUDA 
-architecture for efficient Monte Carlo simulation of spin glass systems on 
-Graphic Processing Units. 
-We study several traditional indicators, including the Binder ratio and the 
-correlation length, as well as a new quantity composed of 
-a ratio of susceptibilities at finite momenta.% which was recently proposed to 
-%avoid the difficulties of a zero momentum quantity, for capturing the spin glass
-% phase transition. 
-%Unfortunately, this new indicator is fairly noisy, so 
-%a large pool of samples at low temperature and small external field are 
-%needed to generate results with sufficiently small statistical error for 
-%analysis.  
-We confirm previous findings that conventional indicators for the 
-spin glass transition do not show any indication of a transition for rather 
-low temperatures. 
-However, the ratio of spin glass susceptibilities do show crossing behavior, 
-albeit a systematic analysis is beyond the reach of the present data. 
-%This calls for a more thorough study of the three dimensional Edwards-Anderson 
-%model in an external field. 
+constant external field. We employ an indicator composed of a ratio of 
+susceptibilities at finite momenta, which was recently proposed to avoid 
+the difficulties of a zero momentum quantity, for capturing the spin glass 
+phase transition. Unfortunately, this new indicator is fairly noisy, so 
+a large pool of samples at low temperature and small external field are 
+needed to generate results with sufficiently small statistical error for 
+analysis.  We thus implement the Monte Carlo method using graphics 
+processing units to drastically speed up the simulation. We confirm previous 
+findings that conventional indicators for the spin glass transition, including 
+the Binder ratio and the correlation length do not show any indication of a 
+transition for rather low temperatures.  However, the ratio of spin glass 
+susceptibilities do show crossing behavior, albeit a systematic analysis 
+is beyond the reach of the present data. 
+This reveals the difficulty with current numerical methods and computing capability
+in studying this problem.
 
 
 One of the fundamental challenges of theoretical condensed matter physics is 
@@ -103,7 +100,7 @@ the accurate solution of quantum impurity models. By taking expansion in the
 hybridization about an exactly solved local limit, one can formulate an quantum
 impurity solver. We implement the hybridization expansion quantum impurity
 solver on Intel Xeon Phi accelerators, and aim to apply this approach on the
-dynamic Hubbard Models.
+Dynamic Hubbard Models.
 %Dynamic Hubbard Models are proposed to reflect the fact that the wavefunction 
 %of an electron in an atomic orbital expands when a second electron occupies 
 %the orbital. 
@@ -121,11 +118,13 @@ dynamic Hubbard Models.
 %\include{chapters/chap5}
 %\include{chapters/cthyb}
 \include{chapters/conclusion}
+
+{
 \backmatter
 \bibliography{thesis}
+}
 
 \appendix
-\chapter*{Appendix: Notes on covariance matrix spectrum}
 \include{chapters/appendix_matrix}
 
 
