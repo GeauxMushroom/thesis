@@ -609,12 +609,13 @@ Also, the memory access pattern is identical to that of the 7-point 3D Jacobi st
     \hline
   \end{tabular*}
 \end{small}
-  \caption{Performance comparison of the unified/separated/shuffled storage allocation schemes for
-  a $16^3$ lattice. The definition of  a transaction is a sequence of  7 loads and a store that serve the spin update.}
+\caption[]{Performance comparison of the unified/separated/shuffled storage allocation schemes for
+  a $16^3$ lattice. The definition of  a transaction is a sequence of  7 loads and a store that serve the spin update.\footnotemark}
 \label{table_allocation}
-  \end{table}
+\end{table}
 
-
+\footnotetext{These numbers are calculated by measuring the difference of execution time of
+a memory load and the execution time of assigning a constant to the variable.}
 
 \subsubsection{Tiling for the Multispin Coding Lattice}
 The basic idea of multispin coding (MSC) is to present many binaries or short vectors in a longer 
