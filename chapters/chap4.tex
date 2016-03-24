@@ -4,7 +4,7 @@
 %%% TeX-master: "../thesis"
 %%% End:
 
-\chapter{Strongly correlated materials}
+\chapter{Continuous Time Quantum Monte Carlo Solver for Strongly Correlated Materials}
 \label{chap:cthyb}
 \section{Introduction}
 
@@ -80,12 +80,12 @@ obstacle. Once the single particle picture fails, there
 is no good starting point for many perturbative calculations. It renders
 into a regime almost all analytical methods will fail. In the following we 
 will discuss two majors progress in attacking correlated systems. The first one 
-is Density Functional Theory (DFT)\cite{PhysRev.136.B864,PhysRev.140.A1133} , 
+is density functional theory (DFT)\cite{PhysRev.136.B864,PhysRev.140.A1133} , 
 a many-site single particle treatment; 
-and the other one is Dynamical Mean Field Theory (DMFT) \cite{RevModPhys.68.13,PhysRevB.45.6479}, 
+and the other one is dynamical mean field theory (DMFT) \cite{RevModPhys.68.13,PhysRevB.45.6479}, 
 a single site many-body treatment. 
 
-\section{Numerical approaches in strongly correlated materials}
+\section{Numerical Approaches in Strongly Correlated Materials}
 Numerical calculation in strongly correlated fermion systems is a major 
 challenge in condensed matter physics. In real world, materials consist of 
 $10^{23}$ interacting particles, which is impossible to solve at first glance. 
@@ -110,7 +110,7 @@ plays an important part. However, it seems to be quite
 difficult to handle such strong correlation by simple improvements of the 
 DFT. A promising direction is to combine other methods which can treat
 strong correlation with the DFT method. A popular choice is to employ 
-the Dynamical Mean Field Theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
+the dynamical mean field theory\citep{RevModPhys.68.13,PhysRevB.45.6479} (DMFT)
 to include the effect from the electron-electron
 correlation on top of the single particle dispersion obtained from the DFT. 
 
@@ -168,7 +168,7 @@ off-diagonal couplings since the local problem is treated exactly.
 
 \section{Algorithm}
 \label{sec:hyb-alg}
-\subsection{Hybridization Expansion CTQMC algorithm}
+\subsection{Hybridization Expansion CTQMC Algorithm}
 A quantum impurity model may be represented as a Hamiltonian $H_\text{QI}$
 
 \begin{equation}
@@ -259,7 +259,7 @@ We would discuss both in the following sections \ref{sec:trace_segment},
 \ref{sec:trace}, and introduce scalable 
 algorithms in \ref{sec:cthyb_krylov} and \ref{sec:cthyb_fmu}.
 
-\subsection{Evaluation of the trace using the segment picture}
+\subsection{Evaluation of the Trace Using the Segment Picture}
 \label{sec:trace_segment}
 The trace factor represents the impurity with particles hopping in and out at 
 imaginary times $\tau'$ and $\tau$, and the determinant sums up all compatible 
@@ -294,7 +294,7 @@ $l_{\textrm{overlap}}$ is the total overlap between two spin channels. The sign
 $s_\sigma$ is $-1$ when one of the segments winds around from $\beta$ to $0$, 
 and $+1$ otherwise.
 
-\subsection{Evaluation of the trace for non-diagonal Hamiltonian}
+\subsection{Evaluation of the Trace for Non-diagonal Hamiltonian}
 \label{sec:trace}
 In models such as Dynamical Hubbard Model, the local part of Hamiltonian is not
 diagonal in the occupation number basis, and, therefore, we cannot use the segment
@@ -338,7 +338,7 @@ We can then evaluate the full trace of the matrix above, using a series of
 matrix multiplications.
 
 
-\subsection{Monte Carlo sampling}
+\subsection{Monte Carlo Sampling Procedure}
 \label{sec:cthyb_mcs}
 To sample the configuration space with Monte Carlo procedures, one can propose 
 a new configuration by:
@@ -617,8 +617,8 @@ channel, and measure the overlap between the shifted channel and the other chann
 
 \section{DMFT Loop}
 
-A commonly used method to solve lattice problems is to use the Dynamical Mean
-Field Theory (DMFT) to approximate the original problem by an impurity problem
+A commonly used method to solve lattice problems is to use the dynamical mean
+field theory (DMFT) to approximate the original problem by an impurity problem
 plus a self-consistency condition.
 
 The impurity problem is solved by the 
@@ -715,7 +715,7 @@ precision floating point instructions with 352 GB/sec memory bandwidth at 300W.
 The current top supercomputer on TOP500 list, Tianhe-2, uses Intel Ivy Bridge
 processors and Xeon Phi coprocessors to achieve 33.86 petaFLOPS.
 
-\subsection{OpenMP parallelization}
+\subsection{OpenMP Parallelization}
 We use a straightforward OpenMP approach to parallelizing our code. By deploying
 multiple Markov chains on each processor/coprocessor, we have an embarrassingly 
 parallel program, where each of the processes is independent of another, thus, no
@@ -757,7 +757,7 @@ be done efficiently on both platforms.
 
 %\subsubsection{Adding/removing rows and columns}
 
-\subsection{Krylov method}
+\subsection{Krylov Method}
 \label{sec:cthyb_krylov}
 When the Hamiltonian is not diagonal, the update of the trace can be very expensive.
  The complexity of the method described in \ref{sec:trace}
@@ -816,7 +816,7 @@ of $k$ is needed, thus, the complexity of the computation is reduced.
 Overall the complexity scales as $O(m^2kn)$.
 
 
-\subsection{Using Legendre Polynomials}
+\subsection{Using Legendre Polynomials for Measurement}
 
 To reduce high-frequency noise in the measurements of Green's function, 
 one can use a set of Legendre polynomials\citep{2011PhRvB..84g5145B} as basis and measure the coefficients. 
@@ -954,7 +954,7 @@ original CPU code.
 %\section{Dynamic Hubbard Models}
 %\label{ssec:hyb-mod}
 
-\section{Preliminary results}
+\section{Preliminary Results}
 We benchmark our CTQMC solver with another Hirsch-Fye code and compare the results,
 as shown in Fig.\ref{fig:u2}. This verifies that we can match the results of 
 other impurity solvers.
@@ -985,7 +985,7 @@ The Dynamical Hubbard models contain the idea of break the electron-hole
 symmetry, due to the insufficiency of conventional Hubbard model in describing 
 some scenarios in real materials, where important physics happens in transport 
 and other processes. With the new methods applied, we hope one can answer the question 
-about superconductivity in the dynamical Hubbard model. 
+about superconductivity in the Dynamical Hubbard model. 
 
 %%% Local Variables:
 %%% mode: latex

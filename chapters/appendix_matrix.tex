@@ -1,5 +1,5 @@
-\chapter{Notes on covariance matrix spectrum}
-\section{Covariance matrix spectrum}
+\chapter{Notes on Covariance Matrix Spectrum}
+\section{Covariance Matrix Spectrum}
 The covariance matrix is defined as 
 \[
 M_{\alpha,\beta}=\frac{1}{N}\sum_iS_i^{(\alpha)}S_i^{(\beta)}-
@@ -25,7 +25,7 @@ Each matrix is formed from 140 samples of the same disorder realizations.}
 FIG. \ref{fig:exp} shows the singular value calculated with this method, using
 the data we gathered on Shelob.
 
-\section{Different phases/scenarios}
+\section{Different Phases/Scenarios}
 Here we discuss a few possible scenarios of this model.
 
 \begin{enumerate}
@@ -80,7 +80,7 @@ We can assume the overlap also follows a tree structure.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.8\textwidth]{img/matrix/tree.png}
-  \caption{Illustration of the tree structure. From Fischer \& Hertz, Spin Glasses, page 93}
+  \caption{Illustration of the tree structure. From \citet{Fischer-Hertz-1993}, page 93}
   \label{fig:tree}
 \end{figure}
 
@@ -122,7 +122,7 @@ calculated from real simulation data.
 
 \end{enumerate}
 
-\section{Distribution of $\lambda$}
+\section{Distribution of Eigenvalues}
 
 To understand the spectrum better, we look at some of the distribution of 
 a few eigenvalues. Here $\lambda_i$ stands for the $i$th largest eigenvalue.
@@ -201,7 +201,7 @@ three finite eigenvalues.
 %droplet model is necessary. I have received the code from Ka-Ming and I'll
 %do more simulations on this. 
 
-\section{Data from Droplet model}
+\section{Data from Droplet Model}
 We ran the model with a weakly correlated random disorder (van Hemmen model),
 where
 \[
@@ -244,7 +244,7 @@ Comparing the result from Droplet model and EA model, we do not see much differe
 Even there is a difference between the Droplet model and EA model, it seems 
 the system size we use is not large enough to show it.
 
-\section{Data from RSB model }
+\section{Data from RSB Model }
 We use the Sherrington-Kirkpatrick Model here:
 \[
 H=-\frac{1}{\sqrt{N}}\sum_{1\le i \le j \le N} J_{ij}\sigma_i\sigma_j
@@ -276,7 +276,7 @@ Each matrix is formed from 64 samples of the same disorder realizations.}
   \label{fig:eigRSB}
 \end{figure}
 
-\section{Comparison among three models}
+\section{Comparison Among Three Models}
 We further inspect the temperature dependency of the eigenvalues for different
 models,by plotting the (second largest eigenvalue of the covariance matrix / linear size 
 of the covariance matrix) vs ($\beta/\beta_c$) for three different models, where
