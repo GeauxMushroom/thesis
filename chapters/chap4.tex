@@ -160,7 +160,7 @@ approach \cite{RevModPhys.83.349, PhysRevB.75.155113, PhysRevB.80.235117,
 PhysRevB.74.155107}. 
 The fact that the order of expansion decreases with increasing 
 interaction makes this method favorable for strong interaction systems. 
-The algorithm is also found to work at very low temperatures, and is applicable
+The algorithm is also found to work at very low temperatures and is applicable
 to a wider class of impurity models including those with complicated 
 off-diagonal couplings since the local problem is treated exactly. 
 
@@ -267,7 +267,7 @@ $\ket{\uparrow\downarrow}$) the Hubbard Hamiltonian is diagonal,
 and the creation and annihilation operators for given spin have to alternate 
 for the trace to be finite. This allows the configuration of the operators to be
 represented in a segment picture, where each pair of neighboring creation/annihilation 
-operators is represented by a segments on the imaginary time axis, as shown in 
+operators are represented by a segment on the imaginary time axis, as shown in 
 figure~\ref{fig:seg}.
 
 %put segment picture here.
@@ -295,7 +295,7 @@ and $+1$ otherwise.
 \subsection{Evaluation of the trace for non-diagonal Hamiltonian}
 \label{sec:trace}
 In models such as Dynamical Hubbard Model, the local part of Hamiltonian is not
-diagonal in the occupation number basis, and therefore we cannot use the segment
+diagonal in the occupation number basis, and, therefore, we cannot use the segment
 picture to evaluate the trace easily. In this case, we need to evaluate the 
 trace of this term:
 \begin{equation}
@@ -308,7 +308,7 @@ To evaluate the exponential terms, we diagonalize the Hamiltonian with
 \[
 H=UVU^T
 \]
-where $V$ is diagonal matrix with eigenvalues of $H$, each column of $U$ is a
+where $V$ is a diagonal matrix with eigenvalues of $H$, each column of $U$ is an
 eigenvector of $H$.
 Using
 \[
@@ -434,13 +434,13 @@ P_\mathrm{accpt:k\rightarrow k}=\min\left(1,
 \right)
 \end{equation}
 
-In the case where one or more channels has no segments, we need to evaluate the trace
+In the case where one or more channels have no segments, we need to evaluate the trace
 from the Hamiltonian. Here $k$ refers to the number of segments on the channel
 where the move is proposed, and $k'$ refers to the number of segments on the
 channel with opposite spin direction.
 
 \begin{enumerate}
-  \item Adding a segments to channel $\sigma$.
+  \item Adding a segment to channel $\sigma$.
 
     \begin{equation}
       P_\mathrm{accpt:k\rightarrow k+1}=\min\left(1,\mathrm{sign}(\tau-\tau')
@@ -714,7 +714,7 @@ The current top supercomputer on TOP500 list, Tianhe-2, uses Intel Ivy Bridge
 processors and Xeon Phi coprocessors to achieve 33.86 petaFLOPS.
 
 \subsection{OpenMP parallelization}
-We use a straight forward OpenMP approach to parallelize our code. By deploying
+We use a straightforward OpenMP approach to parallelizing our code. By deploying
 multiple Markov chains on each processor/coprocessor, we have an embarrassingly 
 parallel program, where each of the processes is independent of another, thus, no
 communication overhead is required. Next, we discuss how we speed up the 
@@ -945,7 +945,7 @@ would be bigger, and thus a larger space needs to be assigned.
 \end{itemize}
 \end{itemize}
 With these optimization methods, we improved CPI rate, L1 hit ratio, and 
-vectorization intensity. We achieved more than two times speed up comparing to 
+vectorization intensity. We achieved more than two times speedup comparing to 
 original CPU code.
 
 
@@ -979,7 +979,7 @@ local term. For more orbitals, a Krylov solver \cite{PhysRevB.80.235117} can be 
 trace computation.
 
 One of the possible application of the solver is the Dynamical Hubbard Models. 
-The Dynamical Hubbard models contains the idea of break the electron-hole 
+The Dynamical Hubbard models contain the idea of break the electron-hole 
 symmetry, due to the insufficiency of conventional Hubbard model in describing 
 some scenarios in real materials, where important physics happens in transport 
 and other processes. With the new methods applied, we hope one can answer the question 

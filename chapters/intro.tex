@@ -63,9 +63,9 @@ moments can be mapped on to Ising spins that only point parallel or antiparallel
 to the c-axis of the tetragonal crystalline structure of the lattice. 
 
 The discovery of the spin glass materials is due to its unique behaviors of
-the susceptiblity. The now defining signature of spin glass materials is 
-the cusp in the low-field ac susceptibility, first found by Cannella and Mydosh(1972).
-In contrast of the usual ferromagnetic systems, this signature strongly 
+the susceptibility. The now defining signature of spin glass materials is 
+the cusp in the low-field AC susceptibility, first found by Cannella and Mydosh(1972).
+In contrast to the usual ferromagnetic systems, this signature strongly 
 suggests the lack of long range order. The physical picture of the lack 
 of divergence in the susceptibility indicates a transition to a state of randomly 
 frozen spins. 
@@ -88,8 +88,8 @@ $J_{ij}$ can be either Gaussian random variables, or binary random variables.
 
 The mean-field variant of this model, the Sherrington-Kirkpatrick model\cite{Sherrington-Kirkpatrick1978,Sherrington-Kirkpatrick-1975}, was 
 solved by Parisi\cite{Parisi-1980a,Parisi-1980b,Parisi1980} using the replica 
-symmetry breaking approach. In this picture,m
-there is a hierarchy of the replica overlap, which can be described by an untra-metric
+symmetry breaking approach. In this picture,
+there is a hierarchy of the replica overlap, which can be described by an ultrametric
 tree. Although this theory has been accepted as the exact solution to an Edwards-Anderson
 like model with infinite range interactions, its applicability in lower dimensions 
 has been debated. Below the upper critical dimension ($d<6$)\cite{Harris-Lubensky-Chen-1976,Tasaki-1989,Green-Moore-Bray-1983}, 
@@ -100,7 +100,7 @@ there is only a pair of spin-flip related pure states in the thermal dynamic
 limit.
 
 
-
+\iffalse
 A system is said to present annealed disorder when some parameters entering 
 its definition are random variables, but whose evolution is related to that 
 of the degrees of freedom defining the system. For example, in the case of 
@@ -113,6 +113,7 @@ where the degrees of freedom $r_i$ are the positions of the particles, and the
 function $V(r)$ is a potential. Even though there is no quenched disorder in
 the Hamiltonian, at low temperature, the system stays in a frozen glassy state, 
 and each particle is in a different, disordered environment.
+\fi
 
 One of the most significant differences between the two pictures is the effect 
 of an external field\cite{Young-Katzgraber2004}. The droplet picture predicts that there is no phase transition
@@ -126,8 +127,8 @@ state by minimization method such as branch-and-cut method is mostly useful for
 two dimensions. 
 
 The difficulty of using minimization at three dimensions can be 
-considered as consequence of the proof that the ground state energy of a three dimensional
-Edwards-Anderson model is NP-complete. Therefore, the study of the three dimensional
+considered as consequence of the proof that the ground state energy of a three-dimensional
+Edwards-Anderson model is NP-complete. Therefore, the study of the three-dimensional
 cases is only practically feasible at finite temperatures. The best available method
 is the Monte Carlo. By the very nature of spin glass systems, the long relaxation time, 
 Monte Carlo simulation is bound to be very slow. This problem can be attacked from 
@@ -139,7 +140,7 @@ time. This is not solely on the software programming. Due to the relatively
 simple Monte Carlo method, various dedicated machines were built exclusively for the simulation
 of spin glass systems. 
 
-In the following we will review a few important milestones in the numerical study of
+In the following, we will review a few important milestones in the numerical study of
 Edwards-Anderson model. Although the model was proposed at 1975, reliable simulations
 only appear from around mid-80s.
 
@@ -147,22 +148,22 @@ only appear from around mid-80s.
 Edwards-Anderson model in zero field for samples with $3<L<20$. Results for 
 $T\ge1.2$ are consistent with a conventional phase transition at $T_c=1.2$.
 However, at lower temperatures, the results indicate marginal behavior. This existence
-of a spin glass transition has long been considered as a open question due to the
+of a spin glass transition has long been considered as an open question due to the
 results from this paper. 
 
-\citet{PhysRevB.62.14237} used the parallel tempering technique to study the three dimensional
+\citet{PhysRevB.62.14237} used the parallel tempering technique to study the three-dimensional
 Edwards-Anderson model in helicoidal geometry. By measuring the correlation length
 in the critical region,  evidence for a second order finite-temperature phase 
 transition was obtained and critical exponents such as $\nu$ and $\eta$ were 
 calculated. This is the beginning of a new chapter in the numerical simulation 
 of spin glass. The wisdom from this paper is that the conventional indicators,
-in particular the ration of cumulants of order parameter, are not sufficient 
+in particular, the ratio of cumulants of the order parameter, are not sufficient 
 for detecting a transition. The results from this paper bring to a universal
-consensus that the spin glass transition does exist in the three dimensional
+consensus that the spin glass transition does exist in the three-dimensional
 Edwards-Anderson model.
 
-Katzgraber and Young studied the model in a magnetic field-known and 
-found the absence of the de Almeida-Thouless lin. Later, a one-dimensional 
+Katzgraber and Young studied the model in a magnetic field--known and 
+found the absence of the de Almeida-Thouless line. Later, a one-dimensional 
 power-law diluted Ising spin-glass model has been proposed to produce an
 effective model at higher dimensions\cite{Young-Katzgraber2004}. Their results for the model 
 corresponding to a three-dimensional system are consistent with there being no 
@@ -210,7 +211,7 @@ One of the simplest models is the Hubbard Hamiltonian,
 This Hamiltonian describes electrons with spin directions $\sigma$ moving between 
 lattices $i$ and $j$, and they only interact when they meet on the same lattice 
 site $i$. The kinetic term favors the delocalization of electrons, while the 
-potential term favors localization, and therefore they compete against each
+potential term favors localization, and, therefore, they compete against each
 other. The system property is then determined by parameters such as the ratio of
 the Coulomb interaction $U$ and the bandwidth $W$, the temperature $T$ and the 
 hopping or number of electrons. 
@@ -253,8 +254,8 @@ For example, a Nvidia K80 GPU \cite{nv_k80_spec} has 2496 cores, and can achieve
 double precision performance and up to 8.74 TFlops single precision performance, 
 and has a bandwidth of 480GB/s.
 The dominant framework for GPU programming is Nvidia CUDA \cite{Nickolls:2008:SPP:1365490.1365500}, which allows 
-programmers to write codes with C, C++ and Fortran and run the program on CUDA
-enabled GPUs.
+programmers to write codes with C, C++ and Fortran and run the program on CUDA-enabled 
+GPUs.
 
 
 Intel Xeon Phi\cite{Jeffers:2013:IXP:2523262} is a coprocessor developed by Intel that features a 
@@ -303,9 +304,9 @@ the top 40 supercomputers listed all used accelerators of one form or another.
 Albeit the advantages in the hardware, the heterogeneous nature present new
 and unique challenges for programmers and scientists. 
 %Parallelism
-In parallel programming, programmers need to explore the problem for 
-possibility of parallelization, map the tasks onto threads, schedule for
-communication and/or synchronization, and solve problems such as race conditions,
+In parallel programming, programmers need to explore the problem for the
+possibility of parallelization, map the tasks onto threads, to schedule for
+communication and/or synchronization, and to solve problems such as race conditions,
 etc. Communication and barriers could result in parallel slow-down, 
 a situation in which the overhead from communication outweighs the performance 
 gain from parallelism, and further parallelization increases the time to finish
@@ -319,15 +320,15 @@ Different processors/accelerators often feature different memory architecture.
 To achieve the best possible performance, architecture aware memory access is 
 very important to utilize the high memory bandwidth and reduce the latency.
 This is even more important in programming for accelerators such as GPUs than in
-CPU programming, since the latency is not hidden by large cache.
+CPU programming, since the latency is not hidden by a large cache.
 For example, in CUDA %, the architecture Nvidia use for programming their GPUs, 
 there are different types of memory such as registers, local memory, shared 
 memory, global memory, and constant memory, etc. Each of these types is 
 different in terms of size, latency, bandwidth, and performance profile for 
-various access modes, and one have to make conscious decisions when using them
+various access modes, and one has to make conscious decisions when using them
 in order to avoid performance penalties and make the best of the hardware. 
 In CUDA, this means programmers need to put the correct qualifiers in front when 
-declaring their variables, and move their variables around the memory hierarchy 
+declaring their variables and move their variables around the memory hierarchy 
 when needed.
  
 %Communication
@@ -341,8 +342,8 @@ First, some programming languages, such as CUDA, and associated compilers and to
  are exclusive for their specific platforms. In order to program, debug, profile 
 and optimize a code for different platforms, programmers often need to understand 
 more than one set of tools. 
-Second, different performance profile for different hardwares are very
-different from each other, thus an efficient code on one platform may not be
+Second, the performance profiles for different hardware are very
+different from each other, thus, an efficient code on one platform may not be
 optimal for another. 
 Fortunately, tools that aim at portable accelerated codes with great performance, such as 
 OpenMP\cite{dagum1998openmp}, OpenCL\cite{Stone:2010:OPP:622179.1803953} and OpenACC\cite{OpenACC}, are evolving along with the hardware, and they allow programmers
@@ -363,7 +364,7 @@ field. We first discuss the model and the theoretical understanding in chapter
 \ref{chap:SG_imp}. We show the results obtained from this study in chapter \ref{chap:sg_result}.
 Some additional research using the covariance matrix is covered in the appendix.
 
-Second, we show our work on a Continuous Time Quantum Monte Carlo solver implemented
+Second, we show our work on a Continuous-Time Quantum Monte Carlo solver implemented
 on the Intel Xeon Phi platform in chapter \ref{chap:cthyb}. We first discuss the 
 motivation and formalism behind this implementation. Then, we show the detail of
 the implementation and the optimization. We also included some preliminary benchmarking
