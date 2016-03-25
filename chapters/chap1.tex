@@ -1,6 +1,7 @@
 \chapter{Spin Glass}
 \label{chap:SGintro}
-\section{Introduction to Spin Glass}
+\section{Introduction and Experimental Features}
+\label{sec:sg_intro}
 Spin glasses \cite{Binder-Young-1986} are magnetic systems where the frozen-in quenched  
 disorder leads to conflicting couplings among magnetic moments, which prevents the formation 
 of long-range magnetic ordering, e.g.,ferromagnetic ordering.
@@ -10,8 +11,6 @@ magnetic impurity (such as Fe, Mn) randomly substituted into the lattice of a
 noble metallic host (i.e. Cu, Au). On the other hand, insulators such as 
 Eu$_x$Sr$_{1-x}$S, and LiHo$_{x}$Y$_{1-x}$F$_{4}$ also show spin glass behavior.
  
-%It needs more introduction 
-
 The physics underlying the spin glass behavior comes from the quenched 
 randomness: a pair of spins has a roughly equal a priori probability of having
 a ferromagnetic or an anti-ferromagnetic interaction. For the dilute magnetic 
@@ -33,19 +32,97 @@ of every pair of spins.
 \begin{figure}[!h]
   \label{fig:rkky}
   \centering
-  \includegraphics[width=0.6\textwidth]{img/RKKY.png}
+  \includegraphics[width=0.5\textwidth]{img/RKKY.png}
   \caption{Sketch of RKKY interaction.}
 \end{figure}
 
-Experiments demonstrated some unusual features of spin glass materials, 
-including the cusp instead of a true divergence in the low-field, low-frequency 
-susceptibility and the discrepancy of magnetic response between zero-field and field cooling 
-measurements, as shown in Fig \ref{fig:experimentsSG}. 
+Experiments demonstrated many unusual features of spin glass materials.
 
-These facts suggest that spin glass system has no conventional 
-long range magnetic ordering and exhibits very slow dynamics. For experimental 
-systems, equilibrium can never be achieved. 
+\subsection{AC susceptibility}
+The experimental observation of a sharp cusp in the AC susceptibility, first
+carried out on a metallic AuFe by \citet{PhysRevB.6.4220}, as shown in as shown in Fig.\ref{fig:au-fe-cusp}, 
+sparked the research on spin glass materials. 
+%Similar cusps in low-field AC susceptibility also occur in other diluted 
+%magnetic alloys such as CuMn, AgMn, AuMn, and AuCr.
+\citet{THOLENCE1977875,:/content/aip/proceeding/aipcp/10.1063/1.30603,
+:/content/aip/proceeding/aipcp/10.1063/1.30565} also found similar cusp occurring in PtMn alloys.
+Upon applying a magnetic field, Cannella and Mydosh also found that even a weak
+magnetic field strongly rounds the cusp of $\chi(T)$.
 
+The AC susceptibility of spin glass also features pronounced frequency dependence. 
+In figure \ref{fig:ac-chi-freq}, we show the AC susceptibility of CuMn for various
+AC frequencies $\nu$ ranging from 10 Hz to 10,000 Hz. As shown in the figure, the
+peak of $\chi(T)$ gradually shift to lower temperature with decreased $\nu$.
+This is natural considering that as one probes the spin motion at longer time scales,
+the slowing down and freezing of the spins tends to occur at lower temperatures.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/cusp.png}
+  \caption{\label{fig:au-fe-cusp}Susceptibility of Au-Fe alloys ploted vs. temperature. Full curves refer to zero field, from \citet{PhysRevB.6.4220}.}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/ac-chi-freq.png}
+  \caption{\label{fig:ac-chi-freq}The AC susceptibility of CuMn with 4.6\% Mn plotted vs temperature, for various ac frequencies, from \citet{THOLENCE1980113}.}
+\end{figure}
+
+
+\subsection{Remanent Magnetization}
+The magnetization process of spin glass is characterized by strong remanence effects.
+Figure \ref{fig:trm-irm} shows remanent magnetization of AuMn measured in two ways:
+the thermoremanent magnetization is measured by cooling the sample in a field $H$ 
+from above $T_g$ to $T<T_g$, and removing the field afterward; the isothermal 
+remanent magnetization is measured by first cooling down the sample in zero field to
+below $T_g$, then applying a field and removing it. At lower fields, there is a 
+clear difference between the two cases. Upon increasing $H$, the TRM increases to 
+a maximum and the decrease, while the IRM shows a monotonic increase. With a large
+magnetic field, both TRM and IRM saturate and agree. 
+
+
+A particularly interesting feature of this irreversible behavior in spin glasses 
+is the slow decay of the various remanent magnetizations with time. 
+Relaxation phenomena occur below Tc on a typical timescale of 1 sec -- 1hr
+\cite{tholence:jpa-00215633,Holtzberg1977,NIEUWENHUYS1977880}. This relaxation is distinctly non-exponential. It can be 
+described in terms of power-laws\cite{NIEUWENHUYS1977880} or even, at not too late stages, by a 
+logarithmic behavior\cite{Holtzberg1977} (see figure \ref{fig:au-fe-remanent}).
+
+%including the cusp instead of a true divergence in the low-field, low-frequency 
+%susceptibility and the discrepancy of magnetic response between zero-field and field cooling 
+%measurements, as shown in Fig \ref{fig:experimentsSG}. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/trm-irm.png}
+  \caption{\label{fig:trm-irm}The isothermal remanent magnetization (IRM) and 
+thermoremanent magnetization (TRM) of AuMn with 0.5\% Mn vs magnetic field, 
+from \citet{tholence:jpa-00215633}.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/remenant.png}
+  \caption{ \label{fig:au-fe-remanent}Remanent magnetization of Au-Fe alloys plotted vs. time (logarithmic scale)for several temperatures, from \citet{Holtzberg1977}.}
+\end{figure}
+%Specific heat
+
+\subsection{Specific Heat}
+
+The specific heat of various spin glass materials has been measured and analyzed. 
+In figure \ref{fig:cu-mn-cv}, we show the temperature dependence of magnetic 
+specific heat of CuMn with 1.2\% Mn. The arrow on the x-axis indicates the spin glass
+transition temperature $T_g$. The data shows a broad maximum above $T_g$, with no
+anomaly at $T_g$. Below $T_g$, the specific heat exhibits $T$-linear behavior.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/cv.png}
+\caption{\label{fig:cu-mn-cv}Magnetic part of specific heat of a Cu-Mn alloy plotted vs. temperature. Arrow shows where susceptibility has its cusp, from \citet{PhysRevB.13.4053}.}
+\end{figure}
+
+  
+
+\iffalse
 \begin{figure}[!h]
   \label{fig:experimentsSG}
   \centering
@@ -56,6 +133,16 @@ systems, equilibrium can never be achieved.
 {\includegraphics[width=0.6\textwidth]{img/fc_zfc.png}}
   \caption{Magnetic features of spin glass in a small field.}
 \end{figure}
+\fi
+
+
+Other properties, such as DC susceptibility\citep{PhysRevB.19.1633,doi:10.1143/JPSJ.62.4488}, 
+imaginary part of AC susceptibility\citep{PhysRevB.25.515,:/content/aip/journal/jap/53/3/10.1063/1.330780}, etc.,
+were also extensively studied. 
+These experimental facts suggest that spin glass system has no conventional 
+long range magnetic ordering and exhibits very slow dynamics. For experimental 
+systems, equilibrium can never be achieved. 
+
 
 \section{Theoretical Understanding on Spin Glass}
 A simple model that captures the consequences of disorder is an Ising model 
