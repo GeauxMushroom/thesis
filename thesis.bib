@@ -2,7 +2,7 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Sheng Feng at 2016-03-24 23:02:41 -0500 
+%% Created for Sheng Feng at 2016-04-04 14:16:45 -0500 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
@@ -14,6 +14,42 @@
 
 @string{stoc-key = {OX{\singleletter{stoc}}}}
 
+
+@article{Fang20142467,
+	Abstract = {Abstract Monte Carlo simulations of the Ising model play an important role in the field of computational statistical physics, and they have revealed many properties of the model over the past few decades. However, the effect of frustration due to random disorder, in particular the possible spin glass phase, remains a crucial but poorly understood problem. One of the obstacles in the Monte Carlo simulation of random frustrated systems is their long relaxation time making an efficient parallel implementation on state-of-the-art computation platforms highly desirable. The Graphics Processing Unit (GPU) is such a platform that provides an opportunity to significantly enhance the computational performance and thus gain new insight into this problem. In this paper, we present optimization and tuning approaches for the \{CUDA\} implementation of the spin glass simulation on GPUs. We discuss the integration of various design alternatives, such as \{GPU\} kernel construction with minimal communication, memory tiling, and look-up tables. We present a binary data format, Compact Asynchronous Multispin Coding (CAMSC), which provides an additional 28.4% speedup compared with the traditionally used Asynchronous Multispin Coding (AMSC). Our overall design sustains a performance of 33.5 ps per spin flip attempt for simulating the three-dimensional Edwards--Anderson model with parallel tempering, which significantly improves the performance over existing \{GPU\} implementations. },
+	Author = {Ye Fang and Sheng Feng and Ka-Ming Tam and Zhifeng Yun and Juana Moreno and J. Ramanujam and Mark Jarrell},
+	Date-Added = {2016-04-04 19:15:02 +0000},
+	Date-Modified = {2016-04-04 19:15:02 +0000},
+	Doi = {http://dx.doi.org/10.1016/j.cpc.2014.05.020},
+	Issn = {0010-4655},
+	Journal = {Computer Physics Communications},
+	Keywords = {CUDA},
+	Number = {10},
+	Pages = {2467 - 2478},
+	Title = {Parallel tempering simulation of the three-dimensional Edwards--Anderson model with compact asynchronous multispin coding on \{GPU\}},
+	Url = {http://www.sciencedirect.com/science/article/pii/S0010465514001854},
+	Volume = {185},
+	Year = {2014},
+	Bdsk-Url-1 = {http://www.sciencedirect.com/science/article/pii/S0010465514001854},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1016/j.cpc.2014.05.020}}
+
+@article{PhysRev.134.A676,
+	Author = {Lutes, O. S. and Schmit, J. L.},
+	Date-Added = {2016-03-29 22:03:41 +0000},
+	Date-Modified = {2016-03-29 22:03:41 +0000},
+	Doi = {10.1103/PhysRev.134.A676},
+	Issue = {3A},
+	Journal = {Phys. Rev.},
+	Month = {May},
+	Numpages = {0},
+	Pages = {A676--A683},
+	Publisher = {American Physical Society},
+	Title = {Low-Temperature Magnetic Transitions in Dilute Au-Based Alloys with Cr, Mn, and Fe},
+	Url = {http://link.aps.org/doi/10.1103/PhysRev.134.A676},
+	Volume = {134},
+	Year = {1964},
+	Bdsk-Url-1 = {http://link.aps.org/doi/10.1103/PhysRev.134.A676},
+	Bdsk-Url-2 = {http://dx.doi.org/10.1103/PhysRev.134.A676}}
 
 @article{THOLENCE1980113,
 	Abstract = {For the first time, the frequency dependence of Tf (temperature of the maximum of the a.c. susceptibility of spin-glasses) is shown to obey a Fulcher law τ = τo exp [Eak(Tf−Tf)]. This is observed as well in the case of dilute alloys (or R.K.K.Y. spin-glasses : CuMn, AuFe, {\ldots}) as for frustrated systems (Eu1−xGdxS, EuxSr1−xS {\ldots}). For R.K.K.Y. spin-glasses, only in the case of a very small amplitude, Vo of the R.K.K.Y. interaction, this time dependence approaches an Arrhenius law. In the case of ``frustrated'' spin-glasses the concentration is the main parameter to determine the kind of frequency dependence of Tf. These properties are evidence for a glass-like phase transition in spin-glasses. The scaling of the frequency dependence of Tf with Vo is justified for R.K.K.Y. spin-glasses from present data.},

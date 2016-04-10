@@ -32,7 +32,7 @@ of every pair of spins.
 \begin{figure}[!h]
   \label{fig:rkky}
   \centering
-  \includegraphics[width=0.5\textwidth]{img/RKKY.png}
+  \includegraphics[width=0.5\textwidth]{img/RKKY.pdf}
   \caption{Sketch of RKKY interaction.}
 \end{figure}
 
@@ -47,7 +47,11 @@ sparked the research on spin glass materials.
 \citet{THOLENCE1977875,:/content/aip/proceeding/aipcp/10.1063/1.30603,
 :/content/aip/proceeding/aipcp/10.1063/1.30565} also found similar cusp occurring in PtMn alloys.
 Upon applying a magnetic field, Cannella and Mydosh also found that even a weak
-magnetic field strongly rounds the cusp of $\chi(T)$.
+magnetic field strongly rounds the cusp of $\chi(T)$. 
+In figure \ref{fig:au-fe-cusp}, the susceptibility data is presented for samples with
+1 and 2 at.\% Fe. For each concentration, as the applied field increases, the maximum
+becomes smaller and broader, similar to those observed by \citet{PhysRev.134.A676}.
+
 
 The AC susceptibility of spin glass also features pronounced frequency dependence. 
 In figure \ref{fig:ac-chi-freq}, we show the AC susceptibility of CuMn for various
@@ -58,13 +62,22 @@ the slowing down and freezing of the spins tend to occur at lower temperatures.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{img/cusp.png}
-  \caption{\label{fig:au-fe-cusp}Susceptibility of Au-Fe alloys ploted vs. temperature. Full curves refer to zero field, from \citet{PhysRevB.6.4220}.}
+  \includegraphics[width=0.6\textwidth]{img/cusp.pdf}
+  \caption{\label{fig:au-fe-cusp}Susceptibility of Au-Fe alloys ploted vs. 
+temperature, showing the curve for zero field, and for various applied fields. 
+from \citet{PhysRevB.6.4220}. Full curves refer to zero field. A field of $\sim $100G 
+destroys the peak. The data of \citet{PhysRev.134.A676} for 1 at.\% is also included.
+See text for details.  
+}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{img/ac-chi-freq.png}
-  \caption{\label{fig:ac-chi-freq}The AC susceptibility of CuMn with 4.6\% Mn plotted vs temperature, for various ac frequencies, from \citet{THOLENCE1980113}.}
+  \caption{\label{fig:ac-chi-freq} The AC susceptibility of CuMn with 4.6\% Mn 
+plotted vs temperature, for various ac frequencies, from \citet{THOLENCE1980113}.
+The slowing down and freezing of spins happen at lower temperatures as one 
+probes the spin motion at longer time scales. See text for details. 
+}
 \end{figure}
 
 %The cusp in the low-frequency AC susceptibility set off the theoretical interest of spin glass physics. 
@@ -127,22 +140,27 @@ logarithmic behavior\cite{Holtzberg1977} (see figure \ref{fig:au-fe-remanent}).
 %measurements, as shown in Fig \ref{fig:experimentsSG}. 
 
 \begin{figure}
-  \centering
+   \centering
   \includegraphics[width=0.6\textwidth]{img/trm-irm.png}
   \caption{\label{fig:trm-irm}The isothermal remanent magnetization (IRM) and 
 thermoremanent magnetization (TRM) of AuMn with 0.5\% Mn vs magnetic field, 
-from \citet{tholence:jpa-00215633}.}
+from \citet{tholence:jpa-00215633}. The temperature is 1.2K. See text for details.
+}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{img/remenant.png}
-  \caption{ \label{fig:au-fe-remanent}Remanent magnetization of Au-Fe alloys plotted vs. time (logarithmic scale) for several temperatures, from \citet{Holtzberg1977}.}
+  \includegraphics[width=0.6\textwidth]{img/remenant.pdf}
+  \caption{ \label{fig:au-fe-remanent}Isothermal remanent magnetization of Au-Fe 
+with 8 at.\% Fe, 
+plotted vs. time (logarithmic scale) for several temperatures, showing the 
+logarithm decay of remanent magnetization.
+Taken from \citet{Holtzberg1977}. See text for details.
+}
 \end{figure}
 %Specific heat
 
 \subsection{Specific Heat}
-
 The specific heat of various spin glass materials has been measured and analyzed. 
 In figure \ref{fig:cu-mn-cv}, we show the temperature dependence of magnetic 
 specific heat of CuMn with 1.2\% Mn. The arrow on the x-axis indicates the spin glass
@@ -152,7 +170,11 @@ anomaly at $T_g$. Below $T_g$, the specific heat exhibits $T$-linear behavior.
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{img/cv.png}
-\caption{\label{fig:cu-mn-cv}Magnetic part of specific heat of a Cu-Mn alloy plotted vs. temperature. Arrow shows where susceptibility has its cusp, from \citet{PhysRevB.13.4053}.}
+\caption{\label{fig:cu-mn-cv}Magnetic part of specific heat of a Cu-Mn alloy 
+plotted vs. temperature, showing a broad maximum above $T_g$, with no cusp at $T_g$. 
+Arrow indicates where susceptibility has its cusp. Taken from \citet{PhysRevB.13.4053}.
+See text for details.
+}
 \end{figure}
 
   
@@ -242,7 +264,7 @@ landscape; and dynamical behaviors such as slow relaxation, irreversibility,
 memory effects, hysteresis, etc. 
 
 
-\subsection{Pictures on the Nature of the Spin Glass Phase}
+\subsection{Mean field Solution}
 \label{sec:meanfield-model}
 
 An infinite-ranged version of spin glass models 
@@ -254,12 +276,97 @@ was proposed by Sherrington and Kirkpatrick (SK) \cite{Sherrington-Kirkpatrick-1
 Here $J_{ij}$ is chosen from a Gaussian distribution in equation 
 \ref{eq:Jij_Gaussian}.
 This model has an equilibrium phase transition at $T_c = 1$.
+
+
 For the spin glass phase below $T_c$, Parisi\cite{Parisi1980,Parisi-1980b,Parisi-1980a} employed a novel ansatz and 
 developed a  possible physical interpretation of the nature of spin glass, 
 which is now known as the ``Replica Symmetry Breaking'' (RSB) picture. The main
 idea behind the picture is that the spin glass phase consists of an infinite 
 number of ``pure states'' that form a hierarchy rather than follow simple symmetry
 transformation. 
+
+The free energy $F$ satisfies 
+\begin{equation}
+  \label{eq:31}
+  \exp(-\beta F(\{J_{ij}\}))=\Tr_{\{S\}}\exp[-\beta H(\{S_i\};\{J_{ij}\})]
+\end{equation}
+
+In an experimental situation, it is usually assumed that the sample is sufficiently
+large that it may be considered to be composed of a large number of sub-systems, 
+each of which can be described as a disordered realization of $\{J_{ij}\}$. Thus, a measurement
+of any observable in such a systems corresponds to an average over all sub-systems,
+i.e., an average of the ensemble of all realizations of $J_{ij}$. 
+
+Thermodynamic quantities may be calculated from the free energy. 
+\begin{equation}
+  \label{eq:32}
+\begin{split}
+  F_e=[F(\{J_{ij}\})]&=\int P(\{J_{ij}\}) F(\{J_{ij}\}) d\{J_{ij}\}\\
+&=-k_BT\int P(\{J_{ij}\})\log Z(\{J_{ij}\}) d\{J_{ij}\}\\
+\end{split}
+\end{equation}
+The logarithm is usually calculated by the replica trick:
+\begin{equation}
+  \label{eq:33}
+  \log Z=\lim_{n\rightarrow 0}\frac{Z^n -1}{n}
+\end{equation}
+Then we need to calculate
+\begin{equation}
+  \label{eq:34}
+  \begin{split}
+    [Z^n]&=\left[\prod_{\alpha=1}^n Z_\alpha\right]\\
+    &=\left[\Tr_{S^1}\ldots\Tr_{S^n}e^{-\beta\sum_{\alpha=1}^n H(\{S^\alpha\},\{J_{ij}\})}\right]\\
+&=\Tr_{S^1}\ldots\Tr_{S^n}\left[e^{-\beta\sum_{\alpha_1}^n H(\{S^\alpha\},\{J_{ij}\})}\right]
+  \end{split}
+\end{equation}
+Here ${S^1},\ldots S^{n}m$ refers to $n$ replicas of the same disorder realizations.
+And thus the effective Hamiltonian $H_n$ of the replica system is given by
+\begin{equation}
+  \label{eq:35}
+  e^{-\beta H_n({S^\alpha})}=\left[e^{-\beta\sum_{alpha=1}^n H(\{S^\alpha\},\{J_{ij}\})}\right]
+\end{equation}
+The Hamiltonian for the $n$ replicas of the system is symmetric under interchange
+or permutation of the replicas, but is not expressible as the sum of $n$ Hamiltonians,
+ one for each replica, since the disorder average has coupled the replicas. 
+As long as $n$ is an integer, the permutation symmetry of the Hamiltonian $H_n$ 
+is manifest. However, in the limit $n\rightarrow 0$, this symmetry can be spontaneously
+broken.
+
+Consider the quantity $q$, which measures the overlap of the samples after a long 
+time relaxation process:
+\begin{equation}
+  \label{eq:q}
+  q^{\alpha\beta}=\frac{1}{N}\sum_iS_i^\alpha S_i^\beta %=\frac{1}{N}\lim_{T\to \infty}\sum_iS_i(t_0)S_i(t_0+T)
+\end{equation}
+where $\alpha$ and $\beta$ are two copies of lattice with the same disorder 
+configuration, but simulated with different random seeds, so they are
+statistically independent of each other. 
+
+The Edwards-Anderson order parameter, $q$, 
+is the order parameter of measuring the breaking of ergodicity. 
+In the thermodynamic limit, if this
+is zero, the system is ergodic, if this is finite, the system breaks
+the ergodicity. Some parts of the phase space can never be sampled.
+
+Since $H_n$ is symmetric under permutation of the replicas, it might be considered
+that $q^{\alpha\beta}$ is independent of which replicas $\alpha$ and $\beta$ are chosen,
+i.e. that $q^{\alpha\beta}$ is equal to a number $q$. However, it turns out that 
+this is not correct. Below the transition temperature, $q^{\alpha\beta}$
+is not independent of $\alpha$ and $\beta$, and replica permutation symmetry 
+is spontaneously broken. The order parameter $q$ is a $n\times n$ matrix, and 
+therefore one cannot simply take the limit of $n\rightarrow 0$.
+
+
+\iffalse
+In contrast to conventional order parameters which measures the 
+spatial pattern, such as magnetization. If the order parameter is non-zero, 
+the system is said to undergo spontaneous symmetry breaking, in which the symmetry of 
+the states is lower than that of the Hamiltonian. If one calculates
+the Edwards-Anderson order parameter, said for the ferromagnet, it will
+show a finite value. However, this is not a spin glass transition, a
+spin glass transition does not come with a spontaneous symmetry breaking in space.
+
+
 The ultrametric topology of spin glass states can be represented with a 
 genealogical tree. Each end point corresponds to a pure state, and branches 
 represent clusters, as sketched in Fig. \ref{fig:TreeRSB}. 
@@ -275,7 +382,7 @@ represent clusters, as sketched in Fig. \ref{fig:TreeRSB}.
 to the replica symmetry breaking picture. The end points represents states; branches (with all their descendents)
 represent clusters.}
 \end{figure}
-
+\fi
 
 Replica symmetry breaking is successful in the description of infinite range models, but whether it 
 holds in finite dimensions remains the most prominent open question in the study of spin glass systems. 
@@ -287,34 +394,10 @@ dimension. The difference between the consequence from these two pictures
 will show up in the order parameters for spin glass as we will define in the following.
 
 %\section{Quantities characterizing spin glass}
-
-The quantity $q$ measures the overlap of the samples after a long time relaxation process. 
-It was first studied by the seminal paper by Edwards and Anderson,
-\begin{equation}
-  \label{eq:q}
-  q=\frac{1}{N}\sum_iS_i^\alpha S_i^\beta=\frac{1}{N}\lim_{T\to \infty}\sum_iS_i(t_0)S_i(t_0+T)
-\end{equation}
-where $\alpha$ and $\beta$ are two copies of lattice with the same disorder 
-configuration, but simulated with different random seeds, so they are
-statistically independent of each other. The Edwards-Anderson order paremeter, q, 
-is the order parameter of measuring the breaking of ergodicity. 
-
-The order parameter defined for the spin glass measuring the change of the systems
-when the time goes to infinity. In the thermodynamic limit, if this
-is zero, the system is ergodic, if this is finite, the system breaks
-the ergodicity. Some parts of the phase space can never be sampled.
-
-In contrast to conventional order parameters which measures the 
-spatial pattern, such as magnetization. If the order parameter is non-zero, 
-the system is said to undergo spontaneous symmetry breaking, in which the symmetry of 
-the states is lower than that of the Hamiltonian. If one calculates
-the Edwards-Anderson order parameter, said for the ferromagnet, it will
-show a finite value. However, this is not a spin glass transition, a
-spin glass transition does not come with a spontaneous symmetry breaking in space.
-
 According to the Parisi solution, for fixed J and (large) N, the structure of 
-the overlap is nontrivial, while in droplet picture, in the thermodynamic limit, 
-the distribution is just a pair of delta functions at $\pm 1$. 
+the overlap is nontrivial, as displayed in Fig. \ref{fig:overlap_rsb}; while in droplet picture, in the thermodynamic limit, 
+the distribution is just a pair of delta functions at $\pm 1$, as displayed in 
+Fig. \ref{fig:overlap_droplet}.
 %insert figure for RSB/droplet overlap here
 
 \begin{figure}
